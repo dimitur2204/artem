@@ -1,15 +1,12 @@
 import * as React from "react";
-import theme from "./theme";
-import { ThemeProvider } from "@emotion/react";
-import BottomNavigation from "./components/BottomNavigation";
-import Header from "./components/Header";
+import Layout from "./components/Layout";
 
-function App() {
+
+function App({children}) {
   return (
-    <ThemeProvider theme={theme}>
-      <Header />
-      <BottomNavigation />
-    </ThemeProvider>
+      <Layout>
+        {children}
+      </Layout>
   );
 }
 

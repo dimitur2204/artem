@@ -1,47 +1,23 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {RouterProvider, createBrowserRouter, createRoutesFromElements, Route, Outlet} from "react-router-dom";
+import App from "./App";
+import Header from "./components/Header";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import Root from "./routes/root";
 
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<App><Outlet /></App>}>
+      <Route path="/" element={<Header text="Home" />} />
+      <Route path="bids" element={<Header text="Bids"/>}/>
+    </Route>
+  )
+)
 const root = ReactDOM.createRoot(document.getElementById("root"));
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Root />,
-    children: [
-      {
-        path: 'bids',
-        element: <div>
-          Why is it not showing
-        </div>
-      },
-      {
-        path: 'create',
-        element: <div>
-          Why is it not showing
-        </div>
-      },
-      {
-        path: 'saved',
-        element: <div>
-          Why is it not showing
-        </div>
-      },
-      {
-        path: 'account',
-        element: <div>
-          Why is it not showing
-        </div>
-      },
-    ]
-  },
-]);
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <RouterProvider router={router}/>
   </React.StrictMode>
 );
 
