@@ -1,23 +1,40 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import {RouterProvider, createBrowserRouter, createRoutesFromElements, Route, Outlet} from "react-router-dom";
+import {
+  RouterProvider,
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  Outlet,
+} from "react-router-dom";
 import App from "./App";
 import Header from "./components/Header";
 import "./index.css";
+import Account from "./pages/Account";
 import reportWebVitals from "./reportWebVitals";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<App><Outlet /></App>}>
+    <Route
+      path="/"
+      element={
+        <App>
+          <Outlet />
+        </App>
+      }
+    >
       <Route path="/" element={<Header text="Home" />} />
-      <Route path="bids" element={<Header text="Bids"/>}/>
+      <Route path="bids" element={<Header text="Bids" />} />
+      <Route path="create" element={<Header text="Create" />} />
+      <Route path="saved" element={<Header text="Saved" />} />
+      <Route path="account" element={<Account />} />
     </Route>
   )
-)
+);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 

@@ -10,20 +10,21 @@ const theme = createTheme({
         fontFamily: [
             "quiche-sans, serif"
         ],
-        fontSize: '3.6rem'
+        fontSize: '3rem',
+        fontWeight: 500
     },
     fontFamily: [
-      "-apple-system",
-      "work-sans",
-      "Segoe UI",
-      "Roboto",
-      "Oxygen",
-      "Ubuntu",
-      "Cantarell",
-      "Fira Sans",
-      "Droid Sans",
-      "Helvetica Neue",
-      "sans-serif",
+      `-apple-system,
+      work-sans,
+      Segoe UI,
+      Roboto,
+      Oxygen,
+      Ubuntu,
+      Cantarell,
+      Fira Sans,
+      Droid Sans,
+      Helvetica Neue,
+      sans-serif`
     ],
   },
   components: {
