@@ -6,12 +6,10 @@ const theme = createTheme({
     primary: amber,
   },
   typography: {
-    h1:{
-        fontFamily: [
-            "quiche-sans, serif"
-        ],
-        fontSize: '3rem',
-        fontWeight: 500
+    h1: {
+      fontFamily: ["quiche-sans, serif"],
+      fontSize: "3rem",
+      fontWeight: 500,
     },
     fontFamily: [
       `-apple-system,
@@ -24,15 +22,15 @@ const theme = createTheme({
       Fira Sans,
       Droid Sans,
       Helvetica Neue,
-      sans-serif`
+      sans-serif`,
     ],
   },
   components: {
     MuiCssBaseline: {
-        styleOverrides: `
-        `
-    }
-  }
+      styleOverrides: `
+        `,
+    },
+  },
 });
 
 export default theme;
