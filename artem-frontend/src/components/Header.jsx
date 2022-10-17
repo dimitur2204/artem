@@ -3,7 +3,7 @@ import { Link, useHref } from "react-router-dom";
 import { IconButton, Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import SearchIcon from "@mui/icons-material/Search";
-import AccountMenu from "./AccountMenu";
+import AccountMenu from "./account/AccountMenu";
 
 export default function Header({ text }) {
   const href = useHref();

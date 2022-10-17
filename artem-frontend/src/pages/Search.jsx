@@ -1,7 +1,6 @@
 import React from "react";
 import {
   InputAdornment,
-  InputBase,
   Container,
   IconButton,
   Box,
@@ -9,6 +8,7 @@ import {
 } from "@mui/material";
 import { Search as SearchIcon, Close as CloseIcon } from "@mui/icons-material";
 import CategoryList from "../components/search/CategoryList";
+import Input from "../components/Input";
 
 function Search() {
   const [value, setValue] = React.useState("");
@@ -20,11 +20,7 @@ function Search() {
         <IconButton sx={{ pl: 0 }} color="primary">
           <SearchIcon />
         </IconButton>
-        <InputBase
-          id="input-with-icon-textfield"
-          hiddenLabel
-          variant="filled"
-          size="small"
+        <Input
           endAdornment={
             <InputAdornment position="end">
               {value ? (
@@ -34,15 +30,10 @@ function Search() {
               ) : null}
             </InputAdornment>
           }
-          sx={{
-            background: "rgba(0, 0, 0, 0.06)",
-            borderRadius: 1000,
-            padding: "0.2rem 0.7rem",
-            width: "100%",
-          }}
           placeholder="What do you need?"
           value={value}
           onChange={(e) => setValue(e.target.value)}
+          autoFocus
         />
       </Box>
 

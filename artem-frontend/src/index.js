@@ -7,41 +7,47 @@ import {
   Route,
   Outlet,
 } from "react-router-dom";
-import { initializeApp } from "firebase/app";
 import App from "./App";
 import Header from "./components/Header";
 import "./index.css";
 import Account from "./pages/Account";
 import Search from "./pages/Search";
 import reportWebVitals from "./reportWebVitals";
-import firebaseConfig from "./firebase-config";
+import Login from "./pages/Login";
+import { ThemeProvider } from "@mui/material";
+import theme from "./theme";
+import Register from "./pages/Register";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route
-      path="/"
-      element={
-        <App>
-          <Outlet />
-        </App>
-      }
-    >
-      <Route path="/" element={<Header text="Home" />} />
-      <Route path="bids" element={<Header text="Bids" />} />
-      <Route path="create" element={<Header text="Create" />} />
-      <Route path="saved" element={<Header text="Saved" />} />
-      <Route path="account" element={<Account />} />
-      <Route path="search" element={<Search />} />
-    </Route>
+    <>
+      <Route
+        path="/"
+        element={
+          <App>
+            <Outlet />
+          </App>
+        }
+      >
+        <Route path="/" element={<Header text="Home" />} />
+        <Route path="bids" element={<Header text="Bids" />} />
+        <Route path="create" element={<Header text="Create" />} />
+        <Route path="saved" element={<Header text="Saved" />} />
+        <Route path="account" element={<Account />} />
+        <Route path="search" element={<Search />} />
+      </Route>
+      <Route path="login" element={<Login />} />
+      <Route path="register" element={<Register />} />
+    </>
   )
 );
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-// Initialize Firebase
-initializeApp(firebaseConfig);
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <ThemeProvider theme={theme}>
+      <RouterProvider router={router} />
+    </ThemeProvider>
   </React.StrictMode>
 );
 

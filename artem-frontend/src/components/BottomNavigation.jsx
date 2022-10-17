@@ -18,7 +18,6 @@ export default function BottomNavigation() {
       elevation={3}
     >
       <BottomNavigationMUI
-        showLabels
         value={value}
         onChange={(event, newValue) => {
           setValue(newValue);
