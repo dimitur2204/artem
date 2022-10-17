@@ -12,8 +12,9 @@ import App from "./App";
 import Header from "./components/Header";
 import "./index.css";
 import Account from "./pages/Account";
+import Search from "./pages/Search";
 import reportWebVitals from "./reportWebVitals";
-import firebaseConfig from "../firebase-config";
+import firebaseConfig from "./firebase-config";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -30,6 +31,7 @@ const router = createBrowserRouter(
       <Route path="create" element={<Header text="Create" />} />
       <Route path="saved" element={<Header text="Saved" />} />
       <Route path="account" element={<Account />} />
+      <Route path="search" element={<Search />} />
     </Route>
   )
 );
