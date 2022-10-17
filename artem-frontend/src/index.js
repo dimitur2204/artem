@@ -7,11 +7,13 @@ import {
   Route,
   Outlet,
 } from "react-router-dom";
+import { initializeApp } from "firebase/app";
 import App from "./App";
 import Header from "./components/Header";
 import "./index.css";
 import Account from "./pages/Account";
 import reportWebVitals from "./reportWebVitals";
+import firebaseConfig from "../firebase-config";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -32,6 +34,9 @@ const router = createBrowserRouter(
   )
 );
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
+// Initialize Firebase
+initializeApp(firebaseConfig);
 root.render(
   <React.StrictMode>
     <RouterProvider router={router} />
