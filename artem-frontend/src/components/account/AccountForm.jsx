@@ -14,7 +14,7 @@ import theme from "../../theme";
 import Input from "../Input";
 
 function AccountForm({ type, onSubmit, error, loading }) {
-  const [username, setUsername] = React.useState("");
+  const [repeatPassword, setRepeatPassword] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   return (
@@ -24,46 +24,25 @@ function AccountForm({ type, onSubmit, error, loading }) {
         {capitalize(type)}
       </Typography>
       <form onSubmit={(e) => {
-        onSubmit(e, { username, email, password });
+        onSubmit(e, { email, password, repeatPassword });
       }}>
-        {type === "register" ? (
-          <Input
-            endAdornment={
-              <InputAdornment position="end">
-                <IconButton>
-                  <AccountBox />
-                </IconButton>
-              </InputAdornment>
-            }
-            sx={{ mb: theme.spacing(2) }}
-            placeholder="Email..."
-            type="email"
-            name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        ) : null}
         <Input
           endAdornment={
             <InputAdornment position="end">
-              <IconButton>
                 <AccountBox />
-              </IconButton>
             </InputAdornment>
           }
           sx={{ mb: theme.spacing(2) }}
-          placeholder="Username..."
-          type="text"
-          name="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          placeholder="Email..."
+          type="email"
+          name="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <Input
           endAdornment={
             <InputAdornment position="end">
-              <IconButton>
                 <Lock />
-              </IconButton>
             </InputAdornment>
           }
           placeholder="Password..."
@@ -71,7 +50,24 @@ function AccountForm({ type, onSubmit, error, loading }) {
           name="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          sx={{ mb: theme.spacing(2) }}
+
         />
+                {type === "register" ? (
+          <Input
+            endAdornment={
+              <InputAdornment position="end">
+                  <Lock />
+              </InputAdornment>
+            }
+            sx={{ mb: theme.spacing(2) }}
+            placeholder="Repeat password..."
+            type="password"
+            name="repeatPassword"
+            value={repeatPassword}
+            onChange={(e) => setRepeatPassword(e.target.value)}
+          />
+        ) : null}
         {type === "login" ? (
           <>
             <Typography

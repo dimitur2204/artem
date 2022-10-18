@@ -14,13 +14,20 @@ function Register() {
     error,
   ] = useCreateUserWithEmailAndPassword(auth);
 
-  const handleSubmit = (e, {email,username,password}) => {
+  const [repeatPassError, setRepeatPassError] = React.useState(null);
+  const handleSubmit = (e, {email,repeatPassword,password}) => {
     e.preventDefault();
+    //Check for repeatPassword and set an error if it doesn't match
+    if (password !== repeatPassword) {
+      setRepeatPassError({type:"password mismatch", message: "Passwords do not match"});
+      return;
+    }
+
     createUserWithEmailAndPassword(email, password)
   };
   return (
     <Container sx={{ backgroundColor: "#F7F6F5", height: "100vh" }}>
-      <AccountForm type="register" onSubmit={handleSubmit} error={error} loading={loading} />
+      <AccountForm type="register" onSubmit={handleSubmit} error={repeatPassError || error} loading={loading} />
     </Container>
   );
 }
