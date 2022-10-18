@@ -29,7 +29,7 @@ function CategoryCard({ title, imageIndex, link }) {
         fontFamily="quiche-sans"
         textTransform="uppercase"
         fontSize="2rem"
-        fontWeight="bold"
+        fontWeight="500"
         sx={{
           position: "absolute",
           bottom: 10,

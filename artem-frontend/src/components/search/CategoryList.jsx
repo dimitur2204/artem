@@ -34,7 +34,7 @@ function CategoryList() {
     <Box sx={{ mt: theme.spacing(3) }}>
       {categories.map((c) => {
         return (
-          <Box sx={{ mb: theme.spacing(2) }}>
+          <Box key={c.imageIndex} sx={{ mb: theme.spacing(2) }}>
             <CategoryCard title={c.title} imageIndex={c.imageIndex} />
           </Box>
         );
