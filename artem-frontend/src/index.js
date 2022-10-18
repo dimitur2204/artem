@@ -17,6 +17,7 @@ import Login from "./pages/Login";
 import { ThemeProvider } from "@mui/material";
 import theme from "./theme";
 import Register from "./pages/Register";
+import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -39,7 +40,7 @@ const router = createBrowserRouter(
       <Route path="login" element={<Login />} />
       <Route path="register" element={<Register />} />
     </>
-  )
+  ), {basename: '/artem'}
 );
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -60,4 +61,4 @@ reportWebVitals();
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://cra.link/PWA
-ServiceWorkerRegistration.register();
+serviceWorkerRegistration.register();
