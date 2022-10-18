@@ -3,7 +3,10 @@ import { amber } from "@mui/material/colors";
 
 const theme = createTheme({
   palette: {
-    primary: amber,
+    primary: {
+      ...amber,
+      main: amber[600],
+    },
   },
   typography: {
     h1: {
@@ -29,6 +32,16 @@ const theme = createTheme({
     MuiCssBaseline: {
       styleOverrides: `
         `,
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: 1000,
+        },
+        contained: {
+          color: "#fff",
+        },
+      },
     },
   },
 });

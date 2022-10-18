@@ -6,19 +6,23 @@ import { Container } from "@mui/material";
 import firebaseApp from "../firebase-config";
 import AccountForm from "../components/account/AccountForm";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useEffect } from "react";
 
 const auth = getAuth(firebaseApp);
 function Login() {
-  const [signInWithEmailAndPassword, _, loading, error] =
+  const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
   const navigate = useNavigate();
   const handleSubmit = (e, { email, password }) => {
     e.preventDefault();
-    signInWithEmailAndPassword(email, password).then((user) => {
+    signInWithEmailAndPassword(email, password);
+  };
+  useEffect(() => {
+    if (user) {
       navigate("/");
       toast.success("Logged in successfully");
-    });
-  };
+    }
+  });
   return (
     <Container sx={{ backgroundColor: "#F7F6F5", height: "100vh" }}>
       <AccountForm

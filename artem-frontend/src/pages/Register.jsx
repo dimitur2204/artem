@@ -6,6 +6,7 @@ import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import AccountForm from "../components/account/AccountForm";
 import firebaseApp from "../firebase-config";
 import { useEffect } from "react";
+import { toast } from "react-toastify";
 
 const auth = getAuth(firebaseApp);
 function Register() {
@@ -15,6 +16,7 @@ function Register() {
   useEffect(() => {
     if (user) {
       navigate("/login");
+      toast.success("Account created successfully");
     }
   }, [user, navigate]);
   const [repeatPassError, setRepeatPassError] = React.useState(null);

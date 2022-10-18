@@ -29,15 +29,6 @@ const ProtectedRoute = ({ children }) => {
   return children;
 };
 
-const LoginRedirect = ({ children }) => {
-  const [user] = useAuthState(auth);
-  if (user) {
-    return <Navigate to="/" replace />;
-  }
-
-  return children;
-};
-
 const createRoutes = () =>
   createRoutesFromElements(
     <>
@@ -84,14 +75,7 @@ const createRoutes = () =>
         />
         <Route path="search" element={<Search />} />
       </Route>
-      <Route
-        path="login"
-        element={
-          <LoginRedirect>
-            <Login />
-          </LoginRedirect>
-        }
-      />
+      <Route path="login" element={<Login />} />
       <Route path="register" element={<Register />} />
     </>
   );

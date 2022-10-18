@@ -100,6 +100,7 @@ function AccountForm({ type, onSubmit, error, loading }) {
           type="submit"
           disabled={loading}
           fullWidth
+          disableElevation
         >
           {loading ? <CircularProgress size={14} /> : capitalize(type)}
         </Button>
