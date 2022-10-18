@@ -1,5 +1,6 @@
 import { AccountBox, Lock } from "@mui/icons-material";
 import {
+  Alert,
   Box,
   Button,
   capitalize,
@@ -12,7 +13,7 @@ import { Link } from "react-router-dom";
 import theme from "../../theme";
 import Input from "../Input";
 
-function AccountForm({ type, onSubmit }) {
+function AccountForm({ type, onSubmit, error, loading }) {
   const [username, setUsername] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -22,7 +23,9 @@ function AccountForm({ type, onSubmit }) {
       <Typography align="center" variant="h1" sx={{ mb: theme.spacing(4) }}>
         {capitalize(type)}
       </Typography>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={(e) => {
+        onSubmit(e, { username, email, password });
+      }}>
         {type === "register" ? (
           <Input
             endAdornment={
@@ -36,6 +39,8 @@ function AccountForm({ type, onSubmit }) {
             placeholder="Email..."
             type="email"
             name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         ) : null}
         <Input
@@ -50,6 +55,8 @@ function AccountForm({ type, onSubmit }) {
           placeholder="Username..."
           type="text"
           name="username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
         />
         <Input
           endAdornment={
@@ -62,6 +69,8 @@ function AccountForm({ type, onSubmit }) {
           placeholder="Password..."
           type="password"
           name="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
         {type === "login" ? (
           <>
@@ -82,6 +91,7 @@ function AccountForm({ type, onSubmit }) {
             </Typography>
           </>
         ) : null}
+        {error ? <Alert sx={{mt: theme.spacing(1)}} severity="error">{error.message}</Alert> : null}
         <Button
           sx={{ mt: theme.spacing(2) }}
           variant="contained"
