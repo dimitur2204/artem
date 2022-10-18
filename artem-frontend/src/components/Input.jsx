@@ -4,7 +4,6 @@ import React from "react";
 function Input({ sx, ...props }) {
   return (
     <InputBase
-      hiddenLabel
       variant="filled"
       sx={{
         background: "rgba(0, 0, 0, 0.06)",

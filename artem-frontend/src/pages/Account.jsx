@@ -6,7 +6,7 @@ import Header from "../components/Header";
 export default function Account() {
   return (
     <>
-      <Header text="Account" />
+      <Header text="Account" withAccountOptions />
       <Container>
         <Typography>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi,

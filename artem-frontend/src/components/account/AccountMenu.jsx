@@ -3,8 +3,31 @@ import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import { getAuth, signOut } from "firebase/auth";
+import firebaseApp from "../../firebase-config";
 
-const options = ["Settings", "Logout", "Edit"];
+const auth = getAuth(firebaseApp);
+const options = [
+  {
+    label: "Logout",
+    handleClick: () => {
+      return signOut(auth);
+    },
+  },
+  {
+    label: "Settings",
+    handleClick: () => {
+      return Promise.resolve();
+    },
+  },
+
+  {
+    label: "Edit",
+    handleClick: () => {
+      return Promise.resolve();
+    },
+  },
+];
 export default function AccountMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -38,11 +61,12 @@ export default function AccountMenu() {
       >
         {options.map((option) => (
           <MenuItem
-            key={option}
-            selected={option === "Pyxis"}
-            onClick={handleClose}
+            key={option.label}
+            onClick={() => {
+              option.handleClick().then(() => handleClose());
+            }}
           >
-            {option}
+            {option.label}
           </MenuItem>
         ))}
       </Menu>

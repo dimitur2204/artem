@@ -10,7 +10,7 @@ function CategoryCard({ title, imageIndex, link }) {
         zIndex: 0,
         width: "100%",
         height: 115,
-        borderRadius: 5
+        borderRadius: 5,
       }}
     >
       <Box
@@ -21,7 +21,7 @@ function CategoryCard({ title, imageIndex, link }) {
           backgroundColor: "rgba(0,0,0,0.5)",
           width: "100%",
           height: "100%",
-          borderRadius: 5
+          borderRadius: 5,
         }}
       />
       <Typography

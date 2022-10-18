@@ -1,6 +1,6 @@
 import React from "react";
 import { Link as RouterLink } from "react-router-dom";
-import {useAuthState} from 'react-firebase-hooks/auth'
+import { useAuthState } from "react-firebase-hooks/auth";
 import BottomNavigationMUI from "@mui/material/BottomNavigation";
 import Paper from "@mui/material/Paper";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
@@ -16,7 +16,7 @@ const auth = getAuth(firebaseApp);
 
 export default function BottomNavigation() {
   const [value, setValue] = React.useState();
-  const [user] = useAuthState(auth)
+  const [user] = useAuthState(auth);
   return (
     <Paper
       sx={{ position: "fixed", bottom: 0, left: 0, right: 0 }}
@@ -60,7 +60,7 @@ export default function BottomNavigation() {
           label="Account"
           icon={<AccountCircleIcon />}
           component={RouterLink}
-          to={user ? "/account" : '/login'}
+          to={user ? "/account" : "/login"}
         />
       </BottomNavigationMUI>
     </Paper>

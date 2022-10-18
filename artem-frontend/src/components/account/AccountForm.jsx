@@ -4,7 +4,7 @@ import {
   Box,
   Button,
   capitalize,
-  IconButton,
+  CircularProgress,
   InputAdornment,
   Typography,
 } from "@mui/material";
@@ -23,13 +23,15 @@ function AccountForm({ type, onSubmit, error, loading }) {
       <Typography align="center" variant="h1" sx={{ mb: theme.spacing(4) }}>
         {capitalize(type)}
       </Typography>
-      <form onSubmit={(e) => {
-        onSubmit(e, { email, password, repeatPassword });
-      }}>
+      <form
+        onSubmit={(e) => {
+          onSubmit(e, { email, password, repeatPassword });
+        }}
+      >
         <Input
           endAdornment={
             <InputAdornment position="end">
-                <AccountBox />
+              <AccountBox />
             </InputAdornment>
           }
           sx={{ mb: theme.spacing(2) }}
@@ -42,7 +44,7 @@ function AccountForm({ type, onSubmit, error, loading }) {
         <Input
           endAdornment={
             <InputAdornment position="end">
-                <Lock />
+              <Lock />
             </InputAdornment>
           }
           placeholder="Password..."
@@ -51,13 +53,12 @@ function AccountForm({ type, onSubmit, error, loading }) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           sx={{ mb: theme.spacing(2) }}
-
         />
-                {type === "register" ? (
+        {type === "register" ? (
           <Input
             endAdornment={
               <InputAdornment position="end">
-                  <Lock />
+                <Lock />
               </InputAdornment>
             }
             sx={{ mb: theme.spacing(2) }}
@@ -87,15 +88,20 @@ function AccountForm({ type, onSubmit, error, loading }) {
             </Typography>
           </>
         ) : null}
-        {error ? <Alert sx={{mt: theme.spacing(1)}} severity="error">{error.message}</Alert> : null}
+        {error ? (
+          <Alert sx={{ mt: theme.spacing(1) }} severity="error">
+            {error.message}
+          </Alert>
+        ) : null}
         <Button
           sx={{ mt: theme.spacing(2) }}
           variant="contained"
           size="large"
           type="submit"
+          disabled={loading}
           fullWidth
         >
-          {capitalize(type)}
+          {loading ? <CircularProgress size={14} /> : capitalize(type)}
         </Button>
       </form>
     </Box>
