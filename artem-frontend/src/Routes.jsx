@@ -8,12 +8,15 @@ import {
 import { useAuthState } from "react-firebase-hooks/auth";
 import { getAuth } from "firebase/auth";
 import App from "./App";
-import Header from "./components/Header";
 import firebaseApp from "./firebase-config";
 import Account from "./pages/Account";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Search from "./pages/Search";
+import Bids from "./pages/Bids";
+import Create from "./pages/Create";
+import Saved from "./pages/Saved";
+import Home from "./pages/Home";
 
 const auth = getAuth(firebaseApp);
 
@@ -46,11 +49,39 @@ const createRoutes = () =>
           </App>
         }
       >
-        <Route path="/" element={<Header text="Home" withSearch />} />
-        <Route path="bids" element={<ProtectedRoute />} />
-        <Route path="create" element={<ProtectedRoute />} />
-        <Route path="saved" element={<ProtectedRoute />} />
-        <Route path="account" element={<Account />} />
+        <Route path="/" element={<Home />} />
+        <Route
+          path="bids"
+          element={
+            <ProtectedRoute>
+              <Bids />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="create"
+          element={
+            <ProtectedRoute>
+              <Create />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="saved"
+          element={
+            <ProtectedRoute>
+              <Saved />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="account"
+          element={
+            <ProtectedRoute>
+              <Account />
+            </ProtectedRoute>
+          }
+        />
         <Route path="search" element={<Search />} />
       </Route>
       <Route

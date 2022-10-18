@@ -1,24 +1,23 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { getAuth } from "firebase/auth";
 import { Container } from "@mui/material";
+import firebaseApp from "../firebase-config";
 import AccountForm from "../components/account/AccountForm";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { getAuth } from "firebase/auth";
-import firebaseApp from "../firebase-config";
 
 const auth = getAuth(firebaseApp);
 function Login() {
-  const [signInWithEmailAndPassword, user, loading, error] =
+  const [signInWithEmailAndPassword, _, loading, error] =
     useSignInWithEmailAndPassword(auth);
   const navigate = useNavigate();
-  useEffect(() => {
-    if (user) {
-      navigate("/login");
-    }
-  }, [user, navigate]);
   const handleSubmit = (e, { email, password }) => {
     e.preventDefault();
-    signInWithEmailAndPassword(email, password);
+    signInWithEmailAndPassword(email, password).then((user) => {
+      navigate("/");
+      toast.success("Logged in successfully");
+    });
   };
   return (
     <Container sx={{ backgroundColor: "#F7F6F5", height: "100vh" }}>

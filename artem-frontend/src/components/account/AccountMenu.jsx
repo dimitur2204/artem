@@ -1,10 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { getAuth, signOut } from "firebase/auth";
 import firebaseApp from "../../firebase-config";
+import { toast } from "react-toastify";
 
 const auth = getAuth(firebaseApp);
 const options = [
@@ -31,6 +33,7 @@ const options = [
 export default function AccountMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+  const navigate = useNavigate();
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -63,7 +66,13 @@ export default function AccountMenu() {
           <MenuItem
             key={option.label}
             onClick={() => {
-              option.handleClick().then(() => handleClose());
+              option
+                .handleClick()
+                .then(() => handleClose())
+                .then(() => {
+                  toast.success("Logged out successfully");
+                  navigate("/");
+                });
             }}
           >
             {option.label}
