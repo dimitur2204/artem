@@ -30,7 +30,7 @@ const router = createBrowserRouter(
           </App>
         }
       >
-        <Route path="/" element={<Header text="Home" />} />
+        <Route path="/" element={<Header text="Home" withSearch />} />
         <Route path="bids" element={<Header text="Bids" />} />
         <Route path="create" element={<Header text="Create" />} />
         <Route path="saved" element={<Header text="Saved" />} />
