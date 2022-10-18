@@ -12,20 +12,21 @@ const auth = getAuth(firebaseApp);
 const options = [
   {
     label: "Logout",
-    handleClick: () => {
-      return signOut(auth);
+    handleClick: (navigate) => {
+      toast.success("Logged out successfully");
+      return signOut(auth).then(() => navigate("/"));
     },
   },
   {
     label: "Settings",
-    handleClick: () => {
+    handleClick: (navigate) => {
       return Promise.resolve();
     },
   },
 
   {
     label: "Edit",
-    handleClick: () => {
+    handleClick: (navigate) => {
       return Promise.resolve();
     },
   },
@@ -67,12 +68,8 @@ export default function AccountMenu() {
             key={option.label}
             onClick={() => {
               option
-                .handleClick()
+                .handleClick(navigate)
                 .then(() => handleClose())
-                .then(() => {
-                  toast.success("Logged out successfully");
-                  navigate("/");
-                });
             }}
           >
             {option.label}
