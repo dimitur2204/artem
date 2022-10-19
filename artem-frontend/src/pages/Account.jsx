@@ -22,7 +22,7 @@ export default function Account() {
           Johanna Ark
         </Typography>
 
-        <IconButton href="https://www.linkedin.com/in/katerina-kolarova-b4549514a/" target="_blank" aria-label="linkedin page">
+        <IconButton href="https://www.linkedin.com/in/katerina-kolarova-b4549514a/" style={{color:"#000"}} target="_blank" aria-label="linkedin page">
         <LinkedInIcon/>
         </IconButton>
 
@@ -33,13 +33,13 @@ export default function Account() {
         <IconButton href="mailto:kolarova.kacka88@gmail.com" target="_blank"  aria-label="email">
         <AlternateEmailIcon/>
         </IconButton>
-        </div>
-        </div>
         <Button
           variant="contained"
           disableElevation
         > Follow
-        </Button>   
+        </Button> 
+        </div>
+        </div>  
            
         <Typography>
         There are no mistakes in art, just happy little accidents. 📍A freelance copywriter based in Aalborg. 🎨Hungry for visuals. 
