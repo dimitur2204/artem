@@ -8,6 +8,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 
 
+
 export default function Account() {
   return (
     <>
@@ -17,32 +18,44 @@ export default function Account() {
         <div>
         <img src="account-img.png" alt="profile pic" />
         </div>
-        <div>
-        <Typography fontSize="1.5rem">
-          Johanna Ark
-        </Typography>
+        <div style={{display: "flex", flexDirection: "column", marginLeft: "1rem"}}>
+          <div>
+            <Typography fontSize="1.5rem">
+            Johanna Ark
+            </Typography>
+          </div>
 
-        <IconButton href="https://www.linkedin.com/in/katerina-kolarova-b4549514a/" target="_blank" aria-label="linkedin page">
-        <LinkedInIcon/>
-        </IconButton>
+          <div>
+            <IconButton href="https://www.linkedin.com/in/katerina-kolarova-b4549514a/" style={{color:"#000"}} target="_blank" aria-label="linkedin page">
+            <LinkedInIcon/>
+            </IconButton>
 
-        <IconButton href="https://www.instagram.com/_chaos_is_my_middle_name/" target="_blank" aria-label="instagram page">
-        <InstagramIcon/>
-        </IconButton>
+            <IconButton href="https://www.instagram.com/_chaos_is_my_middle_name/" style={{color:"#000"}} target="_blank" aria-label="instagram page">
+            <InstagramIcon/>
+            </IconButton>
 
-        <IconButton href="mailto:kolarova.kacka88@gmail.com" target="_blank"  aria-label="email">
-        <AlternateEmailIcon/>
-        </IconButton>
+            <IconButton href="mailto:kolarova.kacka88@gmail.com" style={{color:"#000"}} target="_blank"  aria-label="email">
+            <AlternateEmailIcon/>
+            </IconButton>
+          </div>
+          <div>
+            <Button
+            variant="contained"
+            disableElevation
+            > Follow
+        </Button>
+          </div> 
         </div>
-        </div>
-        <Button
-          variant="contained"
-          disableElevation
-        > Follow
-        </Button>   
+        </div>  
            
+        <Typography style={{marginTop: "1.5rem"}}>
+        📍A freelance copywriter based in Aalborg. 
+        </Typography>
         <Typography>
-        There are no mistakes in art, just happy little accidents. 📍A freelance copywriter based in Aalborg. 🎨Hungry for visuals. 
+        🎨There are no mistakes in art, just happy little accidents.
+        </Typography>
+        <Typography>
+        🤤 Hungry for visuals. 
         </Typography>
       </Container>
     </>
