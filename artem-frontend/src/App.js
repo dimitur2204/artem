@@ -5,6 +5,7 @@ import Layout from "./components/Layout";
 
 function App({ children }) {
   return (
+    //in our case, layout consists of nav bar 
     <Layout>
       {children}
       <ToastContainer />
