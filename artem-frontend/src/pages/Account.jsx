@@ -13,6 +13,7 @@ export default function Account() {
   return (
     <>
       <Header text="Account" withAccountOptions />
+      {/* container containing the infromation of a user (img/name/intro/SoMe) */}
       <Container style={{marginTop: "2rem"}}>
       <div style={{display: "flex"}}>
         <div>
@@ -25,6 +26,7 @@ export default function Account() {
             </Typography>
           </div>
 
+           {/* social media icons  */}
           <div>
             <IconButton href="https://www.linkedin.com/in/katerina-kolarova-b4549514a/" style={{color:"#000"}} target="_blank" aria-label="linkedin page">
             <LinkedInIcon/>
@@ -48,6 +50,7 @@ export default function Account() {
         </div>
         </div>  
            
+        {/* an introduction of a user */}
         <Typography style={{marginTop: "1.5rem"}}>
         📍A freelance copywriter based in Aalborg. 
         </Typography>

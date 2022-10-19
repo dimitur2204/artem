@@ -8,6 +8,8 @@ import AccountForm from "../components/account/AccountForm";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useEffect } from "react";
 
+
+// login process
 const auth = getAuth(firebaseApp);
 function Login() {
   const [signInWithEmailAndPassword, user, loading, error] =
