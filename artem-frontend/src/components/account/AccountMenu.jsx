@@ -43,7 +43,7 @@ export default function AccountMenu() {
   };
   return (
     <>
-      <IconButton
+      <IconButton style={{color:"#000", marginTop: "0.7rem"}}
         aria-label="more"
         id="long-button"
         aria-controls={open ? "long-menu" : undefined}
