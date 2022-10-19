@@ -12,8 +12,8 @@ export default function Account() {
   return (
     <>
       <Header text="Account" withAccountOptions />
-      <Container>
-      <div style={{display: "flex", margintop: "200"}}>
+      <Container style={{marginTop: "2rem"}}>
+      <div style={{display: "flex"}}>
         <div>
         <img src="account-img.png" alt="profile pic" />
         </div>
@@ -35,18 +35,15 @@ export default function Account() {
         </IconButton>
         </div>
         </div>
-
-        
-           
-        <Typography>
-        There are no mistakes in art, just happy little accidents. 📍A freelance copywriter based in Aalborg. 🎨Hungry for visuals. 
-        </Typography>
-
         <Button
           variant="contained"
           disableElevation
         > Follow
-        </Button>
+        </Button>   
+           
+        <Typography>
+        There are no mistakes in art, just happy little accidents. 📍A freelance copywriter based in Aalborg. 🎨Hungry for visuals. 
+        </Typography>
       </Container>
     </>
   );
