@@ -13,23 +13,28 @@ export default function Account() {
     <>
       <Header text="Account" withAccountOptions />
       <Container>
+      <div style={{display: "flex", margintop: "200"}}>
+        <div>
         <img src="account-img.png" alt="profile pic" />
-        <Typography>
+        </div>
+        <div>
+        <Typography fontSize="1.5rem">
           Johanna Ark
         </Typography>
 
-        <IconButton aria-label="linkedin page">
+        <IconButton href="https://www.linkedin.com/in/katerina-kolarova-b4549514a/" target="_blank" aria-label="linkedin page">
         <LinkedInIcon/>
         </IconButton>
 
-        <IconButton aria-label="instagram page">
+        <IconButton href="https://www.instagram.com/_chaos_is_my_middle_name/" target="_blank" aria-label="instagram page">
         <InstagramIcon/>
         </IconButton>
 
-
-        <IconButton  aria-label="email">
+        <IconButton href="mailto:kolarova.kacka88@gmail.com" target="_blank"  aria-label="email">
         <AlternateEmailIcon/>
         </IconButton>
+        </div>
+        </div>
 
         
            
@@ -37,23 +42,12 @@ export default function Account() {
         There are no mistakes in art, just happy little accidents. 📍A freelance copywriter based in Aalborg. 🎨Hungry for visuals. 
         </Typography>
 
-      </Container>
-      <Button
+        <Button
           variant="contained"
           disableElevation
         > Follow
         </Button>
-      {/* <Button
-          sx={{ mt: theme.spacing(2) }}
-          variant="contained"
-          size="large"
-          type="submit"
-          disabled={loading}
-          fullWidth
-          disableElevation
-        >
-          {loading ? <CircularProgress size={14} /> : capitalize(type)}
-        </Button> */}
+      </Container>
     </>
   );
 }
