@@ -6,27 +6,27 @@ import CategoryCard from "./CategoryCard";
 const categories = [
   {
     title: "paintings",
-    imageIndex: 1,
-  },
-  {
-    title: "clay",
-    imageIndex: 2,
-  },
-  {
-    title: "woodwork",
-    imageIndex: 3,
-  },
-  {
-    title: "print",
     imageIndex: 4,
   },
   {
+    title: "clay",
+    imageIndex: 3,
+  },
+  {
+    title: "woodwork",
+    imageIndex: 2,
+  },
+  {
+    title: "print",
+    imageIndex: 1,
+  },
+  {
     title: "jewelry",
-    imageIndex: 5,
+    imageIndex: 6,
   },
   {
     title: "miscellaneous",
-    imageIndex: 6,
+    imageIndex: 5,
   },
 ];
 function CategoryList() {
