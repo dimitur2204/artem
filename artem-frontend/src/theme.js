@@ -10,8 +10,9 @@ const theme = createTheme({
   },
   typography: {
     h1: {
+      marginTop: "1.5rem",
       fontFamily: ["quiche-sans, serif"],
-      fontSize: "3rem",
+      fontSize: "2rem",
       fontWeight: 500,
     },
 
