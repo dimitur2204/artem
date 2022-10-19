@@ -1,6 +1,5 @@
 import { createTheme } from "@mui/material";
 import { amber } from "@mui/material/colors";
-import { white } from "@mui/material/colors";
 
 const theme = createTheme({
   palette: {
@@ -15,6 +14,14 @@ const theme = createTheme({
       fontSize: "3rem",
       fontWeight: 500,
     },
+
+    h2:{
+      fontFamily: ["quiche-sans, serif"],
+      fontSize: "2rem",
+      fontWeight: 500,
+      color: amber[600],
+    },
+  
     fontFamily: [
       `-apple-system,
       work-sans,
