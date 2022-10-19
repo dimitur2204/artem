@@ -17,6 +17,7 @@ import Bids from "./pages/Bids";
 import Create from "./pages/Create";
 import Saved from "./pages/Saved";
 import Home from "./pages/Home";
+import PostDetails from "./pages/PostDetails"
 
 const auth = getAuth(firebaseApp);
 
@@ -74,6 +75,7 @@ const createRoutes = () =>
           }
         />
         <Route path="search" element={<Search />} />
+        <Route path="post/:id" element={<PostDetails />} />
       </Route>
       <Route path="login" element={<Login />} />
       <Route path="register" element={<Register />} />
