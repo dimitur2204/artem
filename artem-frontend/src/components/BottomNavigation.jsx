@@ -22,6 +22,7 @@ export default function BottomNavigation() {
       sx={{ position: "fixed", bottom: 0, left: 0, right: 0 }}
       elevation={3}
     >
+      {/* nav bar icons */}
       <BottomNavigationMUI
         value={value}
         onChange={(event, newValue) => {

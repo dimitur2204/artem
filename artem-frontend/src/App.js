@@ -6,7 +6,7 @@ import Layout from "./components/Layout";
 
 function App({ children }) {
   return (
-    //defines the layout of the application. in our case, it defines the layout of the nav bar 
+    //defines the layout of the application. reusable on every page. in our case, it defines the layout of the nav bar 
     <Layout>
       {children}
       {/* Toast message provides simple feedback about an operation in a small popup */}

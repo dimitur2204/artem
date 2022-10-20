@@ -1,6 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
 
+// function for each category card to get a fitting title and img
 function CategoryCard({ title, imageIndex, link }) {
   return (
     <Box

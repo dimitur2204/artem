@@ -44,6 +44,7 @@ export default function AccountMenu() {
   return (
     <>
       <IconButton style={{color:"#000", marginTop: "0.7rem"}}
+      // (aria label is the same as an alt tag)
         aria-label="more"
         id="long-button"
         aria-controls={open ? "long-menu" : undefined}
