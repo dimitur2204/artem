@@ -16,10 +16,13 @@ import Input from "../components/Input";
 function Create() {
   return(
   <>
-  <Header text="New Post" />
-  <IconButton position="end" style={{color:"#000"}} aria-label="cross">
-            <CloseIcon/>
-      </IconButton>
+  <div style={{display: "flex", justifyContent: "space-between"}}>
+    <Header text="New Post" />
+    <IconButton position="end" style={{color:"#000", paddingRight:"20px", paddingTop:"30px"}} aria-label="cross">
+              <CloseIcon/>
+        </IconButton>
+  </div>
+
     <Container>
 
       <IconButton sx={{display:"flex"}} color="primary" aria-label="plus symbol">
@@ -33,7 +36,7 @@ function Create() {
                 }
                 />
 
-      <Input style={{padding: "1rem", marginTop: "20px"}} placeholder="Item description"
+      <Input style={{padding: "1rem", marginTop: "20px", marginBottom: "20px"}} placeholder="Item description"
           endAdornment={
             <InputAdornment>
       </InputAdornment>
@@ -41,21 +44,23 @@ function Create() {
                 />
 
 
-      <IconButton style={{color:"#000",}} aria-label="switcher">
-            <ToggleOnOutlinedIcon/>
-      </IconButton>
+      <div style={{display: "flex", justifyContent: "space-between"}}>
+        <IconButton style={{color:"#000",}} aria-label="switcher">
+              <ToggleOnOutlinedIcon color="primary"/>
+        </IconButton>
 
-      {/* <IconButton style={{color:"#000"}} aria-label="switcher">
-            <ToggleOffOutlinedIcon/>
-      </IconButton> */}
+        {/* <IconButton style={{color:"#000"}} aria-label="switcher">
+              <ToggleOffOutlinedIcon/>
+        </IconButton> */}
 
-      <Button
-          variant="contained"
-          size="large"
-          disableElevation
-      > Post
-      </Button>
-
+        <Button
+            variant="contained"
+            size="large"
+            disableElevation
+            // position="end"
+        > Post
+        </Button>
+      </div>
     </Container>
 </>
 );
