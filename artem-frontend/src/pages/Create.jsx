@@ -4,7 +4,7 @@ import {
   InputAdornment,
   Container,
   IconButton,
-  Box,
+  Typography,
   Button
 } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
@@ -24,10 +24,11 @@ function Create() {
   </div>
 
     <Container>
-
-      <IconButton sx={{display:"flex"}} color="primary" aria-label="plus symbol">
-            <AddCircleOutlineIcon sx={{ fontSize:"9rem", justifyContent:"center"}}/>
-      </IconButton>
+      <div style={{display: "flex", justifyContent:"center", backgroundColor:"#F7F6F5", marginBottom:"2.5rem", marginTop:"2rem"}}>
+        <IconButton  color="primary" aria-label="plus symbol">
+              <AddCircleOutlineIcon sx={{ fontSize:"9rem"}}/>
+        </IconButton>
+      </div>
 
       <Input placeholder="Title"
           endAdornment={
@@ -43,8 +44,11 @@ function Create() {
                 }
                 />
 
+      <Typography>
+        Is your item for sale?
+      </Typography>
 
-      <div style={{display: "flex", justifyContent: "space-between"}}>
+
         <IconButton style={{color:"#000",}} aria-label="switcher">
               <ToggleOnOutlinedIcon color="primary"/>
         </IconButton>
@@ -57,10 +61,10 @@ function Create() {
             variant="contained"
             size="large"
             disableElevation
+            style={{float: "right", marginTop:"3rem"}}
             // position="end"
         > Post
         </Button>
-      </div>
     </Container>
 </>
 );
