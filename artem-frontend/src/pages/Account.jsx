@@ -14,7 +14,9 @@ export default function Account() {
     <>
       <Header text="Account" withAccountOptions />
       {/* container containing the infromation of a user (img/name/intro/SoMe) */}
-      <Container style={{ marginTop: theme.spacing(3), marginBottom: theme.spacing(3) }}>
+      <Container
+        style={{ marginTop: theme.spacing(3), marginBottom: theme.spacing(3) }}
+      >
         <div style={{ display: "flex" }}>
           <div>
             <img src="account-img.png" alt="profile pic" />
