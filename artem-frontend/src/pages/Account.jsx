@@ -1,4 +1,4 @@
-import { Button, Typography } from "@mui/material";
+import { Avatar, Button, Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import React from "react";
 import Header from "../components/Header";
@@ -8,9 +8,14 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
 import ImageList from "../components/global/ImageList";
 import theme from "../theme";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { getAuth } from "firebase/auth";
+import firebaseApp from "../firebase-config";
 
+const auth = getAuth(firebaseApp)
 export default function Account() {
   const [followed,setFollowed] = React.useState(false);
+  const [user] = useAuthState(auth)
   return (
     <>
       <Header text="Account" withAccountOptions />
@@ -20,7 +25,7 @@ export default function Account() {
       >
         <div style={{ display: "flex" }}>
           <div>
-            <img src="account-img.png" alt="profile pic" />
+            <Avatar sx={{width: 90, height: 90}} src={user.photoURL} alt={`${user.displayName}'s profile pic`} />
           </div>
           <div
             style={{
@@ -30,7 +35,7 @@ export default function Account() {
             }}
           >
             <div>
-              <Typography fontSize="1.5rem">Johanna Ark</Typography>
+              <Typography fontSize="1.5rem">{user.displayName || user.email}</Typography>
             </div>
 
             {/* social media icons  */}
@@ -54,7 +59,7 @@ export default function Account() {
               </IconButton>
 
               <IconButton
-                href="mailto:kolarova.kacka88@gmail.com"
+                href={`mailto:${user.email}`}
                 style={{ color: "#000" }}
                 target="_blank"
                 aria-label="email"

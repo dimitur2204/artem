@@ -1,22 +1,31 @@
-import { AccountBox, Lock } from "@mui/icons-material";
+import { AccountBox, Google, Lock } from "@mui/icons-material";
 import {
   Alert,
   Box,
   Button,
   capitalize,
   CircularProgress,
+  IconButton,
   InputAdornment,
   Typography,
 } from "@mui/material";
+import { getAuth } from "firebase/auth";
 import React from "react";
-import { Link } from "react-router-dom";
+import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { Link, useNavigate } from "react-router-dom";
+import firebaseApp from "../../firebase-config";
 import theme from "../../theme";
 import Input from "../global/Input";
+
+const auth = getAuth(firebaseApp);
 
 function AccountForm({ type, onSubmit, error, loading }) {
   const [repeatPassword, setRepeatPassword] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const [signInWithGoogle] =
+  useSignInWithGoogle(auth);
+const navigate = useNavigate();
   return (
     <Box>
       <img src="/logo.jpg" alt="logo" />
@@ -105,6 +114,10 @@ function AccountForm({ type, onSubmit, error, loading }) {
           {loading ? <CircularProgress size={14} /> : capitalize(type)}
         </Button>
       </form>
+      <IconButton aria-label="Sign in with Google" onClick={() => {
+        signInWithGoogle(['email','profile']).then(() => navigate('/'))}}>
+        <Google />
+      </IconButton>
     </Box>
   );
 }

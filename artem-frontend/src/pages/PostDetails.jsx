@@ -25,7 +25,7 @@ function Slide({ url , title }) {
 }
 
 export default function PostDetails() {
-  const [timer, setTimer] = useState(86400 * 2 + 3600 * 4 + 60 * 50 + 43);
+  const [timer, setTimer] = useState((86400 * 2 )+ (3600 * 4) + (60 * 50) + (43));
   useEffect(() => {
     const intervalId = setInterval(() => setTimer((timer) => timer - 1), 1000);
 
