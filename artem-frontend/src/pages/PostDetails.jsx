@@ -11,12 +11,12 @@ import "swiper/css/navigation";
 // import required modules
 import { Pagination, Navigation } from "swiper";
 import { Typography, Button, IconButton } from "@mui/material";
-import { FavoriteBorder, Favorite } from "@mui/icons-material";
+import { FavoriteBorder } from "@mui/icons-material";
 
-function Slide({ url }) {
+function Slide({ url , title }) {
   return (
     <div>
-      <img style={{ width: "100%" }} src={url}></img>
+      <img style={{ width: "100%" }} src={url} alt={title}></img>
       <IconButton aria-label="like">
         <FavoriteBorder />
       </IconButton>
