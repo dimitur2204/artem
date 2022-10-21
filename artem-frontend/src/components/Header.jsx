@@ -5,10 +5,10 @@ import { Container } from "@mui/system";
 import SearchIcon from "@mui/icons-material/Search";
 import AccountMenu from "./account/AccountMenu";
 
-export default function Header({ text, withSearch, withAccountOptions }) {
+export default function Header({ text, withSearch, withAccountOptions, sx }) {
   return (
     <Container
-      sx={{ display: "flex", justifyContent: "space-between" }}
+      sx={{ display: "flex", justifyContent: "space-between", ...sx }}
       as="header"
     >
       {/* code for header for when it contains a search bar or account menu (the three dots) */}

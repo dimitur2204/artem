@@ -6,13 +6,15 @@ import IconButton from "@mui/material/IconButton";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
+import ImageList from "../components/global/ImageList";
+import theme from "../theme";
 
 export default function Account() {
   return (
     <>
       <Header text="Account" withAccountOptions />
       {/* container containing the infromation of a user (img/name/intro/SoMe) */}
-      <Container style={{ marginTop: "2rem" }}>
+      <Container style={{ marginTop: theme.spacing(3), marginBottom: theme.spacing(3) }}>
         <div style={{ display: "flex" }}>
           <div>
             <img src="account-img.png" alt="profile pic" />
@@ -75,6 +77,7 @@ export default function Account() {
         </Typography>
         <Typography>🤤 Hungry for visuals.</Typography>
       </Container>
+      <ImageList count="5.6k" />
     </>
   );
 }

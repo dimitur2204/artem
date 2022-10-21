@@ -5,13 +5,18 @@ import {
   ImageList as ImageListMUI,
   Box,
   Typography,
+  Container,
 } from "@mui/material";
 import React from "react";
 import { FavoriteBorder } from "@mui/icons-material";
 import theme from "../../theme";
-function ImageList({ withLikeCount, count }) {
+function ImageList({ count, title, sx }) {
   return (
-    <ImageListMUI cols={3} gap={1}>
+    <>
+    <Container>
+        <Typography fontSize="1.2rem">{title}</Typography>
+    </Container>
+    <ImageListMUI cols={3} gap={1} sx={{marginTop: theme.spacing(1), ...sx}}>
       {Array.from(Array(3).keys()).map((item, index) => (
         <ImageListItem key={item.img}>
           <img
@@ -19,7 +24,7 @@ function ImageList({ withLikeCount, count }) {
             loading="lazy"
             alt="TODO: Add TITLE"
           />
-          {withLikeCount ? <ImageListItemBar
+          {count ? <ImageListItemBar
             sx={{ backgroundColor: "transparent" }}
             position="bottom"
             style={{marginBottom: theme.spacing(1), marginRight: theme.spacing(1)}}
@@ -54,6 +59,7 @@ function ImageList({ withLikeCount, count }) {
         </ImageListItem>
       ))}
     </ImageListMUI>
+    </>
   );
 }
 
