@@ -37,7 +37,9 @@ function Create() {
         />
 
         <Input
-          style={{ padding: "1rem", marginTop: theme.spacing(1), marginBottom: theme.spacing(3), borderRadius: "20px" }}
+          style={{ padding: theme.spacing(1),marginTop: theme.spacing(1), marginBottom: theme.spacing(3), borderRadius: "20px" }}
+          multiline
+          rows={3}
           placeholder="Item description"
         />
         <Box display="flex" justifyContent="space-between">
