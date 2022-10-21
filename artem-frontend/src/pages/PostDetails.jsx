@@ -79,8 +79,7 @@ export default function PostDetails() {
         </Button>
 
         <Typography>
-          {" "}
-          Closes in:{" "}
+          Closes in:
           {`${Math.floor(timer / 86400)}d ${Math.floor(
             (timer % 86400) / 3600
           )}h ${Math.floor((timer % 3600) / 60)}m ${Math.floor(timer % 60)}s`}

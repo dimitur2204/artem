@@ -3,6 +3,7 @@ import React from "react";
 import theme from "../../theme";
 import CategoryCard from "./CategoryCard";
 
+// listing categories of art
 const categories = [
   {
     title: "paintings",
@@ -29,6 +30,7 @@ const categories = [
     imageIndex: 5,
   },
 ];
+// defining the categories to get the correct background image for them
 function CategoryList() {
   return (
     <Box

@@ -11,6 +11,7 @@ export default function Header({ text, withSearch, withAccountOptions }) {
       sx={{ display: "flex", justifyContent: "space-between" }}
       as="header"
     >
+      {/* code for header for when it contains a search bar or account menu (the three dots) */}
       <Typography variant="h1">{text}</Typography>
       {withAccountOptions ? <AccountMenu /> : null}
       {withSearch ? (
