@@ -10,6 +10,7 @@ import ImageList from "../components/global/ImageList";
 import theme from "../theme";
 
 export default function Account() {
+  const [followed,setFollowed] = React.useState(false);
   return (
     <>
       <Header text="Account" withAccountOptions />
@@ -62,9 +63,9 @@ export default function Account() {
               </IconButton>
             </div>
             <div>
-              <Button variant="contained" disableElevation>
+              <Button variant={followed ?  "outlined" : "contained"} onClick={() => setFollowed(!followed)} disableElevation>
                 {" "}
-                Follow
+                {followed ? "Unfollow" :"Follow"}
               </Button>
             </div>
           </div>
