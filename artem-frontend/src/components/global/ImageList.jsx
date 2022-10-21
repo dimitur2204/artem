@@ -1,0 +1,60 @@
+import {
+  IconButton,
+  ImageListItem,
+  ImageListItemBar,
+  ImageList as ImageListMUI,
+  Box,
+  Typography,
+} from "@mui/material";
+import React from "react";
+import { FavoriteBorder } from "@mui/icons-material";
+import theme from "../../theme";
+function ImageList({ withLikeCount, count }) {
+  return (
+    <ImageListMUI cols={3} gap={1}>
+      {Array.from(Array(3).keys()).map((item, index) => (
+        <ImageListItem key={item.img}>
+          <img
+            src={`${process.env.PUBLIC_URL}/post-${index + 1}.jpg`}
+            loading="lazy"
+            alt="TODO: Add TITLE"
+          />
+          {withLikeCount ? <ImageListItemBar
+            sx={{ backgroundColor: "transparent" }}
+            position="bottom"
+            style={{marginBottom: theme.spacing(1), marginRight: theme.spacing(1)}}
+            actionIcon={
+              <Box
+                borderRadius="1000px"
+                backgroundColor="white"
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                paddingX={theme.spacing(1)}
+              >
+                <IconButton
+                  sx={{ color: "white", width: "25px", height: "25px" }}
+                  aria-label={`like TODO: ADD TITLE`}
+                >
+                  <FavoriteBorder
+                    sx={{
+                      fill: "rgba(0,0,0,0.4)",
+                      width: "20px",
+                      height: "20px",
+                    }}
+                  />
+                </IconButton>
+                <Typography fontSize="0.9rem" color="rgba(0,0,0,0.4)">
+                  {count}
+                </Typography>
+              </Box>
+            }
+            actionPosition="right"
+          /> : null}
+        </ImageListItem>
+      ))}
+    </ImageListMUI>
+  );
+}
+
+export default ImageList;

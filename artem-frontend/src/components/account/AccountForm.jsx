@@ -11,7 +11,7 @@ import {
 import React from "react";
 import { Link } from "react-router-dom";
 import theme from "../../theme";
-import Input from "../Input";
+import Input from "../global/Input";
 
 function AccountForm({ type, onSubmit, error, loading }) {
   const [repeatPassword, setRepeatPassword] = React.useState("");

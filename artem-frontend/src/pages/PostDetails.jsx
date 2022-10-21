@@ -11,27 +11,26 @@ import "swiper/css/navigation";
 // import required modules
 import { Pagination, Navigation } from "swiper";
 import { Typography, Button, IconButton } from "@mui/material";
-import {FavoriteBorder, Favorite} from '@mui/icons-material';
+import { FavoriteBorder, Favorite } from "@mui/icons-material";
 
 function Slide({ url }) {
   return (
     <div>
-      <img style={{width: "100%"}} src={url}></img>
+      <img style={{ width: "100%" }} src={url}></img>
       <IconButton aria-label="like">
-  <FavoriteBorder/>
-</IconButton>
+        <FavoriteBorder />
+      </IconButton>
     </div>
   );
 }
 
 export default function PostDetails() {
+  const [timer, setTimer] = useState(86400 * 2 + 3600 * 4 + 60 * 50 + 43);
+  useEffect(() => {
+    const intervalId = setInterval(() => setTimer((timer) => timer - 1), 1000);
 
-    const [timer, setTimer] = useState((86400 * 2) + (3600 * 4) + (60 * 50) + 43)
-    useEffect(() => {
-       const intervalId = setInterval(() => setTimer(timer => timer - 1), 1000)
-
-        return () => clearInterval(intervalId)
-    }, [timer, setTimer])
+    return () => clearInterval(intervalId);
+  }, [timer, setTimer]);
   return (
     <>
       <Swiper
@@ -70,16 +69,22 @@ export default function PostDetails() {
         ut aliquip ex ea commodo consequat.
       </Typography>
 
-      <div style={{ display: "flex", 
-    gap: "35px"}}>
+      <div style={{ display: "flex", gap: "35px" }}>
         <Button
           variant="contained"
           disableElevation
-          style={{ minWidth: "130px" }}>
+          style={{ minWidth: "130px" }}
+        >
           Bid
         </Button>
 
-        <Typography> Closes in: {`${Math.floor(timer/86400)}d ${Math.floor(timer%86400/3600)}h ${Math.floor(timer%3600/60)}m ${Math.floor(timer%60)}s`}</Typography>
+        <Typography>
+          {" "}
+          Closes in:{" "}
+          {`${Math.floor(timer / 86400)}d ${Math.floor(
+            (timer % 86400) / 3600
+          )}h ${Math.floor((timer % 3600) / 60)}m ${Math.floor(timer % 60)}s`}
+        </Typography>
       </div>
     </>
   );

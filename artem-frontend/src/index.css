@@ -20,11 +20,11 @@ code {
     monospace;
 }
 
-
-.swiper-button-prev, .swiper-button-next{
-  color: white!important;
+.swiper-button-prev,
+.swiper-button-next {
+  color: white !important;
 }
 
-.swiper-pagination-bullet-active{
-  background-color: white!important;
+.swiper-pagination-bullet-active {
+  background-color: white !important;
 }
