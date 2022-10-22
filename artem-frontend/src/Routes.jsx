@@ -17,7 +17,7 @@ import Bids from "./pages/Bids";
 import Create from "./pages/Create";
 import Saved from "./pages/Saved";
 import Home from "./pages/Home";
-import PostDetails from "./pages/PostDetails"
+import PostDetails from "./pages/PostDetails";
 
 const auth = getAuth(firebaseApp);
 

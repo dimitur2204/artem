@@ -17,13 +17,13 @@ const theme = createTheme({
       fontWeight: 500,
     },
 
-    h2:{
+    h2: {
       fontFamily: ["quiche-sans, serif"],
       fontSize: "2rem",
       fontWeight: 500,
       color: amber[600],
     },
-  
+
     fontFamily: [
       `-apple-system,
       work-sans,

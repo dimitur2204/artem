@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import { Search as SearchIcon, Close as CloseIcon } from "@mui/icons-material";
 import CategoryList from "../components/search/CategoryList";
-import Input from "../components/Input";
+import Input from "../components/global/Input";
 
 function Search() {
   const [value, setValue] = React.useState("");

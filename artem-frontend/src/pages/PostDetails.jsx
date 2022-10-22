@@ -15,10 +15,10 @@ import { FavoriteBorder, Favorite } from "@mui/icons-material";
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 
-function Slide({ url }) {
+function Slide({ url , title }) {
   return (
-    <div style={{position: "relative"}}>
-      <img style={{ width: "100%" }} src={url}></img>
+    <div>
+      <img style={{ width: "100%" }} src={url} alt={title}></img>
       <IconButton aria-label="like">
         <FavoriteBorder style={{position: "absolute!important", top:"90%"}} />
       </IconButton>
@@ -28,7 +28,7 @@ function Slide({ url }) {
 }
 
 export default function PostDetails() {
-  const [timer, setTimer] = useState(86400 * 2 + 3600 * 4 + 60 * 50 + 43);
+  const [timer, setTimer] = useState((86400 * 2 )+ (3600 * 4) + (60 * 50) + (43));
   useEffect(() => {
     const intervalId = setInterval(() => setTimer((timer) => timer - 1), 1000);
 

@@ -43,8 +43,9 @@ export default function AccountMenu() {
   };
   return (
     <>
-      <IconButton style={{color:"#000", marginTop: "0.7rem"}}
-      // (aria label is the same as an alt tag)
+      <IconButton
+        style={{ color: "#000", marginTop: "0.7rem" }}
+        // (aria label is the same as an alt tag)
         aria-label="more"
         id="long-button"
         aria-controls={open ? "long-menu" : undefined}
@@ -68,9 +69,7 @@ export default function AccountMenu() {
           <MenuItem
             key={option.label}
             onClick={() => {
-              option
-                .handleClick(navigate)
-                .then(() => handleClose())
+              option.handleClick(navigate).then(() => handleClose());
             }}
           >
             {option.label}

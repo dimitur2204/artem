@@ -1,24 +1,66 @@
 import React from "react";
 import Header from "../components/Header";
-import { Button, Typography } from "@mui/material";
-import { Container } from "@mui/system";
-import CloseIcon from '@mui/icons-material/Close';
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
-import ToggleOffOutlinedIcon from '@mui/icons-material/ToggleOffOutlined';
-import ToggleOnOutlinedIcon from '@mui/icons-material/ToggleOnOutlined';
+import {
+  Container,
+  IconButton,
+  Typography,
+  Button,
+  Switch,
+  Box,
+} from "@mui/material";
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import Input from "../components/global/Input";
+import theme from "../theme";
 
 function Create() {
-  return <Header text="New Post" />;
+  return (
+    <>
+        <Header text="New Post" withXButton />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "#F7F6F5",
+          marginBottom: theme.spacing(4),
+          marginTop: theme.spacing(4),
+          height: "calc(30vh)",
+        }}
+      >
+        <IconButton color="primary" aria-label="Upload post image">
+          <AddCircleOutlineIcon sx={{ fontSize: "9rem" }} />
+        </IconButton>
+      </div>
+      <Container>
+        <Input
+          placeholder="Title"
+        />
+
+        <Input
+          style={{ padding: theme.spacing(1),marginTop: theme.spacing(1), marginBottom: theme.spacing(3), borderRadius: "20px" }}
+          multiline
+          rows={3}
+          placeholder="Item description"
+        />
+        <Box display="flex" justifyContent="space-between">
+          <Box>
+            <Typography>Is your item for sale?</Typography>
+            <Switch color="primary" defaultChecked />
+          </Box>  
+        <Box>          <Button
+            variant="contained"
+            size="large"
+            disableElevation
+          >
+            {" "}
+            Post
+          </Button>
+
+        </Box>
+
+        </Box>
+      </Container>
+    </>
+  );
 }
-<Container>
-
-<Button
-variant="contained"
-disableElevation
-> Post
-</Button>
-
-
-</Container>
 export default Create;
-

@@ -33,9 +33,14 @@ const categories = [
 // defining the categories to get the correct background image for them
 function CategoryList() {
   return (
-    <Box sx={{ mt: theme.spacing(3), ":last-child": {
-      mb: "66px",
-    } }}>
+    <Box
+      sx={{
+        mt: theme.spacing(3),
+        ":last-child": {
+          mb: "66px",
+        },
+      }}
+    >
       {categories.map((c) => {
         return (
           <Box key={c.imageIndex} sx={{ mb: theme.spacing(2) }}>

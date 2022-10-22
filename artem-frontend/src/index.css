@@ -20,11 +20,11 @@ code {
     monospace;
 }
 
-/* --- Post Description Page --- */
+
 .swiper-button-prev, .swiper-button-next{
   color: white!important;
 }
 
 .swiper-pagination-bullet-active{
-  background-color: red!important; /*idk how to set amber from our theme*/
+  background-color: white!important;
 }

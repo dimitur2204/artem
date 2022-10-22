@@ -1,66 +1,91 @@
-import { Button, Typography } from "@mui/material";
+import { Avatar, Button, Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import React from "react";
 import Header from "../components/Header";
-import IconButton from '@mui/material/IconButton';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
+import IconButton from "@mui/material/IconButton";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
+import ImageList from "../components/global/ImageList";
+import theme from "../theme";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { getAuth } from "firebase/auth";
+import firebaseApp from "../firebase-config";
 
-
-
+const auth = getAuth(firebaseApp)
 export default function Account() {
+  const [followed,setFollowed] = React.useState(false);
+  const [user] = useAuthState(auth)
   return (
     <>
       <Header text="Account" withAccountOptions />
       {/* container containing the infromation of a user (img/name/intro/SoMe) */}
-      <Container style={{marginTop: "2rem"}}>
-      <div style={{display: "flex"}}>
-        <div>
-        <img src="account-img.png" alt="profile pic" />
-        </div>
-        <div style={{display: "flex", flexDirection: "column", marginLeft: "1rem"}}>
+      <Container
+        style={{ marginTop: theme.spacing(3), marginBottom: theme.spacing(3) }}
+      >
+        <div style={{ display: "flex" }}>
           <div>
-            <Typography fontSize="1.5rem">
-            Johanna Ark
-            </Typography>
+            <Avatar sx={{width: 90, height: 90}} src={user.photoURL} alt={`${user.displayName}'s profile pic`} />
           </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              marginLeft: "1rem",
+            }}
+          >
+            <div>
+              <Typography fontSize="1.5rem">{user.displayName || user.email}</Typography>
+            </div>
 
-           {/* social media icons  */}
-          <div>
-            <IconButton href="https://www.linkedin.com/in/katerina-kolarova-b4549514a/" style={{color:"#000"}} target="_blank" aria-label="linkedin page">
-            <LinkedInIcon/>
-            </IconButton>
+            {/* social media icons  */}
+            <div>
+              <IconButton
+                href="https://www.linkedin.com/in/katerina-kolarova-b4549514a/"
+                style={{ color: "#000" }}
+                target="_blank"
+                aria-label="linkedin page"
+              >
+                <LinkedInIcon />
+              </IconButton>
 
-            <IconButton href="https://www.instagram.com/_chaos_is_my_middle_name/" style={{color:"#000"}} target="_blank" aria-label="instagram page">
-            <InstagramIcon/>
-            </IconButton>
+              <IconButton
+                href="https://www.instagram.com/_chaos_is_my_middle_name/"
+                style={{ color: "#000" }}
+                target="_blank"
+                aria-label="instagram page"
+              >
+                <InstagramIcon />
+              </IconButton>
 
-            <IconButton href="mailto:kolarova.kacka88@gmail.com" style={{color:"#000"}} target="_blank"  aria-label="email">
-            <AlternateEmailIcon/>
-            </IconButton>
+              <IconButton
+                href={`mailto:${user.email}`}
+                style={{ color: "#000" }}
+                target="_blank"
+                aria-label="email"
+              >
+                <AlternateEmailIcon />
+              </IconButton>
+            </div>
+            <div>
+              <Button variant={followed ?  "outlined" : "contained"} onClick={() => setFollowed(!followed)} disableElevation>
+                {" "}
+                {followed ? "Unfollow" :"Follow"}
+              </Button>
+            </div>
           </div>
-          <div>
-            <Button
-            variant="contained"
-            disableElevation
-            > Follow
-        </Button>
-          </div> 
         </div>
-        </div>  
-           
+
         {/* an introduction of a user */}
-        <Typography style={{marginTop: "1.5rem"}}>
-        📍A freelance copywriter based in Aalborg. 
+        <Typography style={{ marginTop: "1.5rem" }}>
+          📍A freelance copywriter based in Aalborg.
         </Typography>
         <Typography>
-        🎨There are no mistakes in art, just happy little accidents.
+          🎨There are no mistakes in art, just happy little accidents.
         </Typography>
-        <Typography>
-        🤤 Hungry for visuals. 
-        </Typography>
+        <Typography>🤤 Hungry for visuals.</Typography>
       </Container>
+      <ImageList count="5.6k" />
     </>
   );
 }
