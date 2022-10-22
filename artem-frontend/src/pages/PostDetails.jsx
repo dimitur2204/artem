@@ -22,16 +22,25 @@ function Slide({ url, title }) {
     <div>
       <img style={{ width: "100%" }} src={url} alt={title}></img>
     
-        <IconButton>
+    <div style={{position: "absolute", bottom: 0, right: 0 }}>
+     <IconButton style={{}}>
           <FavoriteBorder
             sx={{
               width: "30px",
-              height: "30px",
+              height: "30px"
             }}
           />
-        </IconButton>
+      </IconButton>
+      <IconButton style={{}}>
+          <RemoveRedEyeIcon
+            sx={{
+              width: "30px",
+              height: "30px"
+            }}
+          />
+      </IconButton>
+    </div>
 
-      <RemoveRedEyeIcon />
     </div>
   );
 }

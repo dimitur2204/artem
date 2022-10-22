@@ -23,13 +23,13 @@ export default function Header({ text, withSearch, withAccountOptions, withXButt
         </Link>
       ) : null}
       {withXButton ? (
-                      <IconButton
-                      position="end"
-                      style={{ color: "#000" }}
-                      aria-label="cross"
-                    >
-                      <Close />
-                    </IconButton>
+        <IconButton
+        position="end"
+        style={{ color: "#000" }}
+        aria-label="cross"
+      >
+        <Close />
+      </IconButton>
       ) : null}
 
     </Container>
