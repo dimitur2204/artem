@@ -12,14 +12,17 @@ import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper";
 import { Typography, Button, IconButton } from "@mui/material";
 import { FavoriteBorder, Favorite } from "@mui/icons-material";
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 
 function Slide({ url }) {
   return (
-    <div>
+    <div style={{position: "relative"}}>
       <img style={{ width: "100%" }} src={url}></img>
       <IconButton aria-label="like">
-        <FavoriteBorder />
+        <FavoriteBorder style={{position: "absolute!important", top:"90%"}} />
       </IconButton>
+      <RemoveRedEyeIcon  />
     </div>
   );
 }
@@ -33,6 +36,11 @@ export default function PostDetails() {
   }, [timer, setTimer]);
   return (
     <>
+      <IconButton size="large" aria-label="goback">
+        <ArrowBackIosIcon style={{color: "black",
+        padding: "10px 5px"}}
+        sx={{ width: 32, height: 32 }} />
+      </IconButton>
       <Swiper
         pagination={{
           dynamicBullets: true,
