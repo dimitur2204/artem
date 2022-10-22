@@ -16,31 +16,39 @@ import { Container } from "@mui/system";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import theme from "../theme";
+import ListUsers from "../components/ListUsers";
 
 function Slide({ url, title }) {
   return (
     <div>
       <img style={{ width: "100%" }} src={url} alt={title}></img>
-    
-    <div style={{position: "absolute", bottom: 0, right: 0 }}>
-     <IconButton style={{}}>
+
+      <div style={{ position: "absolute", bottom: "10px", right: "10px" }}>
+        <IconButton style={{}}>
           <FavoriteBorder
             sx={{
               width: "30px",
-              height: "30px"
+              height: "30px",
+              color: "white",
+              backgroundColor: "rgba(0,0,0,0.8)",
+              borderRadius: "100px",
+              padding: "5px",
             }}
           />
-      </IconButton>
-      <IconButton style={{}}>
+        </IconButton>
+        <IconButton style={{}}>
           <RemoveRedEyeIcon
             sx={{
               width: "30px",
-              height: "30px"
+              height: "30px",
+              color: "white",
+              borderRadius: "100px",
+              backgroundColor: "rgba(0,0,0,0.8)",
+              padding: "5px",
             }}
           />
-      </IconButton>
-    </div>
-
+        </IconButton>
+      </div>
     </div>
   );
 }
@@ -117,6 +125,8 @@ export default function PostDetails() {
             )}h ${Math.floor((timer % 3600) / 60)}m ${Math.floor(timer % 60)}s`}
           </Typography>
         </div>
+        <Typography>Bid history</Typography>
+        <ListUsers />
       </Container>
     </>
   );
