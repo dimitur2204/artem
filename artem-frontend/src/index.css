@@ -20,11 +20,11 @@ code {
     monospace;
 }
 
-
+/* sliders in Post Details page*/
 .swiper-button-prev, .swiper-button-next{
   color: white!important;
 }
 
 .swiper-pagination-bullet-active{
-  background-color: white!important;
+  background-color: red!important;
 }
