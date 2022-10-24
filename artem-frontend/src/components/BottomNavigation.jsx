@@ -4,13 +4,13 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import BottomNavigationMUI from "@mui/material/BottomNavigation";
 import Paper from "@mui/material/Paper";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
-import HomeIcon from "@mui/icons-material/Home";
 import BalanceIcon from "@mui/icons-material/Balance";
 import AddCircleOutlined from "@mui/icons-material/AddCircleOutlined";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { getAuth } from "firebase/auth";
 import firebaseApp from "../firebase-config";
+import HomeIcon from "./HomeIcon";
 
 const auth = getAuth(firebaseApp);
 
