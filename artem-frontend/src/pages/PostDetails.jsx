@@ -11,6 +11,7 @@ import "swiper/css/navigation";
 // import required modules
 import { Pagination, Navigation } from "swiper";
 import { Typography, Button, IconButton, Box } from "@mui/material";
+import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import { FavoriteBorder, Favorite } from "@mui/icons-material";
 import { Container } from "@mui/system";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
@@ -18,13 +19,16 @@ import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import theme from "../theme";
 import ListUsers from "../components/ListUsers";
 
+
+
 function Slide({ url, title }) {
+  const [liked, setLiked] = React.useState(false);
   return (
     <div>
       <img style={{ width: "100%" }} src={url} alt={title}></img>
 
       <div style={{ position: "absolute", bottom: "10px", right: "10px" }}>
-        <IconButton style={{}}>
+        <IconButton variant={liked ?  "outlined" : "contained"} onClick={() => setLiked(!liked)} disableElevation>
           <FavoriteBorder
             sx={{
               width: "30px",
@@ -68,6 +72,7 @@ export default function PostDetails() {
           sx={{ width: 32, height: 32 }}
         />
       </IconButton>
+
       <Swiper
         pagination={{
           dynamicBullets: true,
@@ -109,18 +114,33 @@ export default function PostDetails() {
           nisi ut aliquip ex ea commodo consequat.
         </Typography>
 
-        <div style={{ display: "flex", gap: "45px", margin: "30px 0" }}>
+        <div style={{ display: "flex", gap: "15px", margin: "30px 0", flexDirection: "column"}}>
+          <div style= {{display: "flex"}}>
           <Button
             variant="contained"
             disableElevation
-            style={{ minWidth: "130px" }}
+            style={{ maxWidth: "130px" }}
           >
             Bid
           </Button>
 
+          <IconButton style={{}}>
+          <RemoveRedEyeIcon
+            sx={{
+              width: "30px",
+              height: "30px",
+              color: "white",
+              borderRadius: "100px",
+              backgroundColor: "rgba(0,0,0,0.8)",
+              padding: "5px",
+            }}
+          />
+        </IconButton>
+        </div>
+
           <Typography>
-            Closes in:
-            {`${Math.floor(timer / 86400)}d ${Math.floor(
+            Closes in: 
+            {` ${Math.floor(timer / 86400)}d ${Math.floor(
               (timer % 86400) / 3600
             )}h ${Math.floor((timer % 3600) / 60)}m ${Math.floor(timer % 60)}s`}
           </Typography>
