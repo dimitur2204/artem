@@ -4,6 +4,9 @@ import { amber } from "@mui/material/colors";
 // theme.js allows us to change the colors/font/sizes of various components in one go
 const theme = createTheme({
   palette: {
+    background: {
+      default: "#F7F6F5",
+    },
     primary: {
       ...amber,
       main: amber[600],
