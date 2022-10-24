@@ -5,6 +5,10 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import "./ButtonTabs.css";
+import ImageList from "@mui/material/ImageList";
+import ImageListItem from "@mui/material/ImageListItem";
+import ImageListItemBar from "@mui/material/ImageListItemBar";
+import itemData from "./bidsList";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -54,15 +58,31 @@ export default function BasicTabs() {
           onChange={handleChange}
           aria-label="basic tabs example"
         >
-          <Tab label="Item One" {...a11yProps(0)} />
-          <Tab label="Item Two" {...a11yProps(1)} />
+          <Tab label="Bids" {...a11yProps(0)} />
+          <Tab label="Wacthed" {...a11yProps(1)} />
         </Tabs>
       </Box>
+
       <TabPanel value={value} index={0}>
-        <div className="tabs">
-          <img src="fox.png" alt="Fox" />
-        </div>
+        <ImageList sx={{ width: 500, height: 450 }}>
+          {itemData.map((item) => (
+            <ImageListItem key={item.img}>
+              <img
+                src={`${item.img}?w=248&fit=crop&auto=format`}
+                srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                alt={item.title}
+                loading="lazy"
+              />
+              <ImageListItemBar
+                title={item.title}
+                subtitle={<span>by: {item.author}</span>}
+                position="below"
+              />
+            </ImageListItem>
+          ))}
+        </ImageList>
       </TabPanel>
+
       <TabPanel value={value} index={1}>
         Item Two
       </TabPanel>
