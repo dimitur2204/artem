@@ -28,8 +28,8 @@ function AccountForm({ type, onSubmit, error, loading }) {
 const navigate = useNavigate();
   return (
     <Box>
-      <div style={{display:"flex"}}>
-        <img src="192.png" width={100} height={100}  alt="logo" style={{ alignSelf: 'center', justifyContent: "center" }}/>
+      <div style={{display:"flex", justifyContent:"center"}}>
+        <img src="192.png" width={100} height={100}  alt="logo" style={{alignSelf: 'center', justifyContent: "center" }}/>
       </div>
       <Typography align="center" variant="h1" sx={{ mb: theme.spacing(4) }}>
         {capitalize(type)}
