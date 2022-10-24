@@ -3,7 +3,7 @@ import ImageList from "../components/global/ImageList";
 import Header from "../components/Header";
 import theme from "../theme";
 
-import {  IconButton } from "@mui/material";
+import { IconButton } from "@mui/material";
 import { FavoriteBorder } from "@mui/icons-material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
@@ -35,12 +35,12 @@ function Slide({ url, title }) {
   );
 }
 
-export default function Home () {
+export default function Home() {
   return (
     <>
-    <Header text="Home" withSearch sx={{ marginBottom: theme.spacing(3) }} />
+      <Header text="Home" withSearch sx={{ marginBottom: theme.spacing(3) }} />
 
-    <Swiper
+      <Swiper
         pagination={{
           dynamicBullets: true,
         }}
@@ -64,9 +64,9 @@ export default function Home () {
           />
         </SwiperSlide>
       </Swiper>
-    
+
       <ImageList title="Trending" sx={{ marginBottom: theme.spacing(10) }} />
       <ImageList title="More of the things you like" />
     </>
-  )
-};
+  );
+}

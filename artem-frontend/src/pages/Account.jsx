@@ -12,10 +12,10 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { getAuth } from "firebase/auth";
 import firebaseApp from "../firebase-config";
 
-const auth = getAuth(firebaseApp)
+const auth = getAuth(firebaseApp);
 export default function Account() {
-  const [followed,setFollowed] = React.useState(false);
-  const [user] = useAuthState(auth)
+  const [followed, setFollowed] = React.useState(false);
+  const [user] = useAuthState(auth);
   return (
     <>
       <Header text="Account" withAccountOptions />
@@ -25,7 +25,11 @@ export default function Account() {
       >
         <div style={{ display: "flex" }}>
           <div>
-            <Avatar sx={{width: 90, height: 90}} src={user.photoURL} alt={`${user.displayName}'s profile pic`} />
+            <Avatar
+              sx={{ width: 90, height: 90 }}
+              src={user.photoURL}
+              alt={`${user.displayName}'s profile pic`}
+            />
           </div>
           <div
             style={{
@@ -35,7 +39,9 @@ export default function Account() {
             }}
           >
             <div>
-              <Typography fontSize="1.5rem">{user.displayName || user.email}</Typography>
+              <Typography fontSize="1.5rem">
+                {user.displayName || user.email}
+              </Typography>
             </div>
 
             {/* social media icons  */}
@@ -68,9 +74,13 @@ export default function Account() {
               </IconButton>
             </div>
             <div>
-              <Button variant={followed ?  "outlined" : "contained"} onClick={() => setFollowed(!followed)} disableElevation>
+              <Button
+                variant={followed ? "outlined" : "contained"}
+                onClick={() => setFollowed(!followed)}
+                disableElevation
+              >
                 {" "}
-                {followed ? "Unfollow" :"Follow"}
+                {followed ? "Unfollow" : "Follow"}
               </Button>
             </div>
           </div>

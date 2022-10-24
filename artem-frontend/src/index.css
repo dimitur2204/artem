@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #F7F6F5;
+  background-color: #f7f6f5;
 }
 
 h1,
@@ -22,10 +22,11 @@ code {
 }
 
 /* sliders in Post Details page*/
-.swiper-button-prev, .swiper-button-next{
-  color: white!important;
+.swiper-button-prev,
+.swiper-button-next {
+  color: white !important;
 }
 
-.swiper-pagination-bullet-active{
-  background-color: white!important;
+.swiper-pagination-bullet-active {
+  background-color: white !important;
 }

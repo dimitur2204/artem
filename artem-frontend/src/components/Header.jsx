@@ -6,7 +6,13 @@ import SearchIcon from "@mui/icons-material/Search";
 import AccountMenu from "./account/AccountMenu";
 import { Close } from "@mui/icons-material";
 
-export default function Header({ text, withSearch, withAccountOptions, withXButton, sx }) {
+export default function Header({
+  text,
+  withSearch,
+  withAccountOptions,
+  withXButton,
+  sx,
+}) {
   return (
     <Container
       sx={{ display: "flex", justifyContent: "space-between", ...sx }}
@@ -23,15 +29,10 @@ export default function Header({ text, withSearch, withAccountOptions, withXButt
         </Link>
       ) : null}
       {withXButton ? (
-        <IconButton
-        position="end"
-        style={{ color: "#000" }}
-        aria-label="cross"
-      >
-        <Close />
-      </IconButton>
+        <IconButton position="end" style={{ color: "#000" }} aria-label="cross">
+          <Close />
+        </IconButton>
       ) : null}
-
     </Container>
   );
 }
