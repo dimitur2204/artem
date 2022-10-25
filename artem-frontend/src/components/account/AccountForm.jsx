@@ -15,6 +15,7 @@ import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import firebaseApp from "../../firebase-config";
 import theme from "../../theme";
+import Header from "../Header";
 import Input from "../global/Input";
 
 const auth = getAuth(firebaseApp);
@@ -27,6 +28,7 @@ function AccountForm({ type, onSubmit, error, loading }) {
   const navigate = useNavigate();
   return (
     <Box>
+    <Header withBackButton sx={{paddingLeft: 0, mt: theme.spacing(1)}}/>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <img
           src={`${process.env.PUBLIC_URL}/logos/192.png`}
