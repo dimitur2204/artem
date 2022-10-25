@@ -84,25 +84,7 @@ function AccountForm({ type, onSubmit, error, loading }) {
             value={repeatPassword}
             onChange={(e) => setRepeatPassword(e.target.value)}
           />
-        ) : null}
-        {type === "login" ? (
-          <>
-            <Typography
-              display="inline"
-              align="center"
-              sx={{ mt: theme.spacing(2) }}
-            >
-              Don’t have account?{" "}
-            </Typography>
-            <Typography color="primary" display="inline">
-              <Link
-                to="/register"
-                style={{ color: theme.palette.primary.main }}
-              >
-                Register
-              </Link>
-            </Typography>
-          </>
+
         ) : null}
         {error ? (
           <Alert sx={{ mt: theme.spacing(1) }} severity="error">
@@ -129,6 +111,25 @@ function AccountForm({ type, onSubmit, error, loading }) {
       >
         <Google />
       </IconButton>
+
+        {type === "login" ? (
+          <>
+            <Typography
+              display="inline"
+              align="center"
+              sx={{ mt: theme.spacing(2) }}
+            >
+              Don’t have account?{" "}
+            </Typography>
+            <Typography color="primary" display="inline">
+              <Link
+                to="/register"
+                style={{ color: theme.palette.primary.main }}
+              >
+                Register
+              </Link>
+            </Typography>
+          </>
     </Box>
   );
 }
