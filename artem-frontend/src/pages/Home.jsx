@@ -39,7 +39,6 @@ export default function Home() {
   return (
     <>
       <Header text="Home" withSearch sx={{ marginBottom: theme.spacing(3) }} />
-
       <Swiper
         pagination={{
           dynamicBullets: true,
