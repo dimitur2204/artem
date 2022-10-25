@@ -23,18 +23,13 @@ function AccountForm({ type, onSubmit, error, loading }) {
   const [repeatPassword, setRepeatPassword] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
-  const [signInWithGoogle] = useSignInWithGoogle(auth);
-  const navigate = useNavigate();
+  const [signInWithGoogle] =
+  useSignInWithGoogle(auth);
+const navigate = useNavigate();
   return (
     <Box>
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <img
-          src="192.png"
-          width={100}
-          height={100}
-          alt="logo"
-          style={{ alignSelf: "center", justifyContent: "center" }}
-        />
+      <div style={{display:"flex", justifyContent:"center"}}>
+        <img src="192.png" width={100} height={100}  alt="logo" style={{alignSelf: 'center', justifyContent: "center" }}/>
       </div>
       <Typography align="center" variant="h1" sx={{ mb: theme.spacing(4) }}>
         {capitalize(type)}
@@ -84,34 +79,7 @@ function AccountForm({ type, onSubmit, error, loading }) {
             value={repeatPassword}
             onChange={(e) => setRepeatPassword(e.target.value)}
           />
-
         ) : null}
-        {error ? (
-          <Alert sx={{ mt: theme.spacing(1) }} severity="error">
-            {error.message}
-          </Alert>
-        ) : null}
-        <Button
-          sx={{ mt: theme.spacing(2) }}
-          variant="contained"
-          size="large"
-          type="submit"
-          disabled={loading}
-          fullWidth
-          disableElevation
-        >
-          {loading ? <CircularProgress size={14} /> : capitalize(type)}
-        </Button>
-      </form>
-      <IconButton
-        aria-label="Sign in with Google"
-        onClick={() => {
-          signInWithGoogle(["email", "profile"]).then(() => navigate("/"));
-        }}
-      >
-        <Google />
-      </IconButton>
-
         {type === "login" ? (
           <>
             <Typography
@@ -130,6 +98,28 @@ function AccountForm({ type, onSubmit, error, loading }) {
               </Link>
             </Typography>
           </>
+        ) : null}
+        {error ? (
+          <Alert sx={{ mt: theme.spacing(1) }} severity="error">
+            {error.message}
+          </Alert>
+        ) : null}
+        <Button
+          sx={{ mt: theme.spacing(2) }}
+          variant="contained"
+          size="large"
+          type="submit"
+          disabled={loading}
+          fullWidth
+          disableElevation
+        >
+          {loading ? <CircularProgress size={14} /> : capitalize(type)}
+        </Button>
+      </form>
+      <IconButton aria-label="Sign in with Google" onClick={() => {
+        signInWithGoogle(['email','profile']).then(() => navigate('/'))}}>
+        <Google />
+      </IconButton>
     </Box>
   );
 }
