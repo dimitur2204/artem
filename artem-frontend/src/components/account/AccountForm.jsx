@@ -129,7 +129,7 @@ function AccountForm({ type, onSubmit, error, loading }) {
                 Register
               </Link>
             </Typography>
-          </>
+          </>) : null}
     </Box>
   );
 }
