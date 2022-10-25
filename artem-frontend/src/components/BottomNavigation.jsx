@@ -6,11 +6,11 @@ import Paper from "@mui/material/Paper";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import BalanceIcon from "@mui/icons-material/Balance";
 import AddCircleOutlined from "@mui/icons-material/AddCircleOutlined";
-import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { getAuth } from "firebase/auth";
 import firebaseApp from "../firebase-config";
 import HomeIcon from "./HomeIcon";
+import { AutoAwesomeMotion } from "@mui/icons-material";
 
 const auth = getAuth(firebaseApp);
 
@@ -52,7 +52,7 @@ export default function BottomNavigation() {
 
         <BottomNavigationAction
           label="Saved"
-          icon={<BookmarkBorderIcon />}
+          icon={<AutoAwesomeMotion />}
           component={RouterLink}
           to="/saved"
         />
