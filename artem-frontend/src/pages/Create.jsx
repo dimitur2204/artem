@@ -10,7 +10,6 @@ import {
 } from "@mui/material";
 import { getStorage, ref } from "firebase/storage";
 import { useUploadFile } from "react-firebase-hooks/storage";
-import { useDocument } from "react-firebase-hooks/firestore";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import Input from "../components/global/Input";
 import theme from "../theme";
