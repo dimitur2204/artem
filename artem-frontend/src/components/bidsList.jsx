@@ -1,3 +1,5 @@
+// Putting the auctions as arrrays
+
 const itemData = [
   {
     img: "fox.png",
