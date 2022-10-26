@@ -3,9 +3,11 @@ import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import { ThemeProvider } from "@mui/material";
-import theme from "./theme";
+import { deepmerge } from "@mui/utils";
+import theme, { joyTheme, muiTheme } from "./theme";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import createRoutes from "./Routes";
+import { CssVarsProvider } from "@mui/joy/styles";
 
 const router = createBrowserRouter(createRoutes(), { basename: "/artem" });
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -13,7 +15,10 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
+      <CssVarsProvider theme={deepmerge(joyTheme, muiTheme)}>
       <RouterProvider router={router} />
+
+      </CssVarsProvider>
     </ThemeProvider>
   </React.StrictMode>
 );
