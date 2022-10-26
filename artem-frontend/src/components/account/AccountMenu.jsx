@@ -10,6 +10,8 @@ import { toast } from "react-toastify";
 
 const auth = getAuth(firebaseApp);
 const options = [
+  // three dots icon on the Account page with options to:
+  // 1) logout option
   {
     label: "Logout",
     handleClick: (navigate) => {
@@ -17,6 +19,7 @@ const options = [
       return signOut(auth).then(() => navigate("/"));
     },
   },
+    // 2) settings option 
   {
     label: "Settings",
     handleClick: (navigate) => {
@@ -24,6 +27,7 @@ const options = [
     },
   },
 
+      // 3) edit option 
   {
     label: "Edit",
     handleClick: (navigate) => {
@@ -43,6 +47,7 @@ export default function AccountMenu() {
   };
   return (
     <>
+    {/* three dots icon */}
       <IconButton
         style={{ color: "#000", marginTop: "0.7rem" }}
         // (aria label is the same as an alt tag)
@@ -56,6 +61,7 @@ export default function AccountMenu() {
       >
         <MoreVertIcon sx={{ width: 32, height: 32 }} />
       </IconButton>
+      {/* displaying the options of the "three-dots" icon */}
       <Menu
         id="long-menu"
         MenuListProps={{

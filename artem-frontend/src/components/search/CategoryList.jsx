@@ -3,7 +3,7 @@ import React from "react";
 import theme from "../../theme";
 import CategoryCard from "./CategoryCard";
 
-// listing categories of art
+// listing images of cagetories for our search feature
 const categories = [
   {
     title: "paintings",
@@ -22,12 +22,8 @@ const categories = [
     imageIndex: 1,
   },
   {
-    title: "jewelry",
+    title: "photography",
     imageIndex: 6,
-  },
-  {
-    title: "miscellaneous",
-    imageIndex: 5,
   },
 ];
 // defining the categories to get the correct background image for them
@@ -44,7 +40,7 @@ function CategoryList() {
       {categories.map((c) => {
         return (
           <Box key={c.imageIndex} sx={{ mb: theme.spacing(2) }}>
-            <CategoryCard title={c.title} imageIndex={c.imageIndex} />
+            <CategoryCard title={c.title} imageIndex={c.imageIndex} url={`/${c.title}`} />
           </Box>
         );
       })}

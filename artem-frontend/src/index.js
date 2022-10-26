@@ -16,8 +16,7 @@ root.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <CssVarsProvider theme={deepmerge(joyTheme, muiTheme)}>
-      <RouterProvider router={router} />
-
+       <RouterProvider router={router} />
       </CssVarsProvider>
     </ThemeProvider>
   </React.StrictMode>

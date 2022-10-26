@@ -7,10 +7,11 @@ import {
   Button,
   Switch,
   Box,
+  Fab,
 } from "@mui/material";
 import { getStorage, ref } from "firebase/storage";
 import { useUploadFile } from "react-firebase-hooks/storage";
-import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import Add from "@mui/icons-material/Add";
 import Input from "../components/global/Input";
 import theme from "../theme";
 import firebaseApp from "../firebase-config";
@@ -42,7 +43,7 @@ function Create() {
     try {
       const doc = await addDoc(
         collection(getFirestore(firebaseApp), "posts"),
-        {title, description, isForSale, authorId: user.uid}
+        {title, description, isForSale, authorId: user.uid, isFeatured: false, category: "painitings"}
       );
       await upload(doc)
     } catch (error) {
@@ -51,11 +52,11 @@ function Create() {
   };
   return (
     <>
-      <Header text="New Post" withXButton />
+      <Header text="Publish Creation" withXButton />
       {error && <strong>Error: {error.message}</strong>}
       {uploading && <span>Uploading file...</span>}
       {snapshot && <span>Snapshot: {JSON.stringify(snapshot)}</span>}
-      {images[0] && <span>Selected file: {images[0]?.name}</span>}
+      {images && Array.from(images).map(image => <span>Selected file: {image.name}</span>)}
       <div
         style={{
           display: "flex",
@@ -76,16 +77,16 @@ function Create() {
           style={{ visibility: "hidden", width: 0 }}
           name="file_image"
         />
-        <IconButton
-          onClick={() => {
-            document.querySelector("input[type='file']").click();
-          }}
-          tabIndex={-1}
-          color="primary"
-          aria-label="Upload post image"
-        >
-          <AddCircleOutlineIcon sx={{ fontSize: "9rem" }} />
-        </IconButton>
+        <Fab
+                  onClick={() => {
+                    document.querySelector("input[type='file']").click();
+                  }}
+                  tabIndex={-1}
+                  color="primary"
+                  aria-label="Upload post image" size="large"
+                  sx={{color:"white"}}>
+          <Add />
+        </Fab>
       </div>
       <Container>
         <Input placeholder="Title" name="title" type="text" value={title} onChange={(e) => setTitle(e.target.value)}/>

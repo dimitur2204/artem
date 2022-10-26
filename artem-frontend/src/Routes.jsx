@@ -19,6 +19,7 @@ import Saved from "./pages/Saved";
 import Home from "./pages/Home";
 import PostDetails from "./pages/PostDetails";
 import Landing from "./pages/Landing"
+import Category from "./pages/Category";
 
 const auth = getAuth(firebaseApp);
 

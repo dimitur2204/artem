@@ -1,4 +1,4 @@
-import { AccountBox, Google, Lock } from "@mui/icons-material";
+import { AccountBox, Google, Lock, Facebook} from "@mui/icons-material";
 import {
   Alert,
   Box,
@@ -46,10 +46,12 @@ function AccountForm({ type, onSubmit, error, loading }) {
           onSubmit(e, { email, password, repeatPassword });
         }}
       >
+        {/* boxes for users to log in */}
         <Input
           endAdornment={
             <InputAdornment position="end">
               <AccountBox />
+               {/* username box */}
             </InputAdornment>
           }
           sx={{ mb: theme.spacing(2) }}
@@ -63,6 +65,7 @@ function AccountForm({ type, onSubmit, error, loading }) {
           endAdornment={
             <InputAdornment position="end">
               <Lock />
+              {/* password box */}
             </InputAdornment>
           }
           placeholder="Password..."
@@ -72,6 +75,7 @@ function AccountForm({ type, onSubmit, error, loading }) {
           onChange={(e) => setPassword(e.target.value)}
           sx={{ mb: theme.spacing(2) }}
         />
+         {/* registrering a user */}
         {type === "register" ? (
           <Input
             endAdornment={
@@ -86,7 +90,6 @@ function AccountForm({ type, onSubmit, error, loading }) {
             value={repeatPassword}
             onChange={(e) => setRepeatPassword(e.target.value)}
           />
-
         ) : null}
         {error ? (
           <Alert sx={{ mt: theme.spacing(1) }} severity="error">
@@ -105,14 +108,7 @@ function AccountForm({ type, onSubmit, error, loading }) {
           {loading ? <CircularProgress size={14} /> : capitalize(type)}
         </Button>
       </form>
-      <IconButton
-        aria-label="Sign in with Google"
-        onClick={() => {
-          signInWithGoogle(["email", "profile"]).then(() => navigate("/"));
-        }}
-      >
-        <Google />
-      </IconButton>
+      {/* if a user does not have an account yet, register option */}
 
         {type === "login" ? (
           <>
@@ -132,6 +128,18 @@ function AccountForm({ type, onSubmit, error, loading }) {
               </Link>
             </Typography>
           </> ) : null}
+      {/* possibility to log in with google */}
+      <IconButton aria-label="Sign in with Google" onClick={() => {
+        signInWithGoogle(['email','profile']).then(() => navigate('/'))}}>
+        <Google />
+      </IconButton>
+
+     {/* possibility to log in with facebook (currently only links to google login as it is too much hassle to log in with facebook*/}
+      <IconButton aria-label="Sign in with Facebook" onClick={() => {
+        signInWithGoogle(['email','profile']).then(() => navigate('/'))}}>
+       <Facebook />
+      </IconButton>
+      
     </Box>
   );
 }
