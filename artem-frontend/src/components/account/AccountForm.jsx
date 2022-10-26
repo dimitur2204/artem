@@ -108,6 +108,7 @@ function AccountForm({ type, onSubmit, error, loading }) {
           {loading ? <CircularProgress size={14} /> : capitalize(type)}
         </Button>
       </form>
+      {/* if a user does not have an account yet, register option */}
 
         {type === "login" ? (
           <>
@@ -127,13 +128,13 @@ function AccountForm({ type, onSubmit, error, loading }) {
               </Link>
             </Typography>
           </> ) : null}
-      {/* possibility to log in with google/facebook */}
+      {/* possibility to log in with google */}
       <IconButton aria-label="Sign in with Google" onClick={() => {
         signInWithGoogle(['email','profile']).then(() => navigate('/'))}}>
         <Google />
       </IconButton>
 
-     
+     {/* possibility to log in with facebook (currently only links to google login as it is too much hassle to log in with facebook*/}
       <IconButton aria-label="Sign in with Facebook" onClick={() => {
         signInWithGoogle(['email','profile']).then(() => navigate('/'))}}>
        <Facebook />
