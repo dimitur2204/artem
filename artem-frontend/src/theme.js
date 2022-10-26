@@ -16,10 +16,13 @@ const theme = createTheme({
     },
   },
   typography: {
+  
+    fontSize: 16,
+
     h1: {
       marginTop: "1.5rem",
       fontFamily: ["quiche-sans, serif"],
-      fontSize: "2rem",
+      fontSize: "2.1rem",
       fontWeight: 500,
     },
 
