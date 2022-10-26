@@ -13,7 +13,7 @@ export default function LandingPage () {
                   backgroundColor: theme.palette.background.landing, 
                   position:"relative", 
                   overflow: "hidden"}}>
-        <img src={`${process.env.PUBLIC_URL}/blob.svg`} style={{position:"absolute", top:"-55%", left:"15%"}}></img>
+        <img src={`${process.env.PUBLIC_URL}/blob.svg`} style={{position:"absolute", top:"-550px", left:"100px"}}></img>
        <div style={{display:"flex", flexDirection:"column", alignItems:"center", width:"80%", margin:"auto", gap:"25px", paddingTop:"50%"}}>
         <img src={`${process.env.PUBLIC_URL}/logo-white.png`}></img>
         <Typography variant="h2" style=
