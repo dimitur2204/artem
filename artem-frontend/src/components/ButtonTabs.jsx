@@ -31,7 +31,7 @@ function Bids() {
             Watched
           </Tab>
         </TabList>
-        <TabPanel value={0}>
+        <TabPanel value={0} style="">
           <ImageList sx={{ width: 500, height: 450 }}>
             {itemData.map((item) => (
               <ImageListItem key={item.img}>
