@@ -100,11 +100,11 @@ export default function PostDetails() {
         </SwiperSlide>
       </Swiper>
       <Container
-        style={{ marginTop: theme.spacing(3), marginBottom: theme.spacing(3) }}
+        style={{ marginTop: theme.spacing(3), marginBottom: theme.spacing(3)}}
       >
         <Typography>UP FOR AUCTION</Typography>
         <Typography variant="h2" style={{ padding: "10px 0" }}>
-          Mona Bisa - Mint Condition
+          Mona Bisa
         </Typography>
         <Typography>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -124,11 +124,11 @@ export default function PostDetails() {
             flexDirection: "column",
           }}
         >
-          <div style={{ display: "flex" }}>
+          <div style={{ display: "flex", alignItems:"center" }}>
             <Button
               variant="contained"
               disableElevation
-              style={{ maxWidth: "130px" }}
+              style={{ width: "100px", height:"40px"}}
             >
               Bid
             </Button>
@@ -140,7 +140,7 @@ export default function PostDetails() {
                   height: "30px",
                   color: "white",
                   borderRadius: "100px",
-                  backgroundColor: "rgba(0,0,0,0.8)",
+                  backgroundColor: theme.palette.background.landing,
                   padding: "5px",
                 }}
               />
