@@ -6,6 +6,7 @@ import ImageListItem from "@mui/material/ImageListItem";
 import ImageListItemBar from "@mui/material/ImageListItemBar";
 import itemData from "./bidsList";
 import Header from "../components/Header";
+import theme from "../theme";
 
 function Bids() {
   const [index, setIndex] = React.useState(0);
@@ -31,8 +32,13 @@ function Bids() {
             Watched
           </Tab>
         </TabList>
-        <TabPanel value={0} style="">
-          <ImageList sx={{ width: 500, height: 450 }}>
+        <TabPanel
+          value={0}
+          style={{
+            backgroundColor: theme.palette.background.paper,
+          }}
+        >
+          <ImageList sx={{ width: "100%", height: "100%" }}>
             {itemData.map((item) => (
               <ImageListItem key={item.img}>
                 <img
