@@ -11,6 +11,7 @@ import { getAuth } from "firebase/auth";
 import firebaseApp from "../firebase-config";
 import HomeIcon from "./HomeIcon";
 import { AutoAwesomeMotion } from "@mui/icons-material";
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 
 const auth = getAuth(firebaseApp);
 
@@ -18,11 +19,12 @@ export default function BottomNavigation() {
   const [value, setValue] = React.useState();
   const [user] = useAuthState(auth);
   return (
+    // Paper component that works as a background for our nav bar
     <Paper
       sx={{ position: "fixed", bottom: 0, left: 0, right: 0 }}
       elevation={3}
     >
-      {/* nav bar icons */}
+      {/* nav bar icons and linking them to the pages */}
       <BottomNavigationMUI
         value={value}
         onChange={(event, newValue) => {
@@ -31,7 +33,7 @@ export default function BottomNavigation() {
       >
         <BottomNavigationAction
           label="Home"
-          icon={<HomeIcon />}
+          icon={<AccountBalanceIcon />}
           component={RouterLink}
           to="/"
         />

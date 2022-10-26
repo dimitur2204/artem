@@ -51,7 +51,7 @@ function Create() {
   };
   return (
     <>
-      <Header text="New Post" withXButton />
+      <Header text="Publish Creation" withXButton />
       {error && <strong>Error: {error.message}</strong>}
       {uploading && <span>Uploading file...</span>}
       {snapshot && <span>Snapshot: {JSON.stringify(snapshot)}</span>}

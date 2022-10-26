@@ -13,6 +13,7 @@ import theme from "../../theme";
 function ImageList({ count, title, sx }) {
   return (
     <>
+    {/* creating a image-grid component to reuse throughout the pages  */}
       <Container>
         <Typography fontSize="1.2rem">{title}</Typography>
       </Container>
@@ -23,6 +24,7 @@ function ImageList({ count, title, sx }) {
       >
         {Array.from(Array(3).keys()).map((item, index) => (
           <ImageListItem key={item.img}>
+            {/* fetching a specific image */}
             <img
               src={`${process.env.PUBLIC_URL}/post-${index + 1}.jpg`}
               loading="lazy"
@@ -36,6 +38,7 @@ function ImageList({ count, title, sx }) {
                   marginBottom: theme.spacing(1),
                   marginRight: theme.spacing(1),
                 }}
+                // heart icon over the images (to display likes)
                 actionIcon={
                   <Box
                     borderRadius="1000px"
@@ -57,6 +60,7 @@ function ImageList({ count, title, sx }) {
                         }}
                       />
                     </IconButton>
+                    {/* displaying the amount of likes of each picture */}
                     <Typography fontSize="0.9rem" color="rgba(0,0,0,0.4)">
                       {count}
                     </Typography>

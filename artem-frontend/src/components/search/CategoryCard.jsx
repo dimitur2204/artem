@@ -4,7 +4,9 @@ import React from "react";
 // function for each category card to get a fitting title and img
 function CategoryCard({ title, imageIndex, link }) {
   return (
+    // showcasing images for our cagetory cards
     <Box
+    // fetching a specific image from our public folder
       sx={{
         backgroundImage: `url(${process.env.PUBLIC_URL}/category-${imageIndex}.jpg)`,
         position: "relative",
@@ -25,6 +27,7 @@ function CategoryCard({ title, imageIndex, link }) {
           borderRadius: 5,
         }}
       />
+      {/* adding the title of each cagetory over the img */}
       <Typography
         variant="h3"
         fontFamily="quiche-sans"
