@@ -77,9 +77,8 @@ const createRoutes = () =>
         />
         <Route path="search" element={<Search />} />
         <Route path="post/:id" element={<PostDetails />} />
-        <Route path="landing" element={<Landing />} />
-        <Route path="/:category" element={<Category />} />
       </Route>
+      <Route path="landing" element={<Landing />} />
       <Route path="login" element={<Login />} />
       <Route path="register" element={<Register />} />
     </>
