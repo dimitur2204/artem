@@ -44,6 +44,7 @@ function Bids() {
                   srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
                   alt={item.title}
                   loading="lazy"
+                  style={{ width: "100%" }}
                 />
                 <ImageListItemBar
                   title={item.title}
