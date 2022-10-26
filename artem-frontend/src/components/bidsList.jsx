@@ -1,6 +1,6 @@
-// Putting the auctions as arrrays
+// Putting the bids as arrrays
 
-const itemData = [
+export const itemData1 = [
   {
     img: "fox.png",
     title: "The fox wanderer",
@@ -16,6 +16,9 @@ const itemData = [
     title: "Coral Coaster",
     author: "54.00$ <br> 9 hours left",
   },
+];
+
+export const itemData2 = [
   {
     img: "snail.png",
     title: "Snail Overboard",
@@ -27,5 +30,3 @@ const itemData = [
     author: "61.00$ <br> 12 hours left",
   },
 ];
-
-export default itemData;

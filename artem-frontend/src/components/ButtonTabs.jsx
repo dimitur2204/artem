@@ -4,15 +4,13 @@ import "./ButtonTabs.css";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import ImageListItemBar from "@mui/material/ImageListItemBar";
-import itemData from "./bidsList";
-import Header from "../components/Header";
+import { itemData1, itemData2 } from "./bidsList";
 import theme from "../theme";
 
 function Bids() {
   const [index, setIndex] = React.useState(0);
   return (
     <div>
-      <Header text="Bids" />
       <Tabs
         aria-label="Soft tabs"
         value={index}
@@ -39,7 +37,7 @@ function Bids() {
           }}
         >
           <ImageList sx={{ width: "100%", height: "100%" }}>
-            {itemData.map((item) => (
+            {itemData1.map((item) => (
               <ImageListItem key={item.img}>
                 <img
                   src={`${item.img}?w=248&fit=crop&auto=format`}
@@ -56,8 +54,29 @@ function Bids() {
             ))}
           </ImageList>
         </TabPanel>
-        <TabPanel value={1}>
-          <b>Second</b> tab panel
+        <TabPanel
+          value={1}
+          style={{
+            backgroundColor: theme.palette.background.paper,
+          }}
+        >
+          <ImageList sx={{ width: "100%", height: "100%" }}>
+            {itemData2.map((item) => (
+              <ImageListItem key={item.img}>
+                <img
+                  src={`${item.img}?w=248&fit=crop&auto=format`}
+                  srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                  alt={item.title}
+                  loading="lazy"
+                />
+                <ImageListItemBar
+                  title={item.title}
+                  subtitle={<span>Current bid: {item.author}</span>}
+                  position="below"
+                />
+              </ImageListItem>
+            ))}
+          </ImageList>
         </TabPanel>
       </Tabs>
     </div>
