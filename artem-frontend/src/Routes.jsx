@@ -16,9 +16,8 @@ import Search from "./pages/Search";
 import Bids from "./pages/Bids";
 import Create from "./pages/Create";
 import Saved from "./pages/Saved";
-import Home from "./pages/Home";
 import PostDetails from "./pages/PostDetails";
-import Landing from "./pages/Landing"
+import Landing from "./pages/Landing";
 import Category from "./pages/Category";
 
 const auth = getAuth(firebaseApp);
@@ -43,7 +42,7 @@ const createRoutes = () =>
           </App>
         }
       >
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Navigate to="/home" />} />
         <Route
           path="bids"
           element={

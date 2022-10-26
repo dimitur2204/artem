@@ -1,6 +1,6 @@
 import { createTheme, experimental_extendTheme } from "@mui/material";
 import { amber, grey } from "@mui/material/colors";
-import { extendTheme as extendJoyTheme } from '@mui/joy/styles';
+import { extendTheme as extendJoyTheme } from "@mui/joy/styles";
 
 // theme.js allows us to change the colors/font/sizes of various components in one go
 const theme = createTheme({
@@ -62,37 +62,38 @@ const theme = createTheme({
   },
 });
 
-export const muiTheme = experimental_extendTheme(theme)
+export const muiTheme = experimental_extendTheme(theme);
 
 export const joyTheme = extendJoyTheme({
   // This is required to point to `var(--mui-*)` because we are using `CssVarsProvider` from Material UI.
-  cssVarPrefix: 'mui',
+  cssVarPrefix: "mui",
   colorSchemes: {
     light: {
       palette: {
         primary: {
           ...amber,
-          solidColor: 'var(--mui-palette-primary-contrastText)',
-          solidBg: 'var(--mui-palette-primary-main)',
-          solidHoverBg: 'var(--mui-palette-primary-dark)',
-          plainColor: 'var(--mui-palette-primary-main)',
+          solidColor: "var(--mui-palette-primary-contrastText)",
+          solidBg: "var(--mui-palette-primary-main)",
+          solidHoverBg: "var(--mui-palette-primary-dark)",
+          plainColor: "var(--mui-palette-primary-main)",
           plainHoverBg:
-            'rgba(var(--mui-palette-primary-mainChannel) / var(--mui-palette-action-hoverOpacity))',
-          plainActiveBg: 'rgba(var(--mui-palette-primary-mainChannel) / 0.3)',
-          outlinedBorder: 'rgba(var(--mui-palette-primary-mainChannel) / 0.5)',
-          outlinedColor: 'var(--mui-palette-primary-main)',
+            "rgba(var(--mui-palette-primary-mainChannel) / var(--mui-palette-action-hoverOpacity))",
+          plainActiveBg: "rgba(var(--mui-palette-primary-mainChannel) / 0.3)",
+          outlinedBorder: "rgba(var(--mui-palette-primary-mainChannel) / 0.5)",
+          outlinedColor: "var(--mui-palette-primary-main)",
           outlinedHoverBg:
-            'rgba(var(--mui-palette-primary-mainChannel) / var(--mui-palette-action-hoverOpacity))',
-          outlinedHoverBorder: 'var(--mui-palette-primary-main)',
-          outlinedActiveBg: 'rgba(var(--mui-palette-primary-mainChannel) / 0.3)',
+            "rgba(var(--mui-palette-primary-mainChannel) / var(--mui-palette-action-hoverOpacity))",
+          outlinedHoverBorder: "var(--mui-palette-primary-main)",
+          outlinedActiveBg:
+            "rgba(var(--mui-palette-primary-mainChannel) / 0.3)",
         },
         neutral: {
           ...grey,
         },
         // Do the same for the `danger`, `info`, `success`, and `warning` palettes,
-        divider: 'var(--mui-palette-divider)',
+        divider: "var(--mui-palette-divider)",
         text: {
-          tertiary: 'rgba(0 0 0 / 0.56)',
+          tertiary: "rgba(0 0 0 / 0.56)",
         },
       },
     },

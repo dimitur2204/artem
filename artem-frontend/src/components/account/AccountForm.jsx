@@ -1,4 +1,4 @@
-import { AccountBox, Google, Lock, Facebook} from "@mui/icons-material";
+import { AccountBox, Google, Lock, Facebook } from "@mui/icons-material";
 import {
   Alert,
   Box,
@@ -28,7 +28,7 @@ function AccountForm({ type, onSubmit, error, loading }) {
   const navigate = useNavigate();
   return (
     <Box>
-    <Header withBackButton sx={{paddingLeft: 0, mt: theme.spacing(1)}}/>
+      <Header withBackButton sx={{ paddingLeft: 0, mt: theme.spacing(1) }} />
       <div style={{ display: "flex", justifyContent: "center" }}>
         <img
           src={`${process.env.PUBLIC_URL}/logos/192.png`}
@@ -51,7 +51,7 @@ function AccountForm({ type, onSubmit, error, loading }) {
           endAdornment={
             <InputAdornment position="end">
               <AccountBox />
-               {/* username box */}
+              {/* username box */}
             </InputAdornment>
           }
           sx={{ mb: theme.spacing(2) }}
@@ -75,7 +75,7 @@ function AccountForm({ type, onSubmit, error, loading }) {
           onChange={(e) => setPassword(e.target.value)}
           sx={{ mb: theme.spacing(2) }}
         />
-         {/* registrering a user */}
+        {/* registrering a user */}
         {type === "register" ? (
           <Input
             endAdornment={
@@ -110,36 +110,41 @@ function AccountForm({ type, onSubmit, error, loading }) {
       </form>
       {/* if a user does not have an account yet, register option */}
 
-        {type === "login" ? (
-          <>
-            <Typography
-              display="inline"
-              align="center"
-              sx={{ mt: theme.spacing(2) }}
-            >
-              Don’t have account?{" "}
-            </Typography>
-            <Typography color="primary" display="inline">
-              <Link
-                to="/register"
-                style={{ color: theme.palette.primary.main }}
-              >
-                Register
-              </Link>
-            </Typography>
-          </> ) : null}
+      {type === "login" ? (
+        <>
+          <Typography
+            display="inline"
+            align="center"
+            sx={{ mt: theme.spacing(2) }}
+          >
+            Don’t have account?{" "}
+          </Typography>
+          <Typography color="primary" display="inline">
+            <Link to="/register" style={{ color: theme.palette.primary.main }}>
+              Register
+            </Link>
+          </Typography>
+        </>
+      ) : null}
       {/* possibility to log in with google */}
-      <IconButton aria-label="Sign in with Google" onClick={() => {
-        signInWithGoogle(['email','profile']).then(() => navigate('/'))}}>
+      <IconButton
+        aria-label="Sign in with Google"
+        onClick={() => {
+          signInWithGoogle(["email", "profile"]).then(() => navigate("/"));
+        }}
+      >
         <Google />
       </IconButton>
 
-     {/* possibility to log in with facebook (currently only links to google login as it is too much hassle to log in with facebook*/}
-      <IconButton aria-label="Sign in with Facebook" onClick={() => {
-        signInWithGoogle(['email','profile']).then(() => navigate('/'))}}>
-       <Facebook />
+      {/* possibility to log in with facebook (currently only links to google login as it is too much hassle to log in with facebook*/}
+      <IconButton
+        aria-label="Sign in with Facebook"
+        onClick={() => {
+          signInWithGoogle(["email", "profile"]).then(() => navigate("/"));
+        }}
+      >
+        <Facebook />
       </IconButton>
-      
     </Box>
   );
 }

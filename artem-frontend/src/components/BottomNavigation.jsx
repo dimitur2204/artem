@@ -11,7 +11,7 @@ import { getAuth } from "firebase/auth";
 import firebaseApp from "../firebase-config";
 import HomeIcon from "./HomeIcon";
 import { AutoAwesomeMotion } from "@mui/icons-material";
-import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 
 const auth = getAuth(firebaseApp);
 

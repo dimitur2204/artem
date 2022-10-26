@@ -19,7 +19,7 @@ const options = [
       return signOut(auth).then(() => navigate("/"));
     },
   },
-    // 2) settings option 
+  // 2) settings option
   {
     label: "Settings",
     handleClick: (navigate) => {
@@ -27,7 +27,7 @@ const options = [
     },
   },
 
-      // 3) edit option 
+  // 3) edit option
   {
     label: "Edit",
     handleClick: (navigate) => {
@@ -47,7 +47,7 @@ export default function AccountMenu() {
   };
   return (
     <>
-    {/* three dots icon */}
+      {/* three dots icon */}
       <IconButton
         style={{ color: "#000", marginTop: "0.7rem" }}
         // (aria label is the same as an alt tag)

@@ -13,7 +13,7 @@ import theme from "../../theme";
 function ImageList({ count, title, sx }) {
   return (
     <>
-    {/* creating a image-grid component to reuse throughout the pages  */}
+      {/* creating a image-grid component to reuse throughout the pages  */}
       <Container>
         <Typography fontSize="1.2rem">{title}</Typography>
       </Container>

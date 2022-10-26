@@ -1,14 +1,6 @@
 import React, { useState } from "react";
 import Header from "../components/Header";
-import {
-  Container,
-  IconButton,
-  Typography,
-  Button,
-  Switch,
-  Box,
-  Fab,
-} from "@mui/material";
+import { Container, Typography, Button, Switch, Box, Fab } from "@mui/material";
 import { getStorage, ref } from "firebase/storage";
 import { useUploadFile } from "react-firebase-hooks/storage";
 import Add from "@mui/icons-material/Add";
@@ -22,7 +14,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 const storage = getStorage();
 const auth = getAuth();
 function Create() {
-  const [images, setImages] = useState("");
+  const [images, setImages] = useState([]);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [isForSale, setForSale] = useState(false);
@@ -31,21 +23,28 @@ function Create() {
   const upload = async (document) => {
     if (images) {
       const uploadPromises = Array.from(images).map((img, index) => {
-        const storageRef = ref(storage, `/${document.id}/${index + 1}-${img.name}`);
+        const storageRef = ref(
+          storage,
+          `/${document.id}/${index + 1}-${document.id}`
+        );
         return uploadFile(storageRef, img, {
           contentType: "image/jpeg",
         });
-      })
+      });
       await Promise.all(uploadPromises);
     }
   };
   const createDocument = async () => {
     try {
-      const doc = await addDoc(
-        collection(getFirestore(firebaseApp), "posts"),
-        {title, description, isForSale, authorId: user.uid, isFeatured: false, category: "painitings"}
-      );
-      await upload(doc)
+      const doc = await addDoc(collection(getFirestore(firebaseApp), "posts"), {
+        title,
+        description,
+        isForSale,
+        authorId: user.uid,
+        isFeatured: false,
+        category: "paintings",
+      });
+      await upload(doc);
     } catch (error) {
       console.error(error);
     }
@@ -55,8 +54,12 @@ function Create() {
       <Header text="Publish Creation" withXButton />
       {error && <strong>Error: {error.message}</strong>}
       {uploading && <span>Uploading file...</span>}
-      {snapshot && <span>Snapshot: {JSON.stringify(snapshot)}</span>}
-      {images && Array.from(images).map(image => <span>Selected file: {image.name}</span>)}
+      <Box>
+        {images &&
+          Array.from(images).map((image) => (
+            <span>Selected file: {image.name}</span>
+          ))}
+      </Box>
       <div
         style={{
           display: "flex",
@@ -70,7 +73,7 @@ function Create() {
       >
         <input
           onChange={(e) => {
-            setImages(e.target.files);
+            setImages(currentImages => currentImages.concat(Array.from(e.target.files)));
           }}
           type="file"
           accept="image/*"
@@ -78,18 +81,26 @@ function Create() {
           name="file_image"
         />
         <Fab
-                  onClick={() => {
-                    document.querySelector("input[type='file']").click();
-                  }}
-                  tabIndex={-1}
-                  color="primary"
-                  aria-label="Upload post image" size="large"
-                  sx={{color:"white"}}>
+          onClick={() => {
+            document.querySelector("input[type='file']").click();
+          }}
+          tabIndex={-1}
+          color="primary"
+          aria-label="Upload post image"
+          size="large"
+          sx={{ color: "white" }}
+        >
           <Add />
         </Fab>
       </div>
       <Container>
-        <Input placeholder="Title" name="title" type="text" value={title} onChange={(e) => setTitle(e.target.value)}/>
+        <Input
+          placeholder="Title"
+          name="title"
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
 
         <Input
           name="description"
@@ -122,7 +133,7 @@ function Create() {
               size="large"
               disableElevation
               onClick={async () => {
-                await createDocument()
+                await createDocument();
               }}
             >
               {" "}

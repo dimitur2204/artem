@@ -20,9 +20,7 @@ export default function Header({
       sx={{ display: "flex", justifyContent: "space-between", ...sx }}
       as="header"
     >
-                  {withBackButton ? (
-        <BackButton />
-      ) : null}
+      {withBackButton ? <BackButton /> : null}
       {/* code for header for when it contains a search bar or account menu (the three dots) */}
       <Typography variant="h1">{text}</Typography>
       {withAccountOptions ? <AccountMenu /> : null}
