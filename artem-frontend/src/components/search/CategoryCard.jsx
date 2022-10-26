@@ -1,10 +1,12 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
+import { Link } from "react-router-dom";
 
 // function for each category card to get a fitting title and img
-function CategoryCard({ title, imageIndex, link }) {
+function CategoryCard({ title, imageIndex, url }) {
   return (
     // showcasing images for our cagetory cards
+    <Link to={url}>
     <Box
     // fetching a specific image from our public folder
       sx={{
@@ -45,6 +47,8 @@ function CategoryCard({ title, imageIndex, link }) {
         {title}
       </Typography>
     </Box>
+    </Link>
+
   );
 }
 

@@ -19,6 +19,7 @@ import Saved from "./pages/Saved";
 import Home from "./pages/Home";
 import PostDetails from "./pages/PostDetails";
 import Landing from "./pages/Landing"
+import Category from "./pages/Category";
 
 const auth = getAuth(firebaseApp);
 
@@ -78,6 +79,7 @@ const createRoutes = () =>
         <Route path="search" element={<Search />} />
         <Route path="post/:id" element={<PostDetails />} />
         <Route path="landing" element={<Landing />} />
+        <Route path="/:category" element={<Category />} />
       </Route>
       <Route path="login" element={<Login />} />
       <Route path="register" element={<Register />} />

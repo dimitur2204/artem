@@ -40,7 +40,7 @@ function CategoryList() {
       {categories.map((c) => {
         return (
           <Box key={c.imageIndex} sx={{ mb: theme.spacing(2) }}>
-            <CategoryCard title={c.title} imageIndex={c.imageIndex} />
+            <CategoryCard title={c.title} imageIndex={c.imageIndex} url={`/${c.title}`} />
           </Box>
         );
       })}
