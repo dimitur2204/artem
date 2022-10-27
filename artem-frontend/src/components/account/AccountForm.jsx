@@ -1,4 +1,5 @@
-import { AccountBox, Google, Lock, Facebook } from "@mui/icons-material";
+import { AccountBox, Google, Lock, } from "@mui/icons-material";
+import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 import {
   Alert,
   Box,
@@ -129,7 +130,7 @@ function AccountForm({ type, onSubmit, error, loading }) {
           signInWithGoogle(["email", "profile"]).then(() => navigate("/"));
         }}
       >
-        <Facebook />
+        <FacebookRoundedIcon />
       </IconButton>
       </div>
       {type === "login" ? (
