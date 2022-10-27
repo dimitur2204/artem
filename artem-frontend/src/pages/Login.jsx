@@ -26,7 +26,7 @@ function Login() {
   });
   // handling login action
   return (
-    <Container sx={{ backgroundColor: "#F7F6F5", height: "100vh" }}>
+    <Container sx={{ backgroundColor: "#F7F6F5", height: "100vh", }}>
       <AccountForm
         type="login"
         error={error}
