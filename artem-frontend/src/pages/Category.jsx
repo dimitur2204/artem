@@ -11,15 +11,15 @@ import { Pagination, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { capitalize } from "lodash";
 import { collection, getFirestore, query, where } from "firebase/firestore";
 import firebaseApp from "../firebase-config";
 import { usePosts } from "../hooks/usePosts";
 
-function Slide({ url, title }) {
+function Slide({ url, title, id }) {
   return (
-  <Box>
+  <Box as={Link} to={`/post/${id}`}>
     <Box style={{ position: "absolute", bottom: theme.spacing(2), left: theme.spacing(2), zIndex: 1 }}>
     <Typography variant="h2" color={theme.palette.background.paper}>{title}</Typography>
     <Typography lineHeight="0.9" marginTop={theme.spacing(1)} fontSize="0.9rem" fontWeight="light" color={theme.palette.background.paper}>CURRENT BID</Typography>
@@ -90,7 +90,7 @@ export default function Category() {
         >
           {postsWithImg?.filter(post => post.isFeatured).map((post) => (
             <SwiperSlide key={post.id}>
-              <Slide url={post.url} title={post.title} />
+              <Slide id={post.id} url={post.url} title={post.title} />
             </SwiperSlide>
           ))}
         </Swiper>
