@@ -7,7 +7,7 @@ import AccountForm from "../components/account/AccountForm";
 import firebaseApp from "../firebase-config";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
-
+// code to get our users registered
 const auth = getAuth(firebaseApp);
 function Register() {
   const [createUserWithEmailAndPassword, user, loading, error] =

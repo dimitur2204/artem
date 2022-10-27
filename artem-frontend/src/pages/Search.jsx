@@ -20,6 +20,7 @@ function Search() {
         <IconButton sx={{ pl: 0 }} color="primary">
           <SearchIcon />
         </IconButton>
+        {/* white box for typing what users search for */}
         <Input
           endAdornment={
             <InputAdornment position="end">
@@ -37,6 +38,7 @@ function Search() {
         />
       </Box>
 
+          {/*displaying category list so that users can choose from different kinds of art */}
       {!value ? (
         <CategoryList />
       ) : (
@@ -48,6 +50,7 @@ function Search() {
             width: "100%",
             height: "calc(70vh - 56px)",
           }}
+          // if results finds no such item, this will be displayed
         >
           <Typography sx={{}}>There are no results found...</Typography>
         </Box>
