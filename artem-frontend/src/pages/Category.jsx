@@ -20,7 +20,12 @@ import { usePosts } from "../hooks/usePosts";
 function Slide({ url, title }) {
   return (
   <Box>
-      <Typography variant="h2" style={{ position: "absolute", bottom: theme.spacing(2), left: theme.spacing(2), zIndex: 1 }} color={theme.palette.background.paper}>{title}</Typography>
+    <Box style={{ position: "absolute", bottom: theme.spacing(2), left: theme.spacing(2), zIndex: 1 }}>
+    <Typography variant="h2" color={theme.palette.background.paper}>{title}</Typography>
+    <Typography lineHeight="0.9" marginTop={theme.spacing(1)} fontSize="0.9rem" fontWeight="light" color={theme.palette.background.paper}>CURRENT BID</Typography>
+    <Typography fontSize="1.1rem" fontWeight="bold" color={theme.palette.background.paper}>243€</Typography>
+
+    </Box>
       <img
         style={{
           width: "100%",

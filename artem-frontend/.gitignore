@@ -25,3 +25,5 @@ yarn-error.log*
 firebase-config.js
 
 .DS_Store
+
+*.report.html

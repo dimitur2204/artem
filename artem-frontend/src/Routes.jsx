@@ -43,6 +43,7 @@ const createRoutes = () =>
         }
       >
         <Route path="/" element={<Navigate to="/home" />} />
+        <Route path="/artem/home" element={<Navigate to="/home" />} />
         <Route
           path="bids"
           element={
