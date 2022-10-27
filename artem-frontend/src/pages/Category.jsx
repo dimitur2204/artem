@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React from "react";
 import ImageList from "../components/global/ImageList";
 import Header from "../components/Header";
 import theme from "../theme";
@@ -13,11 +13,9 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { useParams } from "react-router-dom";
 import { capitalize } from "lodash";
-import { collection, getFirestore, where } from "firebase/firestore";
-import { useCollection } from "react-firebase-hooks/firestore";
+import { collection, getFirestore, query, where } from "firebase/firestore";
 import firebaseApp from "../firebase-config";
-import { useDownloadURL } from "react-firebase-hooks/storage";
-import { getDownloadURL, getStorage, ref } from "firebase/storage";
+import { usePosts } from "../usePosts";
 
 function Slide({ url, title }) {
   return (
@@ -42,34 +40,12 @@ function Slide({ url, title }) {
   );
 }
 
-const storage = getStorage(firebaseApp);
-
 export default function Category() {
   const { category } = useParams();
-  const [value] = useCollection(
+  const postsWithImg = usePosts(query(
     collection(getFirestore(firebaseApp), "posts"),
-    where("category", "==", category.toLowerCase())
-  );
-  const [postsWithImg, setPostsWithImage] = useState([]);
-  const fetchData = useCallback(async (postCollection) => {
-    if (!postCollection) return;
-    const posts = await Promise.all(
-      postCollection?.docs?.map((snapshot) => {
-        const doc = snapshot.data();
-        return getDownloadURL(
-          ref(storage, `/${snapshot.id}/1-${snapshot.id}`)
-        ).then((url) => {
-          return { ...doc, id: snapshot.id, url };
-        });
-      })
-    );
-    return posts;
-  }, []);
-  useEffect(() => {
-    fetchData(value).then((res) => {
-      setPostsWithImage(res);
-    });
-  }, [value, fetchData]);
+  where("category", "==", category.toLowerCase())
+  ) )
   return (
     <>
       <Header
