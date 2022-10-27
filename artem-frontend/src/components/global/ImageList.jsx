@@ -32,7 +32,7 @@ function ImageList({ posts, count, title, sx }) {
             style={{ transformOrigin: '0 0 0' }}
             timeout={Math.min(...[index * 150, 3000])}
           >
-                      <ImageListItem as={Link} to={`/post/${post.id}`} key={post.id}>
+           <ImageListItem as={Link} to={`/post/${post.id}`} key={post.id}>
             {/* fetching a specific image */}
             <img
               src={post.url}
