@@ -33,7 +33,7 @@ export default function BottomNavigation() {
       >
         <BottomNavigationAction
           label="Home"
-          icon={<AccountBalanceIcon />}
+          icon={<AccountBalanceIcon style={{width:190}}/>}
           component={RouterLink}
           to="/"
         />
