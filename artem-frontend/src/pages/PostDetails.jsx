@@ -16,6 +16,7 @@ import { FavoriteBorder, Favorite } from "@mui/icons-material";
 import { Container } from "@mui/system";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
+import { AutoAwesomeMotion } from "@mui/icons-material";
 import theme from "../theme";
 import ListUsers from "../components/ListUsers";
 
@@ -25,14 +26,11 @@ function Slide({ url, title }) {
   const [liked, setLiked] = React.useState(false);
   return (
     <div>
-      <img style={{ width: "100%" }} src={url} alt={title}></img>
-
+      {/* //the image that can be seen in the slider */}
+      <img style={{ width: "100%" }} src={url} alt={title}></img> 
+      {/* icons for likes and saves  */}
       <div style={{ position: "absolute", bottom: "10px", right: "10px" }}>
-        <IconButton
-          variant={liked ? "outlined" : "contained"}
-          onClick={() => setLiked(!liked)}
-          disableElevation
-        >
+        <IconButton variant={liked ? "outlined" : "contained"}onClick={() => setLiked(!liked)} disableElevation>
           <FavoriteBorder
             sx={{
               width: "30px",
@@ -45,7 +43,7 @@ function Slide({ url, title }) {
           />
         </IconButton>
         <IconButton style={{}}>
-          <RemoveRedEyeIcon
+          <AutoAwesomeMotion
             sx={{
               width: "30px",
               height: "30px",
@@ -60,9 +58,9 @@ function Slide({ url, title }) {
     </div>
   );
 }
-
+// timer for the bid ending
 export default function PostDetails() {
-  const [timer, setTimer] = useState(86400 * 2 + 3600 * 4 + 60 * 50 + 43);
+  const [timer, setTimer] = useState(86400 * 2 + 3600 * 4 + 60 * 50 + 43); //setting the timer for 2 days, 4 hours ...
   useEffect(() => {
     const intervalId = setInterval(() => setTimer((timer) => timer - 1), 1000);
 
@@ -76,8 +74,9 @@ export default function PostDetails() {
           sx={{ width: 32, height: 32 }}
         />
       </IconButton>
-
+{/* the slideshow */}
       <Swiper
+      // the bulltes that show the page you are on and the arrows
         pagination={{
           dynamicBullets: true,
         }}
@@ -101,6 +100,8 @@ export default function PostDetails() {
           />
         </SwiperSlide>
       </Swiper>
+
+      {/* everything underneath the slideshow */}
       <Container
         style={{ marginTop: theme.spacing(3), marginBottom: theme.spacing(3)}}
       >
@@ -148,12 +149,13 @@ export default function PostDetails() {
               />
             </IconButton>
           </div>
-
+{/* displaying the timer */}
           <Typography>
             Closes in:
+            {/* checking if the remaining amount is divisible by the number of seconds that make up a day/ hour/ minutes and then continues */}
             {` ${Math.floor(timer / 86400)}d ${Math.floor(
               (timer % 86400) / 3600
-            )}h ${Math.floor((timer % 3600) / 60)}m ${Math.floor(timer % 60)}s`}
+            )}h ${Math.floor((timer % 3600) / 60)}m ${Math.floor(timer % 60)}s`} 
           </Typography>
         </div>
         <Typography>Bid history</Typography>

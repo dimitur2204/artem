@@ -47,7 +47,7 @@ export default function Account() {
   }, [value, fetchData]);
   return (
     <>
-      <Header text="Account" withAccountOptions />
+      <Header text="My exhibition" withAccountOptions />
       {/* container containing the infromation of a user (img/name/intro/SoMe) */}
       <Container
         style={{ marginTop: theme.spacing(3), marginBottom: theme.spacing(3) }}
