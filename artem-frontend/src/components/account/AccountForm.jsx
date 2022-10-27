@@ -31,7 +31,7 @@ function AccountForm({ type, onSubmit, error, loading }) {
       <Header withBackButton sx={{ paddingLeft: 0, mt: theme.spacing(1) }} />
       <div style={{ display: "flex", justifyContent: "center" }}>
         <img
-          src={`${process.env.PUBLIC_URL}/logos/192.png`}
+          src={`${process.env.PUBLIC_URL}/A.svg`}
           width={100}
           height={100}
           alt="logo"

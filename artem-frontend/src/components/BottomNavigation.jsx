@@ -32,31 +32,31 @@ export default function BottomNavigation() {
         }}
       >
         <BottomNavigationAction
-          icon={<AccountBalanceIcon style={{width:190}}/>}
+          icon={<AccountBalanceIcon sx={{width: "30px", height: "30px", color:"black"}}/>}
           component={RouterLink}
           to="/"
         />
 
         <BottomNavigationAction
-          icon={<BalanceIcon />}
+          icon={<BalanceIcon sx={{width: "30px", height: "30px", color:"black"}}/>}
           component={RouterLink}
           to="/bids"
         />
 
         <BottomNavigationAction
-          icon={<AddCircleOutlined />}
+          icon={<AddCircleOutlined sx={{width: "30px", height: "30px", color:"black"}}/>}
           component={RouterLink}
           to="/create"
         />
 
         <BottomNavigationAction
-          icon={<AutoAwesomeMotion />}
+          icon={<AutoAwesomeMotion sx={{width: "30px", height: "30px", color:"black"}}/>}
           component={RouterLink}
           to="/saved"
         />
 
         <BottomNavigationAction
-          icon={<AccountCircleIcon />}
+          icon={<AccountCircleIcon sx={{width: "30px", height: "30px", color:"black"}}/>}
           component={RouterLink}
           to={user ? "/account" : "/login"}
         />
