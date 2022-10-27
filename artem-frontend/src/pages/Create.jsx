@@ -10,6 +10,7 @@ import firebaseApp from "../firebase-config";
 import { addDoc, collection, getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { toast } from "react-toastify";
 
 const storage = getStorage();
 const auth = getAuth();
@@ -134,6 +135,11 @@ function Create() {
               disableElevation
               onClick={async () => {
                 await createDocument();
+                toast.success("Post created successfully");
+                setImages([]);
+                setTitle("");
+                setDescription("");
+                setForSale(false);
               }}
             >
               {" "}
