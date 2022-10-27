@@ -8,9 +8,9 @@ export const itemData1 = [
     hours: "2 hours left",
   },
   {
-    img: "dream.png",
-    title: "Catcher of dreams",
-    author: "356.00$ <br> 4 hours left",
+    img: "worker.png",
+    title: "The iron worker",
+    bid: "356.00$",
   },
   {
     img: "coaster.png",
