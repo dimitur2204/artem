@@ -4,7 +4,8 @@ export const itemData1 = [
   {
     img: "fox.png",
     title: "The fox wanderer",
-    author: "170.00$ <br> 2 hours left",
+    bid: "170.00$",
+    hours: "2 hours left",
   },
   {
     img: "dream.png",

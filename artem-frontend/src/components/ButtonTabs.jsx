@@ -36,7 +36,7 @@ function Bids() {
             backgroundColor: theme.palette.background.paper,
           }}
         >
-          <ImageList sx={{ width: "100%", height: "100%" }}>
+          <ImageList sx={{ width: "100%", height: "100%", overFlow: "auto" }}>
             {itemData1.map((item) => (
               <ImageListItem key={item.img}>
                 <img
@@ -47,7 +47,8 @@ function Bids() {
                 />
                 <ImageListItemBar
                   title={item.title}
-                  subtitle={<span>Current bid: {item.author}</span>}
+                  subtitle={<span>Current bid: {item.bid}</span>}
+                  //subtitle={<span>Hours left: {item.hours}</span>}
                   position="below"
                 />
               </ImageListItem>
@@ -60,7 +61,7 @@ function Bids() {
             backgroundColor: theme.palette.background.paper,
           }}
         >
-          <ImageList sx={{ width: "100%", height: "100%" }}>
+          <ImageList sx={{ width: "100%", height: "100%", overFlow: "auto" }}>
             {itemData2.map((item) => (
               <ImageListItem key={item.img}>
                 <img
