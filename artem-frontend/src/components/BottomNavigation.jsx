@@ -32,35 +32,30 @@ export default function BottomNavigation() {
         }}
       >
         <BottomNavigationAction
-          label="Home"
           icon={<AccountBalanceIcon style={{width:190}}/>}
           component={RouterLink}
           to="/"
         />
 
         <BottomNavigationAction
-          label="Balance"
           icon={<BalanceIcon />}
           component={RouterLink}
           to="/bids"
         />
 
         <BottomNavigationAction
-          label="Add art"
           icon={<AddCircleOutlined />}
           component={RouterLink}
           to="/create"
         />
 
         <BottomNavigationAction
-          label="Saved"
           icon={<AutoAwesomeMotion />}
           component={RouterLink}
           to="/saved"
         />
 
         <BottomNavigationAction
-          label="Account"
           icon={<AccountCircleIcon />}
           component={RouterLink}
           to={user ? "/account" : "/login"}
