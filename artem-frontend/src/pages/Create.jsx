@@ -23,6 +23,8 @@ function Create() {
   const [user] = useAuthState(auth);
   const upload = async (document) => {
     if (images) {
+      //it tells where to create the file ( in a folder = document.id)
+
       const uploadPromises = Array.from(images).map((img, index) => {
         const storageRef = ref(
           storage,
@@ -72,8 +74,10 @@ function Create() {
           height: "30vh",
         }}
       >
+        {/* this is an invisible input field that is called inside the fab component (styling is horrible and cannot be changed, hence the invisibility) */}
         <input
           onChange={(e) => {
+            // combine arrays into one
             setImages(currentImages => currentImages.concat(Array.from(e.target.files)));
           }}
           type="file"
@@ -81,6 +85,7 @@ function Create() {
           style={{ visibility: "hidden", width: 0 }}
           name="file_image"
         />
+      {/* plus icon to add items for sale */}
         <Fab
           onClick={() => {
             document.querySelector("input[type='file']").click();
@@ -94,6 +99,7 @@ function Create() {
           <Add />
         </Fab>
       </div>
+      {/* field to insert a title of an item */}
       <Container>
         <Input
           placeholder="Title"
@@ -102,7 +108,7 @@ function Create() {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-
+      {/* field to insert a description of an item */}
         <Input
           name="description"
           type="text"
@@ -114,13 +120,14 @@ function Create() {
           }}
           multiline
           rows={3}
-          placeholder="Item description"
+          placeholder="What is the story behind the piece?"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
+        {/* switcher to choose if the item is for sale or not */}
         <Box display="flex" justifyContent="space-between">
           <Box>
-            <Typography>Is your item for sale?</Typography>
+            <Typography>Is your piece for sale?</Typography>
             <Switch
               color="primary"
               checked={isForSale}
@@ -129,6 +136,7 @@ function Create() {
           </Box>
           <Box>
             {" "}
+            {/* Button to publish an item */}
             <Button
               variant="contained"
               size="large"
@@ -143,7 +151,7 @@ function Create() {
               }}
             >
               {" "}
-              Post
+              Publish
             </Button>
           </Box>
         </Box>

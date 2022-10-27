@@ -38,7 +38,7 @@ function AccountForm({ type, onSubmit, error, loading }) {
           style={{ alignSelf: "center", justifyContent: "center" }}
         />
       </div>
-      <Typography align="center" variant="h1" sx={{ mb: theme.spacing(4) }}>
+      <Typography marginTop="0rem" align="center" variant="h1" sx={{ mb: theme.spacing(4) }}>
         {capitalize(type)}
       </Typography>
       <form
