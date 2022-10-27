@@ -19,7 +19,9 @@ import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import theme from "../theme";
 import ListUsers from "../components/ListUsers";
 
-function Slide({ url, title }) {
+
+//local component for the "slideshow"
+function Slide({ url, title }) { 
   const [liked, setLiked] = React.useState(false);
   return (
     <div>

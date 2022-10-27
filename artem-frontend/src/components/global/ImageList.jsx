@@ -10,7 +10,7 @@ import {
 import React from "react";
 import { FavoriteBorder } from "@mui/icons-material";
 import theme from "../../theme";
-function ImageList({ count, title, sx }) {
+function ImageList({ posts, count, title, sx }) {
   return (
     <>
       {/* creating a image-grid component to reuse throughout the pages  */}
@@ -22,11 +22,11 @@ function ImageList({ count, title, sx }) {
         gap={1}
         sx={{ marginTop: theme.spacing(1), ...sx }}
       >
-        {Array.from(Array(3).keys()).map((item, index) => (
-          <ImageListItem key={item.img}>
+        {posts?.map((post, index) => (
+          <ImageListItem key={post.url}>
             {/* fetching a specific image */}
             <img
-              src={`${process.env.PUBLIC_URL}/post-${index + 1}.jpg`}
+              src={post.url}
               loading="lazy"
               alt="TODO: Add TITLE"
             />

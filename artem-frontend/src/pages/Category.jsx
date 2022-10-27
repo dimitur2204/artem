@@ -102,8 +102,8 @@ export default function Category() {
           />
         </SwiperSlide>
       </Swiper>
-      <ImageList title="Trending" sx={{ marginBottom: theme.spacing(10) }} />
-      <ImageList title="More of the things you like" />
+      <ImageList posts={postsWithImg} title="Trending" sx={{ marginBottom: theme.spacing(10) }} />
+      <ImageList posts={postsWithImg} title="More of the things you like" />
     </>
   );
 }

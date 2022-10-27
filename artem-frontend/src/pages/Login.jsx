@@ -24,6 +24,7 @@ function Login() {
       toast.success("Logged in successfully");
     }
   });
+  // handling login action
   return (
     <Container sx={{ backgroundColor: "#F7F6F5", height: "100vh" }}>
       <AccountForm
