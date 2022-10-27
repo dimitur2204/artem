@@ -31,6 +31,5 @@ export default function LandingPage () {
             </Button>
        </div> 
       </div>
-    </div>
-  );
+     );
 }
