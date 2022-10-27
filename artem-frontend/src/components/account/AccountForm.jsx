@@ -27,8 +27,9 @@ function AccountForm({ type, onSubmit, error, loading }) {
   const [signInWithGoogle] = useSignInWithGoogle(auth);
   const navigate = useNavigate();
   return (
-    <Box>
-      <Header withBackButton sx={{ paddingLeft: 0, mt: theme.spacing(1) }} />
+    <>
+    <Header withBackButton sx={{ paddingLeft: 0, mt: theme.spacing(1) }} />
+    <Box style={{display: "flex", flexDirection: "column", margin: "50% 15% 0 15%", alignItems: "center"}}>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <img
           src={`${process.env.PUBLIC_URL}/logos/192.png`}
@@ -39,12 +40,13 @@ function AccountForm({ type, onSubmit, error, loading }) {
         />
       </div>
       <Typography marginTop="0rem" align="center" variant="h1" sx={{ mb: theme.spacing(4) }}>
-        {capitalize(type)}
+        {capitalize(type)} 
       </Typography>
       <form
         onSubmit={(e) => {
           onSubmit(e, { email, password, repeatPassword });
-        }}
+        }} 
+        style={{display:"flex", flexDirection: "column", alignItems: "center"}}
       >
         {/* boxes for users to log in */}
         <Input
@@ -102,31 +104,15 @@ function AccountForm({ type, onSubmit, error, loading }) {
           size="large"
           type="submit"
           disabled={loading}
-          fullWidth
           disableElevation
+          style={{width: "60%"}}
         >
           {loading ? <CircularProgress size={14} /> : capitalize(type)}
         </Button>
       </form>
       {/* if a user does not have an account yet, register option */}
-
-      {type === "login" ? (
-        <>
-          <Typography
-            display="inline"
-            align="center"
-            sx={{ mt: theme.spacing(2) }}
-          >
-            Don’t have account?{" "}
-          </Typography>
-          <Typography color="primary" display="inline">
-            <Link to="/register" style={{ color: theme.palette.primary.main }}>
-              Register
-            </Link>
-          </Typography>
-        </>
-      ) : null}
-      {/* possibility to log in with google */}
+ {/* possibility to log in with google */}
+ <div style={{marginTop:"80%"}}>
       <IconButton
         aria-label="Sign in with Google"
         onClick={() => {
@@ -145,7 +131,26 @@ function AccountForm({ type, onSubmit, error, loading }) {
       >
         <Facebook />
       </IconButton>
+      </div>
+      {type === "login" ? (
+        <>
+          <Typography
+            display="inline"
+            align="center"
+            sx={{ mt: theme.spacing(2) }}
+          >
+            Don’t have account?{" "}
+          </Typography>
+          <Typography color="primary" display="inline">
+            <Link to="/register" style={{ color: theme.palette.primary.main }}>
+              Register
+            </Link>
+          </Typography>
+        </>
+      ) : null}
+     
     </Box>
+    </>
   );
 }
 
