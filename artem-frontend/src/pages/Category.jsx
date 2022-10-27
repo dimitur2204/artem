@@ -3,7 +3,7 @@ import ImageList from "../components/global/ImageList";
 import Header from "../components/Header";
 import theme from "../theme";
 
-import { IconButton, Skeleton } from "@mui/material";
+import { Box, IconButton, Skeleton, Typography } from "@mui/material";
 import { FavoriteBorder } from "@mui/icons-material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
@@ -19,7 +19,8 @@ import { usePosts } from "../hooks/usePosts";
 
 function Slide({ url, title }) {
   return (
-    <div>
+  <Box>
+      <Typography variant="h2" style={{ position: "absolute", bottom: theme.spacing(2), left: theme.spacing(2), zIndex: 1 }} color={theme.palette.background.paper}>{title}</Typography>
       <img
         style={{
           width: "100%",
@@ -30,7 +31,6 @@ function Slide({ url, title }) {
         src={url}
         alt={title}
       ></img>
-
       <div style={{ position: "absolute", top: "10px", right: "10px" }}>
         <IconButton style={{}}>
           <FavoriteBorder
@@ -45,7 +45,10 @@ function Slide({ url, title }) {
           />
         </IconButton>
       </div>
-    </div>
+
+      <div style={{ position: "absolute", top: "0", right: "0", height: 232, width:"100%", background: "linear-gradient(180deg, rgba(18,17,78,0) 0%, rgba(0,0,0,0.5270702030812324) 57%, rgba(0,0,0,0.8772102591036415) 96%)" }}>
+      </div>
+    </Box>
   );
 }
 
@@ -80,9 +83,9 @@ export default function Category() {
           className="mySwiper"
           style={{ marginBottom: theme.spacing(3), height: 232 }}
         >
-          {postsWithImg?.map((post) => (
+          {postsWithImg?.filter(post => post.isFeatured).map((post) => (
             <SwiperSlide key={post.id}>
-              <Slide url={post.url} />
+              <Slide url={post.url} title={post.title} />
             </SwiperSlide>
           ))}
         </Swiper>

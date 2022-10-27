@@ -20,6 +20,7 @@ export default function LandingPage() {
       <img
         src={`${process.env.PUBLIC_URL}/blob.svg`}
         style={{ position: "absolute", top: "-550px", left: "100px" }}
+        alt=""
       ></img>
       <div
         style={{
@@ -32,7 +33,7 @@ export default function LandingPage() {
           paddingTop: "50%",
         }}
       >
-        <img src={`${process.env.PUBLIC_URL}/logo-white.png`}></img>
+        <img alt="White logo showing a capital A" src={`${process.env.PUBLIC_URL}/logo-white.png`}></img>
         <Typography variant="h2" style={{ color: "white", fontSize: "2.7rem" }}>
           Hello!
         </Typography>
