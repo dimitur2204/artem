@@ -1,33 +1,33 @@
-// Putting the bids as arrrays
+  // array of items in the bids 
 
-export const itemData1 = [
+  export const itemData1 = [
   {
     img: "fox.png",
     title: "The fox wanderer",
-    bid: "170.00$",
-    hours: "2 hours left",
+    author: "Current bid <br> 170.00$ <br> 2 hours left",
   },
   {
     img: "dream.png",
     title: "Catcher of dreams",
-    author: "356.00$ <br> 4 hours left",
+    author: "Current bid <br> 356.00$ <br> 4 hours left",
   },
   {
     img: "coaster.png",
     title: "Coral Coaster",
-    author: "54.00$ <br> 9 hours left",
+    author: "Current bid <br> 54.00$ <br> 9 hours left",
   },
-];
-
+], 
 export const itemData2 = [
   {
     img: "snail.png",
     title: "Snail Overboard",
-    author: "31.00$ <br> 10 hours left",
+    author: "Current bid <br> 31.00$ <br> 10 hours left",
   },
   {
     img: "holder.png",
     title: "Plant Holder",
-    author: "61.00$ <br> 12 hours left",
+    author: "Current bid <br> 61.00$ <br> 12 hours left",
   },
 ];
+
+export default itemData;

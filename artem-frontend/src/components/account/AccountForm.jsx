@@ -30,7 +30,7 @@ function AccountForm({ type, onSubmit, error, loading }) {
   return (
     <>
     <Header withBackButton sx={{ paddingLeft: 0, mt: theme.spacing(1) }} />
-    <Box style={{display: "flex", flexDirection: "column", margin: "50% 15% 0 15%", alignItems: "center"}}>
+    <Box style={{display: "flex", flexDirection: "column", margin: "25% 15% 0 15%", alignItems: "center"}}>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <img
           src={`${process.env.PUBLIC_URL}/A.svg`}
@@ -52,7 +52,11 @@ function AccountForm({ type, onSubmit, error, loading }) {
         {/* boxes for users to log in */}
         <Input
           endAdornment={
-            <InputAdornment position="end">
+            <InputAdornment sx={{
+              input: {
+                background: "white"
+              }
+            }}  position="end">
               <AccountBox />
               {/* username box */}
             </InputAdornment>
@@ -111,16 +115,19 @@ function AccountForm({ type, onSubmit, error, loading }) {
           {loading ? <CircularProgress size={14} /> : capitalize(type)}
         </Button>
       </form>
+      <Typography>Forgot your password?</Typography>
       {/* if a user does not have an account yet, register option */}
  {/* possibility to log in with google */}
- <div style={{marginTop:"80%"}}>
+
+ <div style={{marginTop:"75%"}}>
+ <Typography>or connect with </Typography>
       <IconButton
         aria-label="Sign in with Google"
         onClick={() => {
           signInWithGoogle(["email", "profile"]).then(() => navigate("/"));
         }}
       >
-        <Google />
+        <Google sx={{width: "45px", height:"45px"}} />
       </IconButton>
 
       {/* possibility to log in with facebook (currently only links to google login as it is too much hassle to log in with facebook*/}
@@ -130,7 +137,7 @@ function AccountForm({ type, onSubmit, error, loading }) {
           signInWithGoogle(["email", "profile"]).then(() => navigate("/"));
         }}
       >
-        <FacebookRoundedIcon />
+        <FacebookRoundedIcon sx={{width: "45px", height:"45px"}}/>
       </IconButton>
       </div>
       {type === "login" ? (
