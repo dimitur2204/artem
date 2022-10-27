@@ -60,7 +60,7 @@ function Create() {
       <Box>
         {images &&
           Array.from(images).map((image) => (
-            <span>Selected file: {image.name}</span>
+            <span key={image.name}>Selected file: {image.name}</span>
           ))}
       </Box>
       <div

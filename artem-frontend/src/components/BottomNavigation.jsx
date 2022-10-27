@@ -9,9 +9,9 @@ import AddCircleOutlined from "@mui/icons-material/AddCircleOutlined";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { getAuth } from "firebase/auth";
 import firebaseApp from "../firebase-config";
-import HomeIcon from "./HomeIcon";
 import { AutoAwesomeMotion } from "@mui/icons-material";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
+import theme from "../theme";
 
 const auth = getAuth(firebaseApp);
 
@@ -32,31 +32,31 @@ export default function BottomNavigation() {
         }}
       >
         <BottomNavigationAction
-          icon={<AccountBalanceIcon sx={{width: "30px", height: "30px", color:"black"}}/>}
+          icon={<AccountBalanceIcon sx={{width: "30px", height: "30px", color: value === 0 ? theme.palette.primary.main : "black"}}/>}
           component={RouterLink}
           to="/"
         />
 
         <BottomNavigationAction
-          icon={<BalanceIcon sx={{width: "30px", height: "30px", color:"black"}}/>}
+          icon={<BalanceIcon sx={{width: "30px", height: "30px", color: value === 1 ? theme.palette.primary.main : "black"}}/>}
           component={RouterLink}
           to="/bids"
         />
 
         <BottomNavigationAction
-          icon={<AddCircleOutlined sx={{width: "30px", height: "30px", color:"black"}}/>}
+          icon={<AddCircleOutlined sx={{width: "30px", height: "30px", color: value === 2 ? theme.palette.primary.main : "black"}}/>}
           component={RouterLink}
           to="/create"
         />
 
         <BottomNavigationAction
-          icon={<AutoAwesomeMotion sx={{width: "30px", height: "30px", color:"black"}}/>}
+          icon={<AutoAwesomeMotion sx={{width: "30px", height: "30px", color: value === 3 ? theme.palette.primary.main : "black"}}/>}
           component={RouterLink}
           to="/saved"
         />
 
         <BottomNavigationAction
-          icon={<AccountCircleIcon sx={{width: "30px", height: "30px", color:"black"}}/>}
+          icon={<AccountCircleIcon sx={{width: "30px", height: "30px", color: value === 4 ? theme.palette.primary.main : "black"}}/>}
           component={RouterLink}
           to={user ? "/account" : "/login"}
         />

@@ -3,16 +3,16 @@ import React from "react";
 import ImageList from "../components/global/ImageList";
 import Header from "../components/Header";
 import firebaseApp from "../firebase-config";
-import { usePosts } from "../usePosts";
+import { usePosts } from "../hooks/usePosts";
 
 //Our Collection page that consists of Header + ImageList component
 function Saved() {
-  const posts = usePosts(query(collection(getFirestore(firebaseApp), "posts")))
+  const {postsWithImg} = usePosts(query(collection(getFirestore(firebaseApp), "posts")))
   
   return (
     <>
       <Header text="Saved" />
-      <ImageList posts={posts} />
+      <ImageList posts={postsWithImg} />
     </>
   );
 }

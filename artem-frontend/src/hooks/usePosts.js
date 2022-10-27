@@ -1,11 +1,13 @@
 import { getDownloadURL, getStorage, ref } from "firebase/storage";
 import { useCallback, useEffect, useState } from "react";
 import { useCollection } from "react-firebase-hooks/firestore";
-import firebaseApp from "./firebase-config";
+import firebaseApp from "../firebase-config";
 
 const storage = getStorage(firebaseApp);
 export const usePosts = (query) => {
-    const [value] = useCollection(query);
+    const [value, loading, error] = useCollection(query);
+    const [postsLoading,setLoading] = useState(loading)
+    const [postsError,setError] = useState(error)
     const [postsWithImg, setPostsWithImage] = useState([]);
     const fetchData = useCallback(async (postCollection) => {
       if (!postCollection) return;
@@ -15,7 +17,10 @@ export const usePosts = (query) => {
           return getDownloadURL(
             ref(storage, `/${snapshot.id}/1-${snapshot.id}`)
           ).then((url) => {
+            setLoading(false)
             return { ...doc, id: snapshot.id, url };
+          }).catch(err => {
+            setError(err)
           });
         })
       );
@@ -26,5 +31,5 @@ export const usePosts = (query) => {
         setPostsWithImage(res);
       });
     }, [value, fetchData]);
-    return postsWithImg
+    return {postsWithImg, error: postsError, loading: postsLoading}
 }

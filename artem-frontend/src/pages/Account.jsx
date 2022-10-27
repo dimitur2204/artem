@@ -12,7 +12,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { getAuth } from "firebase/auth";
 import firebaseApp from "../firebase-config";
 import { collection, getFirestore, query, where } from "firebase/firestore";
-import { usePosts } from "../usePosts";
+import { usePosts } from "../hooks/usePosts";
 
 const auth = getAuth(firebaseApp);
 
@@ -20,7 +20,7 @@ export default function Account() {
   const [followed, setFollowed] = React.useState(false);
   const [user] = useAuthState(auth);
 
-  const postsWithImg = usePosts(    query(collection(getFirestore(firebaseApp), "posts"),
+  const {postsWithImg} = usePosts(    query(collection(getFirestore(firebaseApp), "posts"),
   where("authorId", "==", user.uid)))
   return (
     <>

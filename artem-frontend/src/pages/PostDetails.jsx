@@ -11,7 +11,6 @@ import "swiper/css/navigation";
 // import required modules
 import { Pagination, Navigation } from "swiper";
 import { Typography, Button, IconButton, Box } from "@mui/material";
-import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import { FavoriteBorder, Favorite } from "@mui/icons-material";
 import { Container } from "@mui/system";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
@@ -19,6 +18,8 @@ import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import { AutoAwesomeMotion } from "@mui/icons-material";
 import theme from "../theme";
 import ListUsers from "../components/ListUsers";
+import { useNavigate, useParams } from "react-router-dom";
+import { useSinglePost } from "../hooks/useSinglePost";
 
 
 //local component for the "slideshow"
@@ -27,11 +28,11 @@ function Slide({ url, title }) {
   return (
     <div>
       {/* //the image that can be seen in the slider */}
-      <img style={{ width: "100%" }} src={url} alt={title}></img> 
+      <img style={{ width: "100%", height: 260, objectFit: "cover" }} src={url} alt={title}></img> 
       {/* icons for likes and saves  */}
       <div style={{ position: "absolute", bottom: "10px", right: "10px" }}>
-        <IconButton variant={liked ? "outlined" : "contained"}onClick={() => setLiked(!liked)} disableElevation>
-          <FavoriteBorder
+        <IconButton variant={liked ? "outlined" : "contained"} onClick={() => setLiked(!liked)} disableElevation>
+          {!liked ? <FavoriteBorder
             sx={{
               width: "30px",
               height: "30px",
@@ -40,9 +41,16 @@ function Slide({ url, title }) {
               borderRadius: "100px",
               padding: "5px",
             }}
-          />
+          /> : <Favorite sx={{
+            width: "30px",
+            height: "30px",
+            color: "white",
+            backgroundColor: "rgba(0,0,0,0.8)",
+            borderRadius: "100px",
+            padding: "5px",
+          }}/>}
         </IconButton>
-        <IconButton style={{}}>
+        <IconButton>
           <AutoAwesomeMotion
             sx={{
               width: "30px",
@@ -63,12 +71,14 @@ export default function PostDetails() {
   const [timer, setTimer] = useState(86400 * 2 + 3600 * 4 + 60 * 50 + 43); //setting the timer for 2 days, 4 hours ...
   useEffect(() => {
     const intervalId = setInterval(() => setTimer((timer) => timer - 1), 1000);
-
     return () => clearInterval(intervalId);
   }, [timer, setTimer]);
+    const {id} = useParams()
+    const navigate = useNavigate()
+  const {postWithImg} = useSinglePost(id)
   return (
     <>
-      <IconButton size="large" aria-label="goback">
+      <IconButton onClick={() => navigate(-1)} size="large" aria-label="goback">
         <ArrowBackIosIcon
           style={{ color: "black", padding: "10px 5px" }}
           sx={{ width: 32, height: 32 }}
@@ -86,17 +96,8 @@ export default function PostDetails() {
       >
         <SwiperSlide>
           <Slide
-            url={`${process.env.PUBLIC_URL}/post-details-img/Mona-Bisa.png`}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Slide
-            url={`${process.env.PUBLIC_URL}/post-details-img/Mona-Bisa.png`}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Slide
-            url={`${process.env.PUBLIC_URL}/post-details-img/Mona-Bisa.png`}
+            url={postWithImg?.url}
+            title={postWithImg?.title}
           />
         </SwiperSlide>
       </Swiper>
@@ -107,16 +108,14 @@ export default function PostDetails() {
       >
         <Typography>UP FOR AUCTION</Typography>
         <Typography variant="h2" style={{ padding: "10px 0" }}>
-          Mona Bisa
+          {postWithImg?.title}
         </Typography>
         <Typography>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          {postWithImg?.description}
         </Typography>
         <br></br>
         <Typography>
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-          nisi ut aliquip ex ea commodo consequat.
+          Posted by <b>{postWithImg?.authorId}</b>
         </Typography>
 
         <div

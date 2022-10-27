@@ -6,10 +6,12 @@ import {
   Box,
   Typography,
   Container,
+  CircularProgress,
 } from "@mui/material";
 import React from "react";
 import { FavoriteBorder } from "@mui/icons-material";
 import theme from "../../theme";
+import { Link } from "react-router-dom";
 function ImageList({ posts, count, title, sx }) {
   return (
     <>
@@ -17,18 +19,18 @@ function ImageList({ posts, count, title, sx }) {
       <Container>
         <Typography fontSize="1.2rem">{title}</Typography>
       </Container>
-      <ImageListMUI
+      {posts ? <ImageListMUI
         cols={3}
         gap={1}
         sx={{ marginTop: theme.spacing(1), ...sx }}
       >
-        {posts?.map((post, index) => (
-          <ImageListItem key={post.url}>
+        {posts.map((post, index) => (
+          <ImageListItem as={Link} to={`/post/${post.id}`} key={post.id}>
             {/* fetching a specific image */}
             <img
               src={post.url}
               loading="lazy"
-              alt="TODO: Add TITLE"
+              alt={post.title}
             />
             {count ? (
               <ImageListItemBar
@@ -50,7 +52,7 @@ function ImageList({ posts, count, title, sx }) {
                   >
                     <IconButton
                       sx={{ color: "white", width: "25px", height: "25px" }}
-                      aria-label={`like TODO: ADD TITLE`}
+                      aria-label={post.title}
                     >
                       <FavoriteBorder
                         sx={{
@@ -71,7 +73,10 @@ function ImageList({ posts, count, title, sx }) {
             ) : null}
           </ImageListItem>
         ))}
-      </ImageListMUI>
+      </ImageListMUI> : 
+      <Box width="100%" display="flex" justifyContent="center" alignItems="center" padding={2}>
+        <CircularProgress />
+      </Box>}
     </>
   );
 }

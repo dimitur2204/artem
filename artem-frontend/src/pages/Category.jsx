@@ -3,7 +3,7 @@ import ImageList from "../components/global/ImageList";
 import Header from "../components/Header";
 import theme from "../theme";
 
-import { IconButton } from "@mui/material";
+import { Box, IconButton } from "@mui/material";
 import { FavoriteBorder } from "@mui/icons-material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
@@ -15,12 +15,12 @@ import { useParams } from "react-router-dom";
 import { capitalize } from "lodash";
 import { collection, getFirestore, query, where } from "firebase/firestore";
 import firebaseApp from "../firebase-config";
-import { usePosts } from "../usePosts";
+import { usePosts } from "../hooks/usePosts";
 
 function Slide({ url, title }) {
   return (
     <div>
-      <img style={{ width: "100%" }} src={url} alt={title}></img>
+      <img style={{ width: "100%", height: 232, objectFit: "cover", objectPosition: "center"  }} src={url} alt={title}></img>
 
       <div style={{ position: "absolute", top: "10px", right: "10px" }}>
         <IconButton style={{}}>
@@ -42,9 +42,9 @@ function Slide({ url, title }) {
 
 export default function Category() {
   const { category } = useParams();
-  const postsWithImg = usePosts(query(
+  const {postsWithImg} = usePosts(query(
     collection(getFirestore(firebaseApp), "posts"),
-  where("category", "==", category.toLowerCase())
+  category !== "home" ? where("category", "==", category.toLowerCase()) : where("category", "!=", "")
   ) )
   return (
     <>
@@ -60,9 +60,10 @@ export default function Category() {
         // navigation={true}
         modules={[Pagination, Navigation]}
         className="mySwiper"
+        style={{marginBottom: theme.spacing(3)}}
       >
         {postsWithImg?.map((post) => (
-          <SwiperSlide>
+          <SwiperSlide key={post.id}>
             <Slide url={post.url} />
           </SwiperSlide>
         ))}
