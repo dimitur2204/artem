@@ -32,7 +32,7 @@ function AccountForm({ type, onSubmit, error, loading }) {
     <Box style={{display: "flex", flexDirection: "column", margin: "50% 15% 0 15%", alignItems: "center"}}>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <img
-          src={`${process.env.PUBLIC_URL}/logos/192.png`}
+          src={`${process.env.PUBLIC_URL}/A.svg`}
           width={100}
           height={100}
           alt="logo"
