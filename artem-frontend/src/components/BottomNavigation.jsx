@@ -1,5 +1,5 @@
 import React from "react";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useMatch } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import BottomNavigationMUI from "@mui/material/BottomNavigation";
 import Paper from "@mui/material/Paper";
@@ -32,31 +32,31 @@ export default function BottomNavigation() {
         }}
       >
         <BottomNavigationAction
-          icon={<AccountBalanceIcon sx={{width: "30px", height: "30px", color: value === 0 ? theme.palette.primary.main : "black"}}/>}
+          icon={<AccountBalanceIcon sx={{width: "30px", height: "30px", color:  useMatch('home')?.pattern.end && theme.palette.primary.main }}/>}
           component={RouterLink}
           to="/"
         />
 
         <BottomNavigationAction
-          icon={<BalanceIcon sx={{width: "30px", height: "30px", color: value === 1 ? theme.palette.primary.main : "black"}}/>}
+          icon={<BalanceIcon sx={{width: "30px", height: "30px", color:  useMatch('bids')?.pattern.end && theme.palette.primary.main }}/>}
           component={RouterLink}
           to="/bids"
         />
 
         <BottomNavigationAction
-          icon={<AddCircleOutlined sx={{width: "30px", height: "30px", color: value === 2 ? theme.palette.primary.main : "black"}}/>}
+          icon={<AddCircleOutlined sx={{width: "30px", height: "30px", color:  useMatch('create')?.pattern.end && theme.palette.primary.main }}/>}
           component={RouterLink}
           to="/create"
         />
 
         <BottomNavigationAction
-          icon={<AutoAwesomeMotion sx={{width: "30px", height: "30px", color: value === 3 ? theme.palette.primary.main : "black"}}/>}
+          icon={<AutoAwesomeMotion sx={{width: "30px", height: "30px", color:  useMatch('saved')?.pattern.end && theme.palette.primary.main }}/>}
           component={RouterLink}
           to="/saved"
         />
 
         <BottomNavigationAction
-          icon={<AccountCircleIcon sx={{width: "30px", height: "30px", color: value === 4 ? theme.palette.primary.main : "black"}}/>}
+          icon={<AccountCircleIcon sx={{width: "30px", height: "30px", color:  useMatch('/account')?.pattern.end && theme.palette.primary.main }}/>}
           component={RouterLink}
           to={user ? "/account" : "/login"}
         />

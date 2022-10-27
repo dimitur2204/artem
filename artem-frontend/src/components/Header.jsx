@@ -1,11 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { IconButton, Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import SearchIcon from "@mui/icons-material/Search";
 import AccountMenu from "./account/AccountMenu";
 import { Close } from "@mui/icons-material";
 import BackButton from "./global/BackButton";
+import theme from "../theme";
 
 export default function Header({
   text,
@@ -15,14 +16,15 @@ export default function Header({
   withBackButton,
   sx,
 }) {
+  const navigate = useNavigate()
   return (
     <Container
-      sx={{ display: "flex", justifyContent: "space-between", ...sx }}
+      sx={{ display: "flex", justifyContent: "space-between", my: theme.spacing(1), alignItems: 'center',...sx }}
       as="header"
     >
-      {withBackButton ? <BackButton /> : null}
+      {withBackButton ? <BackButton onClick={() => navigate(-1)} /> : null}
       {/* code for header for when it contains a search bar or account menu (the three dots) */}
-      <Typography variant="h1">{text}</Typography>
+      <Typography variant="h1" sx={{marginTop: theme.spacing(1)}}>{text}</Typography>
       {withAccountOptions ? <AccountMenu /> : null}
       {withSearch ? (
         <Link to="/search">
@@ -32,7 +34,7 @@ export default function Header({
         </Link>
       ) : null}
       {withXButton ? (
-        <IconButton position="end" style={{ color: "#000" }} aria-label="cross">
+        <IconButton position="end" aria-label="cross" onClick={() => navigate(-1)}>
           <Close />
         </IconButton>
       ) : null}

@@ -3,7 +3,7 @@ import ImageList from "../components/global/ImageList";
 import Header from "../components/Header";
 import theme from "../theme";
 
-import { Box, IconButton } from "@mui/material";
+import { IconButton, Skeleton } from "@mui/material";
 import { FavoriteBorder } from "@mui/icons-material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
@@ -42,10 +42,14 @@ function Slide({ url, title }) {
 
 export default function Category() {
   const { category } = useParams();
-  const {postsWithImg} = usePosts(query(
+  const {postsWithImg, loading} = usePosts(query(
     collection(getFirestore(firebaseApp), "posts"),
   category !== "home" ? where("category", "==", category.toLowerCase()) : where("category", "!=", "")
   ) )
+  const postsHalf = Math.ceil(postsWithImg?.length / 2);    
+  const firstHalf = postsWithImg?.slice(0, postsHalf)
+  const secondHalf = postsWithImg?.slice(postsHalf)
+
   return (
     <>
       <Header
@@ -53,34 +57,23 @@ export default function Category() {
         withSearch
         sx={{ marginBottom: theme.spacing(3) }}
       />
-      <Swiper
+     {!loading ? <Swiper
         pagination={{
           dynamicBullets: true,
         }}
         // navigation={true}
         modules={[Pagination, Navigation]}
         className="mySwiper"
-        style={{marginBottom: theme.spacing(3)}}
+        style={{marginBottom: theme.spacing(3), height: 232}}
       >
         {postsWithImg?.map((post) => (
           <SwiperSlide key={post.id}>
             <Slide url={post.url} />
           </SwiperSlide>
         ))}
-
-        <SwiperSlide>
-          <Slide
-            url={`${process.env.PUBLIC_URL}/post-details-img/Mona-Bisa.png`}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Slide
-            url={`${process.env.PUBLIC_URL}/post-details-img/Mona-Bisa.png`}
-          />
-        </SwiperSlide>
-      </Swiper>
-      <ImageList posts={postsWithImg} title="Trending" sx={{ marginBottom: theme.spacing(10) }} />
-      <ImageList posts={postsWithImg} title="More of the things you like" />
+      </Swiper> : <Skeleton variant="rectangular" width="100%" height={232} sx={{mb: theme.spacing(3)}} />}
+      <ImageList posts={firstHalf} title="Trending" sx={{ marginBottom: theme.spacing(10) }} />
+      <ImageList posts={secondHalf} title="More of the things you like" />
     </>
   );
 }

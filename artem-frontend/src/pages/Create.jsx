@@ -19,7 +19,7 @@ function Create() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [isForSale, setForSale] = useState(false);
-  const [uploadFile, uploading, snapshot, error] = useUploadFile();
+  const [uploadFile, uploading, error] = useUploadFile();
   const [user] = useAuthState(auth);
   const upload = async (document) => {
     if (images) {
@@ -96,7 +96,7 @@ function Create() {
           size="large"
           sx={{ color: "white" }}
         >
-          <Add />
+          <Add sx={{color: "white"}} />
         </Fab>
       </div>
       {/* field to insert a title of an item */}

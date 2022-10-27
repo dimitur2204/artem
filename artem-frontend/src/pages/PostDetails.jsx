@@ -10,21 +10,22 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Pagination, Navigation } from "swiper";
-import { Typography, Button, IconButton, Box } from "@mui/material";
+import { Typography, Button, IconButton } from "@mui/material";
 import { FavoriteBorder, Favorite } from "@mui/icons-material";
 import { Container } from "@mui/system";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
-import { AutoAwesomeMotion } from "@mui/icons-material";
+import { AutoAwesomeMotion, AutoAwesomeMotionOutlined } from "@mui/icons-material";
 import theme from "../theme";
 import ListUsers from "../components/ListUsers";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useSinglePost } from "../hooks/useSinglePost";
+import Header from "../components/Header";
 
 
 //local component for the "slideshow"
 function Slide({ url, title }) { 
   const [liked, setLiked] = React.useState(false);
+  const [saved, setSaved] = React.useState(false);
   return (
     <div>
       {/* //the image that can be seen in the slider */}
@@ -37,7 +38,7 @@ function Slide({ url, title }) {
               width: "30px",
               height: "30px",
               color: "white",
-              backgroundColor: "rgba(0,0,0,0.8)",
+              backgroundColor: theme.palette.background.icon,
               borderRadius: "100px",
               padding: "5px",
             }}
@@ -45,22 +46,29 @@ function Slide({ url, title }) {
             width: "30px",
             height: "30px",
             color: "white",
-            backgroundColor: "rgba(0,0,0,0.8)",
+            backgroundColor: theme.palette.background.icon,
             borderRadius: "100px",
             padding: "5px",
           }}/>}
         </IconButton>
-        <IconButton>
-          <AutoAwesomeMotion
+        <IconButton onClick={() => setSaved(!saved)}>
+          {saved ? <AutoAwesomeMotion
             sx={{
               width: "30px",
               height: "30px",
               color: "white",
               borderRadius: "100px",
-              backgroundColor: "rgba(0,0,0,0.8)",
+              backgroundColor: theme.palette.background.icon,
               padding: "5px",
             }}
-          />
+          /> : <AutoAwesomeMotionOutlined sx={{
+            width: "30px",
+            height: "30px",
+            color: "white",
+            borderRadius: "100px",
+            backgroundColor: theme.palette.background.icon,
+            padding: "5px",
+          }} />}
         </IconButton>
       </div>
     </div>
@@ -74,16 +82,10 @@ export default function PostDetails() {
     return () => clearInterval(intervalId);
   }, [timer, setTimer]);
     const {id} = useParams()
-    const navigate = useNavigate()
   const {postWithImg} = useSinglePost(id)
   return (
     <>
-      <IconButton onClick={() => navigate(-1)} size="large" aria-label="goback">
-        <ArrowBackIosIcon
-          style={{ color: "black", padding: "10px 5px" }}
-          sx={{ width: 32, height: 32 }}
-        />
-      </IconButton>
+      <Header withBackButton />
 {/* the slideshow */}
       <Swiper
       // the bulltes that show the page you are on and the arrows

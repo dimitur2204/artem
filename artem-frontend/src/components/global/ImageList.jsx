@@ -6,26 +6,33 @@ import {
   Box,
   Typography,
   Container,
-  CircularProgress,
+  Grow
 } from "@mui/material";
 import React from "react";
 import { FavoriteBorder } from "@mui/icons-material";
 import theme from "../../theme";
 import { Link } from "react-router-dom";
+import ImageListSkeleton from "../skeletons/ImageListSkeleton";
 function ImageList({ posts, count, title, sx }) {
   return (
     <>
       {/* creating a image-grid component to reuse throughout the pages  */}
-      <Container>
+      {posts ? <>
+        <Container>
         <Typography fontSize="1.2rem">{title}</Typography>
       </Container>
-      {posts ? <ImageListMUI
+        <ImageListMUI
         cols={3}
         gap={1}
         sx={{ marginTop: theme.spacing(1), ...sx }}
       >
         {posts.map((post, index) => (
-          <ImageListItem as={Link} to={`/post/${post.id}`} key={post.id}>
+            <Grow
+            in={true}
+            style={{ transformOrigin: '0 0 0' }}
+            timeout={Math.min(...[index * 150, 3000])}
+          >
+                      <ImageListItem as={Link} to={`/post/${post.id}`} key={post.id}>
             {/* fetching a specific image */}
             <img
               src={post.url}
@@ -72,11 +79,13 @@ function ImageList({ posts, count, title, sx }) {
               />
             ) : null}
           </ImageListItem>
+          </Grow>
+
         ))}
-      </ImageListMUI> : 
-      <Box width="100%" display="flex" justifyContent="center" alignItems="center" padding={2}>
-        <CircularProgress />
-      </Box>}
+      </ImageListMUI> 
+      </> :
+      <ImageListSkeleton noTitle={!title ? true : false} />
+    }
     </>
   );
 }

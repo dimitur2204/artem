@@ -13,6 +13,7 @@ import { getAuth } from "firebase/auth";
 import firebaseApp from "../firebase-config";
 import { collection, getFirestore, query, where } from "firebase/firestore";
 import { usePosts } from "../hooks/usePosts";
+import ImageListSkeleton from "../components/skeletons/ImageListSkeleton";
 
 const auth = getAuth(firebaseApp);
 
@@ -101,7 +102,7 @@ export default function Account() {
         </Typography>
         <Typography>🤤 Hungry for visuals.</Typography>
       </Container>
-      {postsWithImg?.length ? <ImageList posts={postsWithImg} count="5.6k" /> : "No posts for this user yet"}
+      {postsWithImg?.length ? <ImageList posts={postsWithImg} count="5.6k" /> : <ImageListSkeleton noTitle length={3} />}
     </>
   );
 }

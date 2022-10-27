@@ -9,6 +9,7 @@ const theme = createTheme({
       default: "#F7F6F5",
       paper: "#F7F6F5",
       landing: amber[600],
+      icon: "rgba(0, 0, 0, 0.8)",
     },
     primary: {
       ...amber,
@@ -51,6 +52,14 @@ const theme = createTheme({
     MuiCssBaseline: {
       styleOverrides: `
         `,
+    },
+    MuiSvgIcon: {
+      styleOverrides: {
+        root: {
+          color: "rgba(0, 0, 0, 0.8)",
+
+        }
+      }
     },
     MuiButton: {
       styleOverrides: {
