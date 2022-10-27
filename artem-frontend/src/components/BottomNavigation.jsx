@@ -32,31 +32,77 @@ export default function BottomNavigation() {
         }}
       >
         <BottomNavigationAction
-          icon={<AccountBalanceIcon sx={{width: "30px", height: "30px", color:  useMatch('home')?.pattern.end && theme.palette.primary.main }}/>}
+          icon={
+            <AccountBalanceIcon
+              sx={{
+                width: "30px",
+                height: "30px",
+                color:
+                  useMatch("home")?.pattern.end && theme.palette.primary.main,
+              }}
+            />
+          }
           component={RouterLink}
           to="/"
         />
 
         <BottomNavigationAction
-          icon={<BalanceIcon sx={{width: "30px", height: "30px", color:  useMatch('bids')?.pattern.end && theme.palette.primary.main }}/>}
+          icon={
+            <BalanceIcon
+              sx={{
+                width: "30px",
+                height: "30px",
+                color:
+                  useMatch("bids")?.pattern.end && theme.palette.primary.main,
+              }}
+            />
+          }
           component={RouterLink}
           to="/bids"
         />
 
         <BottomNavigationAction
-          icon={<AddCircleOutlined sx={{width: "30px", height: "30px", color:  useMatch('create')?.pattern.end && theme.palette.primary.main }}/>}
+          icon={
+            <AddCircleOutlined
+              sx={{
+                width: "30px",
+                height: "30px",
+                color:
+                  useMatch("create")?.pattern.end && theme.palette.primary.main,
+              }}
+            />
+          }
           component={RouterLink}
           to="/create"
         />
 
         <BottomNavigationAction
-          icon={<AutoAwesomeMotion sx={{width: "30px", height: "30px", color:  useMatch('saved')?.pattern.end && theme.palette.primary.main }}/>}
+          icon={
+            <AutoAwesomeMotion
+              sx={{
+                width: "30px",
+                height: "30px",
+                color:
+                  useMatch("saved")?.pattern.end && theme.palette.primary.main,
+              }}
+            />
+          }
           component={RouterLink}
           to="/saved"
         />
 
         <BottomNavigationAction
-          icon={<AccountCircleIcon sx={{width: "30px", height: "30px", color:  useMatch('/account')?.pattern.end && theme.palette.primary.main }}/>}
+          icon={
+            <AccountCircleIcon
+              sx={{
+                width: "30px",
+                height: "30px",
+                color:
+                  useMatch("/account")?.pattern.end &&
+                  theme.palette.primary.main,
+              }}
+            />
+          }
           component={RouterLink}
           to={user ? "/account" : "/login"}
         />

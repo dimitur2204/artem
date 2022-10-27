@@ -20,7 +20,16 @@ import { usePosts } from "../hooks/usePosts";
 function Slide({ url, title }) {
   return (
     <div>
-      <img style={{ width: "100%", height: 232, objectFit: "cover", objectPosition: "center"  }} src={url} alt={title}></img>
+      <img
+        style={{
+          width: "100%",
+          height: 232,
+          objectFit: "cover",
+          objectPosition: "center",
+        }}
+        src={url}
+        alt={title}
+      ></img>
 
       <div style={{ position: "absolute", top: "10px", right: "10px" }}>
         <IconButton style={{}}>
@@ -42,13 +51,17 @@ function Slide({ url, title }) {
 
 export default function Category() {
   const { category } = useParams();
-  const {postsWithImg, loading} = usePosts(query(
-    collection(getFirestore(firebaseApp), "posts"),
-  category !== "home" ? where("category", "==", category.toLowerCase()) : where("category", "!=", "")
-  ) )
-  const postsHalf = Math.ceil(postsWithImg?.length / 2);    
-  const firstHalf = postsWithImg?.slice(0, postsHalf)
-  const secondHalf = postsWithImg?.slice(postsHalf)
+  const { postsWithImg, loading } = usePosts(
+    query(
+      collection(getFirestore(firebaseApp), "posts"),
+      category !== "home"
+        ? where("category", "==", category.toLowerCase())
+        : where("category", "!=", "")
+    )
+  );
+  const postsHalf = Math.ceil(postsWithImg?.length / 2);
+  const firstHalf = postsWithImg?.slice(0, postsHalf);
+  const secondHalf = postsWithImg?.slice(postsHalf);
 
   return (
     <>
@@ -57,22 +70,35 @@ export default function Category() {
         withSearch
         sx={{ marginBottom: theme.spacing(3) }}
       />
-     {!loading ? <Swiper
-        pagination={{
-          dynamicBullets: true,
-        }}
-        // navigation={true}
-        modules={[Pagination, Navigation]}
-        className="mySwiper"
-        style={{marginBottom: theme.spacing(3), height: 232}}
-      >
-        {postsWithImg?.map((post) => (
-          <SwiperSlide key={post.id}>
-            <Slide url={post.url} />
-          </SwiperSlide>
-        ))}
-      </Swiper> : <Skeleton variant="rectangular" width="100%" height={232} sx={{mb: theme.spacing(3)}} />}
-      <ImageList posts={firstHalf} title="Trending" sx={{ marginBottom: theme.spacing(10) }} />
+      {!loading ? (
+        <Swiper
+          pagination={{
+            dynamicBullets: true,
+          }}
+          // navigation={true}
+          modules={[Pagination, Navigation]}
+          className="mySwiper"
+          style={{ marginBottom: theme.spacing(3), height: 232 }}
+        >
+          {postsWithImg?.map((post) => (
+            <SwiperSlide key={post.id}>
+              <Slide url={post.url} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      ) : (
+        <Skeleton
+          variant="rectangular"
+          width="100%"
+          height={232}
+          sx={{ mb: theme.spacing(3) }}
+        />
+      )}
+      <ImageList
+        posts={firstHalf}
+        title="Trending"
+        sx={{ marginBottom: theme.spacing(10) }}
+      />
       <ImageList posts={secondHalf} title="More of the things you like" />
     </>
   );

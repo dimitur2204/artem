@@ -7,8 +7,10 @@ import { usePosts } from "../hooks/usePosts";
 
 //Our Collection page that consists of Header + ImageList component
 function Saved() {
-  const {postsWithImg} = usePosts(query(collection(getFirestore(firebaseApp), "posts")))
-  
+  const { postsWithImg } = usePosts(
+    query(collection(getFirestore(firebaseApp), "posts"))
+  );
+
   return (
     <>
       <Header text="Saved" />

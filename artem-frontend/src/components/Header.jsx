@@ -16,15 +16,23 @@ export default function Header({
   withBackButton,
   sx,
 }) {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <Container
-      sx={{ display: "flex", justifyContent: "space-between", my: theme.spacing(1), alignItems: 'center',...sx }}
+      sx={{
+        display: "flex",
+        justifyContent: "space-between",
+        my: theme.spacing(1),
+        alignItems: "center",
+        ...sx,
+      }}
       as="header"
     >
       {withBackButton ? <BackButton onClick={() => navigate(-1)} /> : null}
       {/* code for header for when it contains a search bar or account menu (the three dots) */}
-      <Typography variant="h1" sx={{marginTop: theme.spacing(1)}}>{text}</Typography>
+      <Typography variant="h1" sx={{ marginTop: theme.spacing(1) }}>
+        {text}
+      </Typography>
       {withAccountOptions ? <AccountMenu /> : null}
       {withSearch ? (
         <Link to="/search">
@@ -34,7 +42,11 @@ export default function Header({
         </Link>
       ) : null}
       {withXButton ? (
-        <IconButton position="end" aria-label="cross" onClick={() => navigate(-1)}>
+        <IconButton
+          position="end"
+          aria-label="cross"
+          onClick={() => navigate(-1)}
+        >
           <Close />
         </IconButton>
       ) : null}

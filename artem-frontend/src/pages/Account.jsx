@@ -21,8 +21,12 @@ export default function Account() {
   const [followed, setFollowed] = React.useState(false);
   const [user] = useAuthState(auth);
 
-  const {postsWithImg} = usePosts(    query(collection(getFirestore(firebaseApp), "posts"),
-  where("authorId", "==", user.uid)))
+  const { postsWithImg } = usePosts(
+    query(
+      collection(getFirestore(firebaseApp), "posts"),
+      where("authorId", "==", user.uid)
+    )
+  );
   return (
     <>
       <Header text="My exhibition" withAccountOptions />
@@ -102,7 +106,11 @@ export default function Account() {
         </Typography>
         <Typography>🤤 Hungry for visuals.</Typography>
       </Container>
-      {postsWithImg?.length ? <ImageList posts={postsWithImg} count="5.6k" /> : <ImageListSkeleton noTitle length={3} />}
+      {postsWithImg?.length ? (
+        <ImageList posts={postsWithImg} count="5.6k" />
+      ) : (
+        <ImageListSkeleton noTitle length={3} />
+      )}
     </>
   );
 }

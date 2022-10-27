@@ -38,7 +38,7 @@ function Search() {
         />
       </Box>
 
-          {/*displaying category list so that users can choose from different kinds of art */}
+      {/*displaying category list so that users can choose from different kinds of art */}
       {!value ? (
         <CategoryList />
       ) : (

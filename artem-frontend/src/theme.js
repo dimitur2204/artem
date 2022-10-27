@@ -17,7 +17,6 @@ const theme = createTheme({
     },
   },
   typography: {
-  
     fontSize: 16,
 
     h1: {
@@ -57,9 +56,8 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           color: "rgba(0, 0, 0, 0.8)",
-
-        }
-      }
+        },
+      },
     },
     MuiButton: {
       styleOverrides: {

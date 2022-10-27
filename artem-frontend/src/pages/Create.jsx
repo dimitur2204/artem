@@ -78,14 +78,16 @@ function Create() {
         <input
           onChange={(e) => {
             // combine arrays into one
-            setImages(currentImages => currentImages.concat(Array.from(e.target.files)));
+            setImages((currentImages) =>
+              currentImages.concat(Array.from(e.target.files))
+            );
           }}
           type="file"
           accept="image/*"
           style={{ visibility: "hidden", width: 0 }}
           name="file_image"
         />
-      {/* plus icon to add items for sale */}
+        {/* plus icon to add items for sale */}
         <Fab
           onClick={() => {
             document.querySelector("input[type='file']").click();
@@ -96,7 +98,7 @@ function Create() {
           size="large"
           sx={{ color: "white" }}
         >
-          <Add sx={{color: "white"}} />
+          <Add sx={{ color: "white" }} />
         </Fab>
       </div>
       {/* field to insert a title of an item */}
@@ -108,7 +110,7 @@ function Create() {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-      {/* field to insert a description of an item */}
+        {/* field to insert a description of an item */}
         <Input
           name="description"
           type="text"
