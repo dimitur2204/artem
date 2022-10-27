@@ -12,7 +12,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { getAuth } from "firebase/auth";
 import firebaseApp from "../firebase-config";
 import { useCollection } from "react-firebase-hooks/firestore";
-import { collection, getFirestore, where } from "firebase/firestore";
+import { collection, getFirestore, query, where } from "firebase/firestore";
 import { getDownloadURL, getStorage, ref } from "firebase/storage";
 
 const auth = getAuth(firebaseApp);
@@ -22,8 +22,8 @@ export default function Account() {
   const [followed, setFollowed] = React.useState(false);
   const [user] = useAuthState(auth);
   const [value] = useCollection(
-    collection(getFirestore(firebaseApp), "posts"),
-    where("authorId", "==", user.uid)
+    query(collection(getFirestore(firebaseApp), "posts"),
+    where("authorId", "==", user.uid))
   );
   const [postsWithImg, setPostsWithImage] = useState([]);
   const fetchData = useCallback(async (postCollection) => {
