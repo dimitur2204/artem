@@ -13,7 +13,7 @@ function Saved() {
 
   return (
     <>
-      <Header text="Saved" />
+      <Header text="Collection" />
       <ImageList posts={postsWithImg?.filter(post => post.isForSale)} />
     </>
   );
