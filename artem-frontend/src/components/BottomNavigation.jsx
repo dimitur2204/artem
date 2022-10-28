@@ -30,6 +30,7 @@ export default function BottomNavigation() {
         onChange={(event, newValue) => {
           setValue(newValue);
         }}
+        sx={{py: theme.spacing(1)}}
       >
         <BottomNavigationAction
           icon={

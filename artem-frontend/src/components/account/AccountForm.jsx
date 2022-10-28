@@ -34,7 +34,6 @@ function AccountForm({ type, onSubmit, error, loading }) {
         style={{
           display: "flex",
           flexDirection: "column",
-          margin: "18% 15% 0 15%",
           alignItems: "center",
         }}
       >
@@ -142,7 +141,7 @@ function AccountForm({ type, onSubmit, error, loading }) {
         {/* if a user does not have an account yet, register option */}
         {/* possibility to log in with google */}
 
-        <div style={{ marginTop: "30%" }}>
+        <div style={{ marginTop: theme.spacing(8) }}>
           <Typography sx={{fontSize:"15px"}}>or connect with </Typography>
             <IconButton
               aria-label="Sign in with Google"
