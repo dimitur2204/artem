@@ -7,12 +7,12 @@ export const itemData1 = [
     bid: " 170.00$",
   },
   {
-    img: "worker.png",
+    img: "bids-3.png",
     title: "The iron worker",
     bid: "356.00$",
   },
   {
-    img: "coaster.png",
+    img: "bids-2.png",
     title: "Coral Coaster",
     bid: "Current bid <br> 54.00$ <br> 9 hours left",
   },
