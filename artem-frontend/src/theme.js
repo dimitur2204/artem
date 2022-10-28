@@ -63,6 +63,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: 1000,
+          textTransform: "capitalize",
         },
         contained: {
           color: "#fff",
