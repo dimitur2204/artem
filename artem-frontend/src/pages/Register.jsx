@@ -37,7 +37,7 @@ function Register() {
       });
       return;
     }
-
+    setRepeatPassError(null);
     createUserWithEmailAndPassword(email, password);
   };
   return (

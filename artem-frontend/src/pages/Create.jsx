@@ -1,5 +1,5 @@
 /*
-Dimitar Nizamov
+Dimitar Nizamov and Katerina Kolarova
 
 This is the page that renders when you access /create
 It is a form that allows the user to create a new post

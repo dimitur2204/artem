@@ -1,5 +1,5 @@
 /*
-Dimitar Nizamov
+Dumitrita Poiata and Dimitar Nizamov
 
 This is the main page of the app
 It renders different header based on the route that you are on

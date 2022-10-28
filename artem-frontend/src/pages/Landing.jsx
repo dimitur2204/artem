@@ -1,5 +1,5 @@
 /*
-Dimitar Nizamov
+Dumitrita Poiata
 
 This is the page that renders when you are redirected /landing
 Only shows the first time the user logs in
