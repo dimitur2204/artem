@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 function App({ children }) {
   const navigate = useNavigate();
   React.useEffect(() => {
-    if (localStorage.getItem("firstLogin")) navigate('/home');
+    if (localStorage.getItem("firstLogin")) return;
     localStorage.setItem("firstLogin", true);
     navigate("/landing");
   });
