@@ -40,4 +40,3 @@ export const itemData2 = [
   },
 ];
 
-export default itemData;
