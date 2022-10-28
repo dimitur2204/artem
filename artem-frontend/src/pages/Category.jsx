@@ -11,8 +11,8 @@ import { Pagination, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Link, useParams } from "react-router-dom";
-import { capitalize } from "lodash";
+import { Link, useMatch, useParams } from "react-router-dom";
+import _, { capitalize } from "lodash";
 import { collection, getFirestore, query, where } from "firebase/firestore";
 import firebaseApp from "../firebase-config";
 import { usePosts } from "../hooks/usePosts";
@@ -67,9 +67,10 @@ export default function Category() {
         : where("category", "!=", "")
     )
   );
-  const postsHalf = Math.ceil(postsWithImg?.length / 2);
-  const firstHalf = postsWithImg?.slice(0, postsHalf);
-  const secondHalf = postsWithImg?.slice(postsHalf);
+  const matchHome = useMatch('home')
+  const clay = postsWithImg?.filter(p => p.category === 'clay')
+  const paintings = postsWithImg?.filter(p => p.category === 'paintings')
+  const featured = matchHome ? postsWithImg?.filter(post => post.isFeatured && post.category !== "clay") : postsWithImg?.filter(post => post.isFeatured)
 
   return (
     <>
@@ -88,7 +89,7 @@ export default function Category() {
           className="mySwiper"
           style={{ marginBottom: theme.spacing(3), height: 232 }}
         >
-          {postsWithImg?.filter(post => post.isFeatured).map((post) => (
+          {featured?.map((post) => (
             <SwiperSlide key={post.id}>
               <Slide id={post.id} url={post.url} title={post.title} />
             </SwiperSlide>
@@ -103,11 +104,11 @@ export default function Category() {
         />
       )}
       <ImageList
-        posts={firstHalf}
+        posts={_.concat(_.take(paintings,3), _.take(clay,3))}
         title="Trending"
-        sx={{ marginBottom: theme.spacing(10) }}
+        sx={{ marginBottom: theme.spacing(5) }}
       />
-      <ImageList posts={secondHalf} title="More of the things you like" />
+      <ImageList posts={_.concat(_.take(paintings?.splice(3),3), _.take(clay?.splice(3),3))} title="More of the things you like" />
     </>
   );
 }

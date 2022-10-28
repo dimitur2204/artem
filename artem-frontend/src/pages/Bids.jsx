@@ -6,7 +6,7 @@ import ButtonTabs from "../components/ButtonTabs";
 function Bids() {
   return (
     <div>
-      <Header text="Bids" />
+      <Header text="Your Actions" />
       <ButtonTabs></ButtonTabs>
     </div>
   );

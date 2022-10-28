@@ -17,6 +17,7 @@ export default function Header({
   sx,
 }) {
   const navigate = useNavigate();
+  const titleArray = text?.split(" ");
   return (
     <Container
       sx={{
@@ -31,7 +32,7 @@ export default function Header({
       {withBackButton ? <BackButton onClick={() => navigate(-1)} /> : null}
       {/* code for header for when it contains a search bar or account menu (the three dots) */}
       <Typography variant="h1" sx={{ marginTop: theme.spacing(1) }}>
-        {text}
+        {titleArray?.length === 2 ? <>{titleArray[0]} {' '} <span style={{color: theme.palette.primary.main}}>{titleArray[1]}</span></> : text}
       </Typography>
       {withAccountOptions ? <AccountMenu /> : null}
       {withSearch ? (
