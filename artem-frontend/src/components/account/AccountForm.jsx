@@ -34,7 +34,7 @@ function AccountForm({ type, onSubmit, error, loading }) {
         style={{
           display: "flex",
           flexDirection: "column",
-          margin: "25% 15% 0 15%",
+          margin: "18% 15% 0 15%",
           alignItems: "center",
         }}
       >
@@ -48,13 +48,15 @@ function AccountForm({ type, onSubmit, error, loading }) {
           />
         </div>
         <Typography
-          marginTop="0rem"
+          marginTop="0.8rem"
           align="center"
           variant="h1"
-          sx={{ mb: theme.spacing(4) }}
+          sx={{ mb: theme.spacing(4), fontSize:"3rem" }}
         >
           {capitalize(type)}
         </Typography>
+
+        <div style={{marginTop:"2rem"}}>
         <form
           onSubmit={(e) => {
             onSubmit(e, { email, password, repeatPassword });
@@ -66,8 +68,8 @@ function AccountForm({ type, onSubmit, error, loading }) {
           }}
         >
           {/* boxes for users to log in */}
-          <Input
-            endAdornment={
+          <Input 
+            endAdornment={ 
               <InputAdornment
                 sx={{
                   input: {
@@ -99,7 +101,7 @@ function AccountForm({ type, onSubmit, error, loading }) {
             name="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            sx={{ mb: theme.spacing(2) }}
+            sx={{ mb: theme.spacing(2), marginTop:"1rem" }}
           />
           {/* registrering a user */}
           {type === "register" ? (
@@ -123,7 +125,7 @@ function AccountForm({ type, onSubmit, error, loading }) {
             </Alert>
           ) : null}
           <Button
-            sx={{ mt: theme.spacing(2) }}
+            sx={{ mt: theme.spacing(2), marginTop:"1rem" }}
             variant="contained"
             size="large"
             type="submit"
@@ -133,45 +135,47 @@ function AccountForm({ type, onSubmit, error, loading }) {
           >
             {loading ? <CircularProgress size={14} /> : capitalize(type)}
           </Button>
+          <Typography sx={{marginTop:"1rem", fontSize:"15px"}}>Forgot your password?</Typography>
+
         </form>
-        <Typography>Forgot your password?</Typography>
+        </div>
         {/* if a user does not have an account yet, register option */}
         {/* possibility to log in with google */}
 
-        <div style={{ marginTop: "75%" }}>
-          <Typography>or connect with </Typography>
-          <IconButton
-            aria-label="Sign in with Google"
-            onClick={() => {
-              signInWithGoogle(["email", "profile"]).then(() => navigate("/"));
-            }}
-          >
-            <Google sx={{ width: "45px", height: "45px" }} />
-          </IconButton>
+        <div style={{ marginTop: "30%" }}>
+          <Typography sx={{fontSize:"15px"}}>or connect with </Typography>
+            <IconButton
+              aria-label="Sign in with Google"
+              onClick={() => {
+                signInWithGoogle(["email", "profile"]).then(() => navigate("/"));
+              }}
+            >
+              <Google sx={{ width: "45px", height: "45px" }} />
+            </IconButton>
 
-          {/* possibility to log in with facebook (currently only links to google login as it is too much hassle to log in with facebook*/}
-          <IconButton
-            aria-label="Sign in with Facebook"
-            onClick={() => {
-              signInWithGoogle(["email", "profile"]).then(() => navigate("/"));
-            }}
-          >
-            <FacebookRoundedIcon sx={{ width: "45px", height: "45px" }} />
-          </IconButton>
+            {/* possibility to log in with facebook (currently only links to google login as it is too much hassle to log in with facebook*/}
+            <IconButton
+              aria-label="Sign in with Facebook"
+              onClick={() => {
+                signInWithGoogle(["email", "profile"]).then(() => navigate("/"));
+              }}
+            >
+              <FacebookRoundedIcon sx={{ width: "45px", height: "45px" }} />
+            </IconButton>
         </div>
         {type === "login" ? (
           <>
             <Typography
               display="inline"
               align="center"
-              sx={{ mt: theme.spacing(2) }}
+              sx={{ mt: theme.spacing(2), fontSize:"15px" }}
             >
               Don’t have account?{" "}
             </Typography>
             <Typography color="primary" display="inline">
               <Link
                 to="/register"
-                style={{ color: theme.palette.primary.main }}
+                style={{ color: theme.palette.primary.main, }}
               >
                 Register
               </Link>
