@@ -35,3 +35,9 @@ code {
 .swiper-pagination-bullet-active {
   background-color: white !important;
 }
+
+#root{
+  max-width: 500px;
+  max-height: 900px;
+  margin: 0 auto;
+}

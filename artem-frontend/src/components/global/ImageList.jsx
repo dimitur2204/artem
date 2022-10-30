@@ -17,7 +17,7 @@ function ImageList({ posts, count, title, sx }) {
   return (
     <>
       {/* creating a image-grid component to reuse throughout the pages  */}
-      {posts ? (
+      {posts?.length ? (
         <>
           <Container>
             <Typography fontSize="1.2rem">{title}</Typography>
