@@ -1,3 +1,9 @@
+/*
+Dimitar Nizamov
+
+This is the page that renders when you access /post/:id
+Fetches the post data from the database based on the id from the url and passes it to the <PostDetails /> component
+*/
 import React, { useEffect, useState } from "react";
 
 // Import Swiper React components

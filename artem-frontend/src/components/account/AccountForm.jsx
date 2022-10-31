@@ -1,3 +1,13 @@
+/*
+Dimitar Nizamov
+
+This is the account form which doubles as both Login and Register
+It has a lot of styling and is very easy to use
+It is also very easy to add more functionality to it
+It keeps our login form consitent on both pages 
+It takes in the type of the form and the onSubmit function
+Renders the form and the buttons
+*/
 import { AccountBox, Google, Lock } from "@mui/icons-material";
 import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
 import {

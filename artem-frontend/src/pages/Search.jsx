@@ -1,3 +1,9 @@
+/*
+Dimitar Nizamov
+
+This is the page that renders when you access /search
+It renders a search bar and a category list that is clickable so you can go to /category/:categoryName
+*/
 import React from "react";
 import {
   InputAdornment,

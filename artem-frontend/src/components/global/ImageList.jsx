@@ -1,3 +1,12 @@
+/*
+Dimitar Nizamov
+
+This is the main component that renders the image grid
+It takes in the posts and the title as props
+It also takes in the count prop which is used to display the amount of likes on each image
+It also takes in the sx prop which is used to style the component
+It uses the ImageListMUI component from @mui/material to render the image grid
+*/
 import {
   IconButton,
   ImageListItem,

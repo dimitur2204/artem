@@ -1,3 +1,9 @@
+/*
+Dimitar Nizamov
+
+This is the page that renders when you access /register
+It renders the <AccountForm /> component and passes it the type prop with the value "register"
+*/
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Container } from "@mui/material";

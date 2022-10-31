@@ -1,3 +1,9 @@
+/*
+Dimitar Nizamov
+
+This is the account menu which shows on top of the account page
+It is a dropdown menu that shows the logout button
+*/
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import IconButton from "@mui/material/IconButton";
@@ -18,22 +24,7 @@ const options = [
       toast.success("Logged out successfully");
       return signOut(auth).then(() => navigate("/"));
     },
-  },
-  // 2) settings option
-  {
-    label: "Settings",
-    handleClick: (navigate) => {
-      return Promise.resolve();
-    },
-  },
-
-  // 3) edit option
-  {
-    label: "Edit",
-    handleClick: (navigate) => {
-      return Promise.resolve();
-    },
-  },
+  }
 ];
 export default function AccountMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);

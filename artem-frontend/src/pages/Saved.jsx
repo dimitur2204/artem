@@ -1,3 +1,10 @@
+/*
+Dimitar Nizamov
+
+This is the page that renders when you access /saved
+It renders the <ImageList /> component and passes it the posts prop
+It currently filters by posts that are for sale, but that is a placeholder since we didn't implement have the time to implement the saved posts feature
+*/
 import { collection, getFirestore, query } from "firebase/firestore";
 import React from "react";
 import ImageList from "../components/global/ImageList";

@@ -1,3 +1,9 @@
+/*
+Dimitar Nizamov
+
+This is a hook that fetches a single post from the API based on a FirebaseQuery you provide to the hook
+Returns a single post and a boolean that indicates if the post is still loading
+*/
 import { doc, getFirestore } from "firebase/firestore";
 import { getDownloadURL, getStorage, ref } from "firebase/storage";
 import { useCallback, useEffect, useState } from "react";

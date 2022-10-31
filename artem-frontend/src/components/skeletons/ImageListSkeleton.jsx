@@ -1,3 +1,8 @@
+/*
+Dimitar Nizamov
+
+This is a component that renders a loading skeleton for the ImageList component
+*/
 import {
   ImageListItem,
   ImageList as ImageListMUI,

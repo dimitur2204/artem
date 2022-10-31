@@ -1,3 +1,9 @@
+/*
+Dimitar Nizamov
+
+This is the page that renders when you access /login
+It renders the <AccountForm /> component and passes it the type prop with the value "login"
+*/
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";

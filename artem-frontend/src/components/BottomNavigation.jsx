@@ -1,3 +1,9 @@
+/*
+Dimitar Nizamov
+
+This is the bottom navigation of the page that renders on every page
+It is made up of the <BottomNavigation /> component from Material UI
+*/
 import React from "react";
 import { Link as RouterLink, useMatch } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";

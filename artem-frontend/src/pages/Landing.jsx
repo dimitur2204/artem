@@ -1,3 +1,9 @@
+/*
+Dimitar Nizamov
+
+This is the page that renders when you are redirected /landing
+Only shows the first time the user logs in
+*/
 import theme from "../theme";
 import { Typography, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";

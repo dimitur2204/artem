@@ -1,3 +1,12 @@
+/*
+Dimitar Nizamov
+
+This is the CategoryCard component that renders the category cards on the search page
+It takes in the title, imageIndex, and url props
+It uses the Link component from react-router-dom to link to the appropriate page
+It uses the Box component from @mui/material to render the category card
+It uses the Typography component from @mui/material to render the title of the category card
+*/
 import { Box, Typography } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";

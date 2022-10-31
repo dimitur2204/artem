@@ -1,3 +1,9 @@
+/*
+Dimitar Nizamov
+
+This is a hook that fetches the posts from the API based on a FirebaseQuery you provide to the hook
+Returns an array of posts and a boolean that indicates if the posts are still loading
+*/
 import { getDownloadURL, getStorage, ref } from "firebase/storage";
 import { useCallback, useEffect, useState } from "react";
 import { useCollection } from "react-firebase-hooks/firestore";

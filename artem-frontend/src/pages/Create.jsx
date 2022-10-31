@@ -1,3 +1,13 @@
+/*
+Dimitar Nizamov
+
+This is the page that renders when you access /create
+It is a form that allows the user to create a new post
+When you click the plus button it adds an image to the post through the input field
+The user can also add a title and a description to the post
+The user can also choose if the post is for sale or not
+When the user clicks the publish button it creates a new post in the database
+*/
 import React, { useState } from "react";
 import Header from "../components/Header";
 import { Container, Typography, Button, Switch, Box, Fab } from "@mui/material";

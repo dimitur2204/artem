@@ -1,3 +1,10 @@
+/*
+Dimitar Nizamov
+
+This is the Header component that is used throughout the app
+It renders the text prop that is passed to it as a title
+It also has customisable buttons that are passed to it as boolean props
+*/
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { IconButton, Typography } from "@mui/material";
