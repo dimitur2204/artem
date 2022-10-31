@@ -1,3 +1,11 @@
+/*
+Dimitar Nizamov
+
+This is the main component that renders the routes
+It uses the createRoutes function to create the routes
+Protected Route is a component that checks if the user is logged in and redirects if they are not
+It also renders certain routes within the App component which is the layout component that renders the BottomNavigation component
+*/
 import React from "react";
 import {
   createRoutesFromElements,
