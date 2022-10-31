@@ -1,3 +1,10 @@
+/*
+Dimitar Nizamov
+
+This is the theme file that contains the theme for the app
+It uses the Material UI createTheme function to create the theme
+We have defined the global styles for our app here
+*/
 import { createTheme, experimental_extendTheme } from "@mui/material";
 import { amber, grey } from "@mui/material/colors";
 import { extendTheme as extendJoyTheme } from "@mui/joy/styles";
