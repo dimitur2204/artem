@@ -11,12 +11,12 @@ export const itemData1 = [
   },
   {
     img: "bids-3.png",
-    title: "The iron worker",
+    title: "Butter and a fly",
     bid: "356.00$",
   },
   {
     img: "bids-2.png",
-    title: "Coral Coaster",
+    title: "Ceramic plant pot",
     bid: "Current bid <br> 54.00$ <br> 9 hours left",
   },
 ];
