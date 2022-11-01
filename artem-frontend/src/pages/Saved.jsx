@@ -21,7 +21,7 @@ function Saved() {
   return (
     <>
       <Header text="Collection" />
-      <ImageList posts={postsWithImg?.filter(post => post.isForSale)} />
+      <ImageList posts={postsWithImg?.filter(post => post?.isForSale)} />
     </>
   );
 }
