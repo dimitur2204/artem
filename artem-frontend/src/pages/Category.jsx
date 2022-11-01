@@ -78,9 +78,9 @@ export default function Category() {
     )
   );
   const matchHome = useMatch('home')
-  const clay = postsWithImg?.filter(p => p.category === 'clay')
-  const paintings = postsWithImg?.filter(p => p.category === 'paintings')
-  const featured = matchHome ? postsWithImg?.filter(post => post.isFeatured && post.category !== "clay") : postsWithImg?.filter(post => post.isFeatured)
+  const clay = postsWithImg?.filter(p => p?.category === 'clay')
+  const paintings = postsWithImg?.filter(p => p?.category === 'paintings')
+  const featured = matchHome ? postsWithImg?.filter(post => post?.isFeatured && post?.category !== "clay") : postsWithImg?.filter(post => post?.isFeatured)
 
   return (
     <>
