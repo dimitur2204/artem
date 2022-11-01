@@ -1,5 +1,8 @@
-// array of items in the bids
+/*
+Carl Christiansen
 
+Creating the items under the bids/watched section as objects.
+*/
 export const itemData1 = [
   {
     img: "fox.png",

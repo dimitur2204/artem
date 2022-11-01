@@ -1,3 +1,11 @@
+/*
+Carl Christiansen
+
+Here the button tabs component is imported which creates the button switch on the bids page,
+Under each of the tabs the imported ImageList component is used and styled which renders the content of the bids and watched section, 
+All variable content is added in this component instead of on the bids page itself.
+*/
+
 import * as React from "react";
 import { Tab, TabList, Tabs, TabPanel } from "@mui/joy";
 import ImageList from "@mui/material/ImageList";
@@ -75,10 +83,10 @@ function Bids() {
                     Current bid
                 </Typography>
                 <Typography fontWeight="light" lineHeight={1.2}  fontSize="1rem" color={theme.palette.primary.main}>
-                    140$
+                    70$
                 </Typography>
                 <Typography fontWeight="light" lineHeight={1.2}  fontSize="0.8rem">
-                    5 hours left
+                    6 hours left
                 </Typography>
               </ImageListItem>
             ))}
